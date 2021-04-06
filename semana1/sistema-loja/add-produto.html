@@ -4,41 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
     <title>Adicionar Produto</title>
 </head>
 <body>
-    <div>
-        <p>Bia Tech!</p>
-    </div>
-    
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
+    <div class="header">
+        <div class="nome-loja">
+            <h1>Bem-vindo(a) ao <em>Bia Tech!</em>!</h1>
+            <p>Tecnologia é aqui!</p>
+        </div>
+        
+        <div class="menu">
+            <a href="index.html">Página Inicial</a>
+            <a href="ctrl-estoque.html">Controle de Estoque</a>
+            <a href="add-produto.html">Adicionar Produto</a>
+            <a href="funcionarios.html">Funcionários</a>
+        </div>
     </div>
 
     
     <h2>Adicionar Produto</h2>
     <form action="#">
-        <div>
+        <div class="item-formulario">
             <label for="link-foto">Link para foto: </label>
             <input type="url" id="link-foto" name="link-foto">
         </div>
         
-        <div>
+        <div class="item-formulario">
             <label for="descricao">Descrição do produto: </label>
             <!-- Adicione o id apropriado para o input abaixo -->
             <input type="text" id="descricao" name="descrição">
         </div>
         
-        <div>
+        <div class="item-formulario">
             <label for="preco">Preço (em R$): </label>
             <!-- Adicione o id apropriado e o type para receber números abaixo -->
             <input type="number" id="preco" name="preço">
         </div>
         
-        <div>
+        <div class="item-formulario">
             <!-- Preencha as propriedades necessárias para os elementos abaixo -->
             <label for="qtd-estoque">Quantidade disponível: </label>
             <input type="number" id="qtd-estoque" name="qtd-estoque">
@@ -50,6 +58,15 @@
         </div>
 
     </form>
+
+    <div id="rodape">
+        <p>Siga-nos nas redes sociais!</p>
+
+        <div>
+            <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
+            <img src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
+            <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
+        </div>
 
 </body>
 </html>

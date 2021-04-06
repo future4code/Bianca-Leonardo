@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
     <title>Controle de Estoque</title>
 </head>
 <body>
-    <div>
-        <p>Bia Tech!</p>
+    <div class="header">
+        <div class="nome-loja">
+            <h1>Bem-vindo(a) ao <em>Bia Tech!</em>!</h1>
+            <p>Tecnologia é aqui!</p>
+        </div>
+        
+        <div class="menu">
+            <a href="index.html">Página Inicial</a>
+            <a href="ctrl-estoque.html">Controle de Estoque</a>
+            <a href="add-produto.html">Adicionar Produto</a>
+            <a href="funcionarios.html">Funcionários</a>
+        </div>
     </div>
     
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
-    </div>
 
     <h2>Controle de Estoque</h2>
 
@@ -29,28 +39,28 @@
         </tr>
 
         <tr>
-            <td><img src="img/Notebook Lenovo.jpg" alt="Notebook Lenovo"/></td>
+            <td><img class="img-tabela" src="img/Notebook Lenovo.jpg" alt="Notebook Lenovo"/></td>
             <td> Notebook Lenovo </td>
             <td> 3.700,00 </td>
             <td> 15 </td>
         </tr>
 
         <tr>
-            <td><img src="img/Mouse dell.webp" alt="Mouse Dell"/></td>
+            <td><img class="img-tabela" src="img/Mouse dell.webp" alt="Mouse Dell"/></td>
             <td> Mouse Dell </td>
             <td> 149,90 </td>
             <td> 7 </td>
         </tr>
 
         <tr>
-            <td><img src="img/Teclado Logitech.jpg" alt="Teclado Logitech"/></td>
+            <td><img class="img-tabela" src="img/Teclado Logitech.jpg" alt="Teclado Logitech"/></td>
             <td> Teclado Logitech </td>
             <td> 355,00 </td>
             <td> 3 </td>
         </tr>
 
         <tr>
-            <td><img src="img/Impressora Canon.jpg" alt="Impressora Canon"/></td>
+            <td><img class="img-tabela" src="img/Impressora Canon.jpg" alt="Impressora Canon"/></td>
             <td> Impressora Canon </td>
             <td> 1.210,00 </td>
             <td> 12 </td>
@@ -59,7 +69,7 @@
         <!-- Crie mais uma linha desta tabela abaixo \/ -->
 
         <tr>
-            <td><img src="img/Monitor Samsung.jpg" alt="Monitor Samsung"/></td>
+            <td><img class="img-tabela" src="img/Monitor Samsung.jpg" alt="Monitor Samsung"/></td>
             <td> Monitor Samsung </td>
             <td> 999,00 </td>
             <td> 2 </td>
@@ -67,6 +77,15 @@
         
 
     </table>
+
+    <div id="rodape">
+        <p>Siga-nos nas redes sociais!</p>
+
+        <div>
+            <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
+            <img src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
+            <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
+        </div>
 
 </body>
 </html>
