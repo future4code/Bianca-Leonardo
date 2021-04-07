@@ -102,7 +102,7 @@ td, th {
     padding: 5px;
 }
 
-input {
+.input {
     width: 410px;
 }
 
@@ -128,10 +128,6 @@ li {
     margin-left: auto;
     margin-right: auto;
     text-align: right;
-}
-
-.form-vendas{
-    
 }
 
 input, select{
