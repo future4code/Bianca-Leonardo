@@ -35,7 +35,7 @@ h2 {
     margin-bottom: 50px;
 }
 
-a {
+.menu > a {
     text-decoration: none;
     padding: 10px 10px;
     color: rgb(44, 44, 44);
@@ -91,7 +91,7 @@ td, th {
 
 /* Adicionar Produto */
 
-form{
+.form-adcionar-produto{
     width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -102,7 +102,7 @@ form{
     padding: 5px;
 }
 
-input {
+.input {
     width: 410px;
 }
 
@@ -118,4 +118,69 @@ ul {
 
 li {
     font-size: 22px;
+}
+
+
+/* Página de Vendas */
+
+.conteudo-vendas{
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+}
+
+input, select{
+    width: 450px;
+    margin-bottom: 10px;
+}
+
+.input-qtd{
+    width: 100px;
+}
+
+#produto{
+    width: 255px;
+}
+
+#vendedor{
+    width: 460px;
+}
+
+#pagamento {
+    width: 50px;
+    margin-bottom: 50px;
+}
+
+.button-submit{
+    width: 200px;
+    background-color: gray;
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    border: none;
+}
+
+.button-submit:hover{
+    color: black;
+    background-color: rgb(156, 156, 156);
+}
+
+.button-historico {
+    width: 200px;
+    background-color: gray;
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.button-historico:hover{
+    color: black;
+    background-color: rgb(156, 156, 156);
+}
+
+/* Pagina de Histórico de vendas */
+
+.input-data{
+    width: 200px;
 }

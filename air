@@ -1,0 +1,125 @@
+[33mcommit 155c2745a2c55e1b450abee3f10c4eb30a084278[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: ab5e297 7a03ed7
+Author: Bianca Leonardo <biancasleonardo@gmail.com>
+Date:   Wed Apr 7 09:13:26 2021 -0300
+
+    Merge pull request #8 from future4code/semana1-aula4
+    
+    estilizando com css
+
+[33mcommit 7a03ed7c73a5211438251c527b6d665daf853982[m[33m ([m[1;31morigin/semana1-aula4[m[33m, [m[1;32msemana1-aula4[m[33m)[m
+Author: biancasleonardo <biancasleonardo@gmail.com>
+Date:   Tue Apr 6 15:32:15 2021 -0300
+
+    estilizando com css
+
+[33mcommit ab5e297a774bfba715bdc278a9c489945435a728[m
+Merge: e6faeb8 8733e68
+Author: Bianca Leonardo <biancasleonardo@gmail.com>
+Date:   Tue Apr 6 10:00:08 2021 -0300
+
+    Merge pull request #7 from future4code/semana1-aula3
+    
+    aula-3 sistema loja
+
+[33mcommit e6faeb8cf37412f20826e4d6bdcff611c6969bca[m
+Merge: 5b1e4fa a572c38
+Author: Bianca Leonardo <biancasleonardo@gmail.com>
+Date:   Tue Apr 6 09:59:42 2021 -0300
+
+    Merge pull request #6 from future4code/projeto-onboarding
+    
+    incluindo markdown
+
+[33mcommit 5b1e4fac34a19e48ae744b308288b862c96d2ceb[m
+Merge: 87776ab 491d293
+Author: Bianca Leonardo <biancasleonardo@gmail.com>
+Date:   Tue Apr 6 09:59:20 2021 -0300
+
+    Merge pull request #4 from future4code/semana0-aula2-4
+    
+    incluindo comidas.txt
+
+[33mcommit 87776abb653c2941bc69d9aaffb44ed564db0ecf[m
+Merge: 5edb430 fe28bad
+Author: Bianca Leonardo <biancasleonardo@gmail.com>
+Date:   Tue Apr 6 09:59:05 2021 -0300
+
+    Merge pull request #3 from future4code/semana0-aula2-3
+    
+    incluindo filmes.txt
+
+[33mcommit 5edb430464e5b657d6cc479d82cd9b0fc5437238[m
+Merge: 373ea7c 2e31bb7
+Author: Bianca Leonardo <biancasleonardo@gmail.com>
+Date:   Tue Apr 6 09:58:49 2021 -0300
+
+    Merge pull request #2 from future4code/semana0-aula2-2
+    
+    incluindo musicas.txt
+
+[33mcommit 373ea7c5b08bab6f8293eae81b624c2c88f826a8[m
+Merge: 93ad77f d58b102
+Author: Bianca Leonardo <biancasleonardo@gmail.com>
+Date:   Tue Apr 6 09:58:19 2021 -0300
+
+    Merge pull request #5 from future4code/semana0-aula2-5
+    
+    incluindo redes-sociais
+
+[33mcommit 93ad77f0f91ecca952b09bec6ad9f5ed8acc6712[m
+Merge: 53777ab bec5bb5
+Author: Bianca Leonardo <biancasleonardo@gmail.com>
+Date:   Tue Apr 6 09:58:01 2021 -0300
+
+    Merge pull request #1 from future4code/semana0-aula2-1
+    
+    incluindo a bio
+
+[33mcommit 8733e68be83a8dbac1fa8c48cadf8bf08f3dced9[m[33m ([m[1;31morigin/semana1-aula3[m[33m, [m[1;32msemana1-aula3[m[33m)[m
+Author: biancasleonardo <biancasleonardo@gmail.com>
+Date:   Mon Apr 5 13:55:53 2021 -0300
+
+    aula-3 sistema loja
+
+[33mcommit a572c38b63bbf25305908f9251fba027b0f019f2[m[33m ([m[1;31morigin/projeto-onboarding[m[33m, [m[1;32mprojeto-onboarding[m[33m)[m
+Author: biancasleonardo <biancasleonardo@gmail.com>
+Date:   Fri Apr 2 10:19:39 2021 -0300
+
+    incluindo markdown
+
+[33mcommit d58b1028f644f7fef59180c1cc6f470bbfa013bd[m[33m ([m[1;31morigin/semana0-aula2-5[m[33m, [m[1;32msemana0-aula2-5[m[33m)[m
+Author: biancasleonardo <biancasleonardo@gmail.com>
+Date:   Thu Apr 1 15:13:00 2021 -0300
+
+    incluindo redes-sociais
+
+[33mcommit 491d2935529bc15eb445d281ad2efa8582265071[m[33m ([m[1;31morigin/semana0-aula2-4[m[33m, [m[1;32msemana0-aula2-4[m[33m)[m
+Author: biancasleonardo <biancasleonardo@gmail.com>
+Date:   Thu Apr 1 15:09:26 2021 -0300
+
+    incluindo comidas.txt
+
+[33mcommit fe28bad07dd9211c8af6d0bc4e8594409aede965[m[33m ([m[1;31morigin/semana0-aula2-3[m[33m, [m[1;32msemana0-aula2-3[m[33m)[m
+Author: biancasleonardo <biancasleonardo@gmail.com>
+Date:   Thu Apr 1 15:04:53 2021 -0300
+
+    incluindo filmes.txt
+
+[33mcommit 2e31bb770ded985a766e8dcc231511bf91fb7017[m[33m ([m[1;31morigin/semana0-aula2-2[m[33m, [m[1;32msemana0-aula2-2[m[33m)[m
+Author: biancasleonardo <biancasleonardo@gmail.com>
+Date:   Thu Apr 1 15:00:06 2021 -0300
+
+    incluindo musicas.txt
+
+[33mcommit bec5bb5c878e348bc1de53241dc05c30d50f8a20[m[33m ([m[1;31morigin/semana0-aula2-1[m[33m, [m[1;32msemana0-aula2-1[m[33m)[m
+Author: biancasleonardo <biancasleonardo@gmail.com>
+Date:   Thu Apr 1 14:42:40 2021 -0300
+
+    incluindo a bio
+
+[33mcommit 53777ab4599626ee89728d26a656d1cd1a122ff5[m
+Author: pdarvas <30758350+pdarvas@users.noreply.github.com>
+Date:   Tue Mar 23 15:03:10 2021 -0300
+
+    Initial commit

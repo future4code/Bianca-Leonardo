@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Funcionários</title>
+</head>
+<body>
+    
+    <div class="header">
+        <div class="nome-loja">
+            <h1>Bem-vindo(a) ao <em>Bia Tech!</em>!</h1>
+            <p>Tecnologia é aqui!</p>
+        </div>
+    
+        <div class="menu">
+            <a href="index.html">Página Inicial</a>
+            <a href="ctrl-estoque.html">Controle de Estoque</a>
+            <a href="add-produto.html">Adicionar Produto</a>
+            <a href="funcionarios.html">Funcionários</a>
+            <a href="vendas.html">Vendas</a>
+        </div>
+    </div>
+
+    <h2>Novas Vendas</h2>
+
+    <div class="conteudo-vendas">
+        <a class="button-historico" href="historico-vendas.html">Histórico de vendas</a><br><br><br>
+
+    <form action="#" class="form-vendas">
+        <label for="cliente">Nome do Cliente</label>
+        <input type="text" id="cliente" placeholder="Cliente">
+        <label for="produto">Produto</label>
+        <select name="produto" id="produto">
+            <option value="" disabled selected>Escolha um produto</option>
+            <option value="1">Notebook Lenovo R$3.700,00</option>
+            <option value="2">Mouse Dell R$149,90</option>
+            <option value="3">Teclado Logitech R$355,00</option>
+            <option value="4">Impressora Canon R$1.210,00</option>
+            <option value="5">Monitor Samsung R$999,00</option>
+        </select>
+        <label for="quantidade">Quandidade</label>
+        <input type="number" class="input-qtd"><br>
+        <label for="vendedor">Vendedor</label>
+        <select name="vendedor" id="vendedor">
+            <option value="" disabled selected>Nome do vendedor</option>
+            <option value="1">Bianca Leonardo</option>
+            <option value="2">Osmar Santos</option>
+            <option value="3">Isabela Silva</option>
+            <option value="4">Elizabeth Silva</option>
+            <option value="5">Beatriz Luz</option>
+        </select><br>
+        <label>Forma de Pagamento</label>
+        <input type="radio" name="pagamento" id="pagamento" value="dinheiro">
+        <label for="dinheiro">Dinheiro</label>
+        <input type="radio" name="pagamento" id="pagamento" value="credito">
+        <label for="credito">Credito</label><br>
+        <input type="submit" value="Finalizar Venda" class="button-submit">
+    </form>
+    </div>
+    
+
+    <div id="rodape">
+        <p>Siga-nos nas redes sociais!</p>
+
+        <div>
+            <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
+            <img src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
+            <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
+        </div>
+
+        
+</body>
+</html>
