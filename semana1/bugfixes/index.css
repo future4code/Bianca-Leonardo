@@ -43,10 +43,12 @@ div>p:first-child {
     width: 250px;
     height: 40px;
     border-radius: 5px;
+    border: none;
     font-size: 20px;
     color: white;
     display: block;
     margin: auto;
+    margin-top: 30px;
 }
 
 .botao-amarelo:hover {
@@ -54,9 +56,9 @@ div>p:first-child {
 }
 
 .container {
-    height: 500px;
+    height: 250px;
     text-align: center;
-    padding-top: 150px;
+    padding-top: 100px;
 }
 
 .icone {
@@ -75,12 +77,11 @@ div>p:first-child {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
+    list-style-position: inside;
 }
 
 #container-de-descricao>ol {
     padding: 15px 0px;
-    list-style-type: decimal;
-    /* display: block; */
 }
 
 li{
