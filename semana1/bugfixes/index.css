@@ -79,6 +79,12 @@ div img {
     padding: 15px 0px;
 }
 
+#container-de-descricao>p {
+    display: block;
+    width: 190px;
+    margin: auto;
+}
+
 #container-para-comprar {
     background-color: #e7eb90;
 }
