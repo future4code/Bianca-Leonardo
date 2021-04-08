@@ -122,6 +122,15 @@ td button {
     color: black;
 }
 
+td button:hover {
+    background-color: #dac153;
+}
+
+td button:active {
+    background-color: white;
+    color: black;
+}
+
 td {
     text-align: center;
 }
@@ -129,6 +138,7 @@ td {
 img {
     width: 50px;
 }
+
 
 .container-do-search {
     margin-top: 20px;
