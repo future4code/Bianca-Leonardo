@@ -60,7 +60,9 @@ div img {
 }
 
 .icone {
+    width: 15px;
     height: 15px;
+    background-color: white;
 }
 
 
