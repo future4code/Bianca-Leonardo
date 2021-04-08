@@ -37,9 +37,6 @@ div>p:first-child {
     display: inline;
 }
 
-div img {
-    background: black;
-}
 
 .botao-amarelo {
     background-color: #ffaf43;
@@ -82,6 +79,12 @@ div img {
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    list-style-type: decimal;
+    /* display: block; */
+}
+
+li{
+    /* display: list-item; */
 }
 
 #container-de-descricao>p {
