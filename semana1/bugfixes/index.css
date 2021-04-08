@@ -25,9 +25,9 @@ input {
     border-bottom: 1px solid black;
 }
 
-button:focus {
+/* button:focus {
     color: white;
-}
+} */
 
 img {
     width: 100px;
@@ -67,6 +67,14 @@ div>p:first-child {
     background-color: white;
 }
 
+.icone:hover {
+    opacity: 50%;
+}
+
+.icone:active {
+    opacity: 100%;
+}
+
 
 /** 
   *
@@ -82,10 +90,6 @@ div>p:first-child {
 
 #container-de-descricao>ol {
     padding: 15px 0px;
-}
-
-li{
-    /* display: list-item; */
 }
 
 #container-de-descricao>p {
@@ -123,6 +127,7 @@ table {
 
 td button {
     background-color: #fadf63;
+    border: none;
     width: 150px;
     height: 30px;
     border-radius: 5px;
@@ -161,6 +166,7 @@ img {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin-top: 60px;
 }
 
 #back-button:hover {
