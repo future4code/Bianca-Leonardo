@@ -120,8 +120,12 @@ td button {
     color: black;
 }
 
-th, td {
+td {
     text-align: center;
+}
+
+img {
+    width: 50px;
 }
 
 .container-do-search {
