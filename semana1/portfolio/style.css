@@ -1,0 +1,241 @@
+/* Geral */
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: helvetica;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+h2 {
+    color: #181d36;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+h3 {
+    color: #181d36;
+}
+
+header {
+    background-color: #404b80;
+    height: 60px;
+}
+
+nav {
+    padding-top: 20px;
+    text-align: end;
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    padding-top: 20px;
+    padding-right: 20px;
+
+}
+
+.titulo-secao{
+    padding-top: 30px;
+}
+
+.fundo-escuro {
+    color: white;
+}
+
+/* Secao Sobre mim */
+
+.sobre-mim {
+    background-color: #5e6ebd;
+    position: relative;
+    height: 500px;
+}
+
+.foto {
+    position: absolute;
+    width: 500px;
+}
+
+img{
+    width: 500px;
+    opacity: 80%;
+}
+
+.informacoes {
+    position: absolute;
+    top: 20px;
+    right: 10%;
+    width: 600px;
+}
+
+.informacoes h2 {
+    margin-top: 30px;
+    width: 450px;
+    color: white;
+}
+
+.informacoes p {
+    margin-top: 30px;
+    color: white;
+}
+
+/* Secao Habilidades */
+
+.habilidades {
+    background-color: #eaedfb;
+    text-align: center;
+    height: 560px;
+}
+
+.habilidades img{
+    margin-top: 30px;
+    width: 300px;
+    padding-bottom: 30px;
+}
+
+.habilidades p {
+    text-align: center;
+    width: 300px;
+    margin: auto;
+    padding-bottom: 10px;
+    color: #181d36;
+}
+
+/* Secao Projetos */
+
+.projetos {
+    background-color: #5e6ebd;
+    text-align: center;
+    position: relative;
+    height: 460px;
+}
+
+.primeiro-projeto, .segundo-projeto, .terceiro-projeto {
+    position: absolute;
+    background-color: white;
+    width: 350px;
+    margin-top: 30px;
+    height: 330px;
+    border-radius: 08%;
+}
+
+.projetos article h3 {
+    padding: 15px 0;
+}
+
+.projetos article img {
+    width: 300px;
+}
+
+.projetos article p {
+    margin-top: 10px;
+    color: #181d36;
+}
+
+.projetos article button {
+    margin-top: 12px;
+    border: none;
+    padding: 10px 15px;
+    background-color: #5e6ebd;
+    color: white;
+    border-radius: 8%;
+}
+
+.primeiro-projeto {
+    margin-left: 100px;
+}
+
+.segundo-projeto {
+    margin-left: 550px;
+}
+
+.terceiro-projeto {
+    margin-left: 1000px;
+}
+
+/* Secao Formação */
+
+.formacao {
+    background-color: #eaedfb;
+    text-align: center;
+    position: relative;
+    height: 370px;
+}
+
+.primeira-formacao {
+    right: 10%;
+}
+
+.segunda-formacao {
+    left: 10%;
+}
+
+.primeira-formacao, .segunda-formacao {
+    position: absolute;
+    width: 500px;
+    margin-top: 30px;
+    text-align: start;
+}
+
+article {
+    text-align: star;
+}
+
+article h3 {
+    font-size: 25px;
+}
+
+article p {
+    margin-top: 20px;
+    color: #181d36;
+}
+
+/* Secao Contato */
+
+.contato {
+    background-color: #5e6ebd;
+    text-align: center;
+}
+
+form {
+    border: 1px solid red;
+    text-align: left;
+    padding: 30px 0;
+    width: 700px;
+    margin: auto;
+}
+
+label {
+    margin: 10px 0;
+}
+
+input {
+    padding: 3px 0;
+    margin: 3px 0;
+}
+
+textarea {
+    margin-top: 3px;
+}
+
+#email {
+    margin-left: 3px;
+    width: 577px;
+}
+
+/* Rodapé */
+
+footer {
+    background-color: #404b80;
+    text-align: center;
+    height: 180px;
+}
+
+footer h2 {
+    padding: 30px 0;
+}
+
+footer a img {
+    width: 30px;
+}
