@@ -1,0 +1,174 @@
+/** 
+  *
+  *  ESTILOS GERAIS 
+  *
+  **/
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    background-color: #fe7e02;
+    padding: 10px 5px 10px 5px;
+    color: white;
+    text-align: center;
+}
+
+input {
+    height: 20px;
+    width: 500px;
+    border-style: none;
+    border-bottom: 1px solid black;
+}
+
+/* button:focus {
+    color: white;
+} */
+
+img {
+    width: 100px;
+}
+
+div>p:first-child {
+    display: inline;
+}
+
+
+.botao-amarelo {
+    background-color: #ffaf43;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.botao-amarelo:hover {
+    background-color: #c44f00;
+}
+
+.container {
+    height: 250px;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.icone {
+    width: 15px;
+    height: 15px;
+    background-color: white;
+}
+
+.icone:hover {
+    opacity: 50%;
+}
+
+.icone:active {
+    opacity: 100%;
+}
+
+
+/** 
+  *
+  *  ESTILOS HOME 
+  *
+  **/
+
+#container-de-descricao {
+    background-color: #2274a5;
+    color: white;
+    list-style-position: inside;
+}
+
+#container-de-descricao>ol {
+    padding: 15px 0px;
+}
+
+#container-de-descricao>p {
+    display: block;
+    width: 200px;
+    margin: auto;
+}
+
+#container-para-comprar {
+    background-color: #e7eb90;
+}
+
+#container-para-comprar>p {
+    color: #c44f00;
+    padding: 100px 0;
+    font-size: 60px;
+}
+
+
+/**
+  *
+  *  ESTILOS COMPRAR 
+  *
+  **/
+
+div:nth-child(2),
+div:last-child {
+    text-align: center;
+}
+
+table {
+    width: 60%;
+    margin: auto;
+}
+
+td button {
+    background-color: #fadf63;
+    border: none;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    color: black;
+}
+
+td button:hover {
+    background-color: #dac153;
+}
+
+td button:active {
+    background-color: white;
+    color: black;
+}
+
+td {
+    text-align: center;
+}
+
+img {
+    width: 50px;
+}
+
+
+.container-do-search {
+    margin-top: 20px;
+    height: 100px;
+}
+
+
+#back-button {
+    background-color: white;
+    width: 100px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 10px;
+    color: black;
+    margin-top: 60px;
+}
+
+#back-button:hover {
+    background-color: #635a3d
+}
