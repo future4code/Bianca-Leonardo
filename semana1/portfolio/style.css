@@ -32,8 +32,12 @@ nav {
 nav a {
     color: rgb(255, 255, 255);
     padding-top: 20px;
-    padding-right: 20px;
+    margin-right: 20px;
 
+}
+
+nav a:hover {
+    border-bottom: 5px #5e6ebd solid;
 }
 
 .titulo-secao{
@@ -142,16 +146,20 @@ img{
     border-radius: 8%;
 }
 
+.projetos article button:hover {
+    background-color: #181d36;
+}
+
 .primeiro-projeto {
-    margin-left: 100px;
+    left: 100px;
 }
 
 .segundo-projeto {
-    margin-left: 550px;
+    left: 575px
 }
 
 .terceiro-projeto {
-    margin-left: 1000px;
+    right: 100px;
 }
 
 /* Secao Formação */
@@ -199,15 +207,16 @@ article p {
 }
 
 form {
-    border: 1px solid red;
     text-align: left;
     padding: 30px 0;
-    width: 700px;
+    width: 760px;
     margin: auto;
 }
 
 label {
+    color: white;
     margin: 10px 0;
+    font-size: 16px;
 }
 
 input {
@@ -219,9 +228,31 @@ textarea {
     margin-top: 3px;
 }
 
+#nome {
+    width: 330px;
+}
+
 #email {
     margin-left: 3px;
-    width: 577px;
+    width: 680px;
+}
+
+#msg {
+    width: 737px;
+}
+
+#enviar {
+    margin-top: 12px;
+    border: none;
+    padding: 10px 15px;
+    background-color: white;
+    color: #5e6ebd;
+    border-radius: 8%;
+}
+
+#enviar:hover {
+    background-color: #181d36;
+    color: white;
 }
 
 /* Rodapé */
