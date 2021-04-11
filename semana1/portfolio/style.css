@@ -52,25 +52,22 @@ nav a:hover {
 
 .sobre-mim {
     background-color: #5e6ebd;
-    position: relative;
-    height: 500px;
+    display: flex;
 }
 
 .foto {
-    position: absolute;
-    width: 500px;
+    width: 33%;
 }
 
 img{
-    width: 500px;
+    padding: 25px;
+    width: 450px;
     opacity: 80%;
 }
 
 .informacoes {
-    position: absolute;
-    top: 20px;
-    right: 10%;
-    width: 600px;
+    padding: 50px;
+    width: 66%;
 }
 
 .informacoes h2 {
@@ -90,6 +87,7 @@ img{
     background-color: #eaedfb;
     text-align: center;
     height: 560px;
+    padding-bottom: 25px;
 }
 
 .habilidades img{
@@ -111,34 +109,44 @@ img{
 .projetos {
     background-color: #5e6ebd;
     text-align: center;
-    position: relative;
-    height: 460px;
 }
 
-.primeiro-projeto, .segundo-projeto, .terceiro-projeto {
-    position: absolute;
+.projetos div {
+    display: flex;
+    justify-content: space-between;
+}
+
+ .primeiro-projeto, .segundo-projeto, .terceiro-projeto {
     background-color: white;
-    width: 350px;
+    width: 33%;
     margin-top: 30px;
-    height: 330px;
     border-radius: 08%;
+    margin-bottom: 25px;
+    
 }
 
-.projetos article h3 {
+#titulo-teste {
+    display: block;
+}
+
+.projetos div article h3 {
     padding: 15px 0;
 }
 
-.projetos article img {
+.projetos div article img {
     width: 300px;
 }
+
 
 .projetos article p {
     margin-top: 10px;
     color: #181d36;
 }
 
-.projetos article button {
+
+.projetos div article button {
     margin-top: 12px;
+    margin-bottom: 12px;
     border: none;
     padding: 10px 15px;
     background-color: #5e6ebd;
@@ -146,20 +154,24 @@ img{
     border-radius: 8%;
 }
 
-.projetos article button:hover {
+.projetos div article button:hover {
     background-color: #181d36;
 }
 
 .primeiro-projeto {
-    left: 100px;
+    width: 400px;
+    justify-content: space-between;
+    margin-left: 25px;
 }
 
 .segundo-projeto {
-    left: 575px
+    width: 400px;
+
 }
 
 .terceiro-projeto {
-    right: 100px;
+    width: 400px;
+    margin-right: 25px;
 }
 
 /* Secao Formação */
@@ -167,23 +179,25 @@ img{
 .formacao {
     background-color: #eaedfb;
     text-align: center;
-    position: relative;
-    height: 370px;
+}
+
+.formacao div{
+    display: flex;
 }
 
 .primeira-formacao {
-    right: 10%;
+    margin-left: 25px;
 }
 
 .segunda-formacao {
-    left: 10%;
+    margin-right: 25px;
 }
 
 .primeira-formacao, .segunda-formacao {
-    position: absolute;
-    width: 500px;
+    width: 50%;
     margin-top: 30px;
     text-align: start;
+    padding: 25px;
 }
 
 article {
