@@ -5,7 +5,7 @@ body {
     margin: 0;
 }
 
-div {
+div div {
     border: 1px solid black;
 }
 
@@ -21,6 +21,12 @@ div {
     background-color: red;
     grid-column: 1 / -1;
 
+}
+
+.blue-block, .yellow-block, .green-block, .black-block, .white-block, .white-block2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .blue-block {
@@ -73,6 +79,12 @@ div {
     }
 
     .white-block2 {
+        grid-column: 1 / -1;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .blue-block, .yellow-block, .black-block, .white-block {
         grid-column: 1 / -1;
     }
 }
