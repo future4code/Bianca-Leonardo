@@ -174,16 +174,44 @@
 
 // b.
 
-const numeros = [0, 8, 23, 16, 10, 15, 41, 12, 13]
-let maiorNumero = 0
+// const numeros = [0, 8, 23, 16, 10, 15, 41, 12, 13]
+// let maiorNumero = 0
 
-function MaiorNumeroArray(array) {
-    for (let i = 0; i < array.length; i++) {
-        if (maiorNumero < array[i]) {
-            maiorNumero = array[i]
-        }
-    }
-    console.log(maiorNumero)
-}
+// function MaiorNumeroArray(array) {
+//     for (let i = 0; i < array.length; i++) {
+//         if (maiorNumero < array[i]) {
+//             maiorNumero = array[i]
+//         }
+//     }
+//     console.log(maiorNumero)
+// }
 
-MaiorNumeroArray(numeros)
+// MaiorNumeroArray(numeros)
+
+// c.
+
+// const numeros = [0, 8, 23, 16, 10, 15, 41, 12, 13]
+// let maiorNumero = 0
+
+// function MaiorNumeroArray(array) {
+//     for (let i = 0; i < array.length; i++) {
+//         if (maiorNumero < array[i]) {
+//             maiorNumero = array[i]
+//         }
+//     }
+//     console.log(numeros.indexOf(maiorNumero))
+// }
+
+// MaiorNumeroArray(numeros)
+
+// d.
+
+// const numeros = [0, 8, 23, 16, 10, 15, 41, 12, 13]
+// let novoArrayNumeros = []
+
+// function inverterArray(array) {
+//     novoArrayNumeros = array.reverse()
+//     console.log(novoArrayNumeros)
+// }
+
+// inverterArray(numeros)
