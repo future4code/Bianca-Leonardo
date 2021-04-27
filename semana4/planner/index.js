@@ -1,9 +1,11 @@
 function adicionarTarefa() {
     const tarefa = document.getElementById('tarefa')
     const semana = document.getElementById('dias-semana')
+    const horario = document.getElementById('horario')
+    const sistemaHorario = document.getElementById('sistema-horario')
 
     if (tarefa.value !== "") {
-        document.getElementById(`${semana.value}`).innerHTML += `<p class="nova-tarefa" onclick="tarefaRealizada(this)">${tarefa.value}</p>`
+        document.getElementById(`${semana.value}`).innerHTML += `<p class="nova-tarefa" onclick="tarefaRealizada(this)">${horario.value} ${sistemaHorario.value} - ${tarefa.value}</p>`
         tarefa.value = ""
     } else {
         alert("Digite uma tarefa!!")
