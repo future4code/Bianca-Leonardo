@@ -2,6 +2,37 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border: 0;
+    font-family: sans-serif;
+}
+
+input {
+    height: 25px;
+    border-radius: 5px;
+    padding: 0 5px;
+}
+
+select {
+    background-color: lightsalmon;
+    height: 25px;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+button {
+    margin-left: 10px;
+    background-color: lightsalmon;
+    height: 25px;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: lightpink;
+}
+
+body {
+    background-color: lightblue;
 }
 
 header {
@@ -13,12 +44,19 @@ header {
 
 section {
     display: flex;
+    text-align: center;
     justify-content: space-evenly;
-    height: 90vh;
+    height: 80vh;
+}
+
+.semana h3 {
+    margin-bottom: 10px;
 }
 
 .semana {
-    border: 1px dotted rgb(53, 53, 53);
-    width: 14%;
+    background-color: lightpink;
+    border: 1px lightsalmon;
+    width: 13%;
     padding: 5px;
+    border-radius: 1rem;
 }
