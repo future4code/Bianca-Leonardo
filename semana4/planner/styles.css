@@ -38,6 +38,7 @@ body {
 header {
     height: 10vh;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
@@ -59,4 +60,44 @@ section {
     width: 13%;
     padding: 5px;
     border-radius: 1rem;
+}
+
+.select-horarios {
+    margin-left: 5px;
+}
+
+@media (max-width: 480px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        flex-direction: column;
+        height: 20vh;
+    }
+
+    .select-horarios {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    select {
+        padding: 0 10px;
+        margin: 5px 5px;
+    }
+
+    button {
+        margin: 5px 5px;
+    }
+
+    section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .semana{
+        width: 95%;
+        margin: 5px 5px;
+    }
 }
