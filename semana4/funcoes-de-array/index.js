@@ -30,7 +30,7 @@ function imprimirExtrato() {
             gastoAlimentacao += despesa.valor
         } else if (despesa.tipo === "utilidades") {
             gastoUtilidades += despesa.valor
-        } else if (despesas.tipo === "viagem") {
+        } else if (despesa.tipo === "viagem") {
             gastoViagem += despesa.valor
         }
 
@@ -86,7 +86,13 @@ function filtrarDespesas() {
     let valorMax = Number(document.getElementById('valorFiltroMax').value)
 
 
-    let despesasFiltradas // AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
+    let despesasFiltradas  = arrDespesas.filter((despesa) => {
+        if ((tipoFiltro === despesa.tipo) && (valorMin <= despesa.valor) && (valorMax >= despesa.valor)) {
+            return true
+        } else if ((tipoFiltro === "todos") && (valorMin <= despesa.valor) && (valorMax >= despesa.valor)) {
+            return true
+        }
+    })// AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
 
     imprimirDespesas(despesasFiltradas)
 }
