@@ -85,7 +85,6 @@ function filtrarDespesas() {
     let valorMin = Number(document.getElementById('valorFiltroMin').value)
     let valorMax = Number(document.getElementById('valorFiltroMax').value)
 
-
     let despesasFiltradas = arrDespesas.filter((despesa) => {
         if (((valorMin >= 0) && (valorMax >= 0)) && (valorMax > valorMin)) {
             if ((tipoFiltro === despesa.tipo) && (valorMin <= despesa.valor) && (valorMax >= despesa.valor)) {
@@ -94,7 +93,7 @@ function filtrarDespesas() {
                 return true
             }
         } else {
-            alert('Valores incorretos')
+            // alert('Valores incorretos')
         }
 
     })// AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
@@ -103,7 +102,14 @@ function filtrarDespesas() {
 }
 
 
+function ordemDecrescente() {
+    
+    let arrayOrdemDecrescente = arrDespesas.sort((a, b) => {
+        return b.valor - a.valor
+    })
 
+    imprimirDespesas(arrayOrdemDecrescente)
+}
 
 
 
