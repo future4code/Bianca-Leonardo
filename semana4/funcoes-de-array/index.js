@@ -86,12 +86,17 @@ function filtrarDespesas() {
     let valorMax = Number(document.getElementById('valorFiltroMax').value)
 
 
-    let despesasFiltradas  = arrDespesas.filter((despesa) => {
-        if ((tipoFiltro === despesa.tipo) && (valorMin <= despesa.valor) && (valorMax >= despesa.valor)) {
-            return true
-        } else if ((tipoFiltro === "todos") && (valorMin <= despesa.valor) && (valorMax >= despesa.valor)) {
-            return true
+    let despesasFiltradas = arrDespesas.filter((despesa) => {
+        if (((valorMin >= 0) && (valorMax >= 0)) && (valorMax > valorMin)) {
+            if ((tipoFiltro === despesa.tipo) && (valorMin <= despesa.valor) && (valorMax >= despesa.valor)) {
+                return true
+            } else if ((tipoFiltro === "todos") && (valorMin <= despesa.valor) && (valorMax >= despesa.valor)) {
+                return true
+            }
+        } else {
+            alert('Valores incorretos')
         }
+
     })// AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
 
     imprimirDespesas(despesasFiltradas)
