@@ -146,7 +146,6 @@ function filmeFavorito() {
    filmeFavoritoAstrodev.diretor = 'David Frankel'
    filmeFavoritoAstrodev.atores = ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci']
 
-   console.log(filmeFavoritoAstrodev)
    return filmeFavoritoAstrodev
 }
 
@@ -233,18 +232,41 @@ function menoresDe18(arrayDePessoas) {
 
 function multiplicaArrayPor2(array) {
    // implemente sua lógica aqui
+   let arrayMultiplica = []
+
+   array.map((item) => {
+      arrayMultiplica.push(item * 2)
+   })
+   return arrayMultiplica
 }
 
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
    // implemente sua lógica aqui
+   let arrayMultiplicaString = []
+
+   array.map((item) => {
+      arrayMultiplicaString.push(String(item * 2))
+   })
+
+   return arrayMultiplicaString
 }
 
 // Exercício 17, letra C
 
 function verificaParidade(array) {
    // implemente sua lógica aqui
+   let stringArray = []
+
+   array.map((item) => {
+      if (item % 2 === 0) {
+         stringArray.push(`${item} é par`)
+      } else {
+         stringArray.push(`${item} é ímpar`)
+      }
+   })
+   return stringArray
 }
 
 // Exercício 18
