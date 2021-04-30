@@ -134,6 +134,20 @@ function ordenaArray(array) {
 
 function filmeFavorito() {
    // implemente sua lógica aqui
+   let filmeFavoritoAstrodev = {
+      nome: '',
+      ano: 0,
+      diretor: '',
+      atores: []
+   }
+
+   filmeFavoritoAstrodev.nome = 'O Diabo Veste Prada'
+   filmeFavoritoAstrodev.ano = 2006
+   filmeFavoritoAstrodev.diretor = 'David Frankel'
+   filmeFavoritoAstrodev.atores = ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci']
+
+   console.log(filmeFavoritoAstrodev)
+   return filmeFavoritoAstrodev
 }
 
 // Exercício 13
