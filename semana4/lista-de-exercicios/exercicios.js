@@ -90,6 +90,27 @@ function checaTriangulo(a, b, c) {
 
 function comparaDoisNumeros(num1, num2) {
    // implemente sua lógica aqui
+   let comparador = {
+      maiorNumero: 0,
+      maiorDivisivelporMenor: false,
+      diferenca: 0,
+   }
+
+   if (num1 > num2) {
+      comparador.maiorNumero = num1
+   } else {
+      comparador.maiorNumero = num2
+   }
+   if (comparador.maiorNumero % 2 === 0) {
+      comparador.maiorDivisivelporMenor = true
+   }
+   
+   let diferencaDoisNumeros = num1 - num2
+   if (diferencaDoisNumeros < 0) {
+      comparador.diferenca = diferencaDoisNumeros * -1
+   }
+
+   return comparador
 }
 
 // Exercício 10
