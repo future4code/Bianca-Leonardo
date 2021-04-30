@@ -33,7 +33,7 @@ function retornaNumerosPares(array) {
          novoArray.push(array[i])
       }
    }
-   return novoArray
+   return novoArray 
 }
 
 //Exercício 4
