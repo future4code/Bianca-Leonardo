@@ -123,6 +123,11 @@ function segundoMaiorEMenor(array) {
 
 function ordenaArray(array) {
    // implemente sua lógica aqui
+
+   let arrayCrescente = array.sort((a, b) => {
+      return a - b
+   })
+   return arrayCrescente
 }
 
 // Exercício 12
