@@ -174,8 +174,6 @@ function criaRetangulo(lado1, lado2) {
       perimetro: 2 * (lado1 + lado2),
       area: lado1 * lado2
    }
-
-   console.log(retangulo)
    return retangulo
 }
 
@@ -183,6 +181,19 @@ function criaRetangulo(lado1, lado2) {
 
 function anonimizaPessoa(pessoa) {
    // implemente sua lógica aqui
+   let objetoPessoa = {
+      nome: "Astrodev",
+      idade: 25,
+      email: "astrodev@future4.com.br",
+      endereco: "Rua do Futuro, 4"
+   }
+
+   let novaPessoa = {
+      ...objetoPessoa,
+      nome: 'ANÔNIMO'
+   }
+   return novaPessoa
+
 }
 
 // Exercício 16
