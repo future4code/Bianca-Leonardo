@@ -221,6 +221,12 @@ function maioresDe18(arrayDePessoas) {
 
 function menoresDe18(arrayDePessoas) {
    // implemente sua lógica aqui
+   let adultos = arrayDePessoas.filter((pessoa) => {
+      if (pessoa.idade < 20) {
+         return true
+      }
+   })
+   return adultos
 }
 
 // Exercício 17, letra A
