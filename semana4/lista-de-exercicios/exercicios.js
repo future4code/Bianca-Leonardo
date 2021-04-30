@@ -12,6 +12,14 @@ function inverteArray(array) {
 
 function retornaNumerosParesElevadosADois(array) {
    // implemente sua lógica aqui
+   let novoArray = []
+
+   array.map((item) => {
+      if (item % 2 === 0) {
+         novoArray.push(item * item)
+      }
+   })
+   return novoArray
 }
 
 //Exercício 3
