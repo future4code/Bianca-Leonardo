@@ -64,6 +64,10 @@ function retornaQuantidadeElementos(array) {
 
 function retornaExpressoesBooleanas() {
    // implemente sua lógica aqui
+
+   let booleanos = [false, false, true, true, true]
+
+   return booleanos
 }
 
 //Exercício 7
