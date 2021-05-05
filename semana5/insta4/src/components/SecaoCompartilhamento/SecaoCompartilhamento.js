@@ -21,21 +21,45 @@ const Botao = styled.button`
 
 export class SecaoCompartilhamento extends Component {
 
+    state = {
+        mensagem: ''
+    }
+
+    onChangeMensagem = (event) => {
+        this.setState({
+            mensagem: event.target.value
+        })
+    }
+
     compartilharInstagram = () => {
-        console.log('Post compartilhado no instagram')
+        console.log(`Post compartilhado no Instragram com a mensagem ${this.state.mensagem}`)
+        this.setState({
+            mensagem: ''
+        })
     }
 
     compartilharFacebook = () => {
-        console.log('Post compartilhado no Facebook')
+        console.log(`Post compartilhado no Facebook com a mensagem ${this.state.mensagem}`)
+        this.setState({
+            mensagem: ''
+        })
     }
 
     compartilharTwitter = () => {
-        console.log('Post compartilhado no Twitter')
+        console.log(`Post compartilhado no Twitter com a mensagem ${this.state.mensagem}`)
+        this.setState({
+            mensagem: ''
+        })
     }
 
 
     render() {
         return <ContainerShare>
+            <input 
+                placeholder={'Mensagem'}
+                value={this.state.mensagem}
+                onChange={this.onChangeMensagem}
+            />
             <Botao onClick={this.compartilharInstagram}><Icones src={iconeInstagram}></Icones></Botao>
             <Botao onClick={this.compartilharFacebook}><Icones src={iconeFacebook}></Icones></Botao>
             <Botao onClick={this.compartilharTwitter}><Icones src={iconeTwitter}></Icones></Botao>
