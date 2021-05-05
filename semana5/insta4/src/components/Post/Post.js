@@ -6,6 +6,8 @@ import { IconeComContador } from '../IconeComContador/IconeComContador'
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
+import iconeBookmarkWhite from '../../img/bookmark_white.svg'
+import iconeBookmarkBlack from '../../img/bookmark_black.svg'
 import { SecaoComentario } from '../SecaoComentario/SecaoComentario'
 
 const PostContainer = styled.div`
@@ -44,6 +46,7 @@ class Post extends React.Component {
   state = {
     curtido: false,
     numeroCurtidas: 0,
+    bookmark: false,
     comentando: false,
     numeroComentarios: 0
   }
@@ -53,15 +56,21 @@ class Post extends React.Component {
       curtido: !this.state.curtido
     })
 
-    if( this.state.curtido){
+    if (this.state.curtido) {
       this.setState({
-        numeroCurtidas: this.state.numeroCurtidas -1
-      }) 
+        numeroCurtidas: this.state.numeroCurtidas - 1
+      })
     } else {
       this.setState({
         numeroCurtidas: this.state.numeroCurtidas + 1
-      }) 
+      })
     }
+  }
+
+  onClickBookmark = () => {
+    this.setState({
+      bookmark: !this.state.bookmark
+    })
   }
 
   onClickComentario = () => {
@@ -86,6 +95,14 @@ class Post extends React.Component {
       iconeCurtida = iconeCoracaoBranco
     }
 
+    let iconeBookmark
+
+    if (this.state.bookmark) {
+      iconeBookmark = iconeBookmarkBlack
+    } else {
+      iconeBookmark = iconeBookmarkWhite
+    }
+
     let componenteComentario
 
     if (this.state.comentando) {
@@ -105,6 +122,12 @@ class Post extends React.Component {
           icone={iconeCurtida}
           onClickIcone={this.onClickCurtida}
           valorContador={this.state.numeroCurtidas}
+        />
+
+        <IconeComContador
+          icone={iconeBookmark}
+          onClickIcone={this.onClickBookmark}
+          valorContador={''}
         />
 
         <IconeComContador
