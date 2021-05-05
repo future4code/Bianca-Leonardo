@@ -8,7 +8,9 @@ import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import iconeBookmarkWhite from '../../img/bookmark_white.svg'
 import iconeBookmarkBlack from '../../img/bookmark_black.svg'
+import iconeShare from '../../img/share.svg'
 import { SecaoComentario } from '../SecaoComentario/SecaoComentario'
+import { SecaoCompartilhamento } from '../SecaoCompartilhamento/SecaoCompartilhamento'
 
 const PostContainer = styled.div`
   border: 1px solid gray;
@@ -47,6 +49,7 @@ class Post extends React.Component {
     curtido: false,
     numeroCurtidas: 0,
     bookmark: false,
+    share: false,
     comentando: false,
     numeroComentarios: 0
   }
@@ -76,6 +79,18 @@ class Post extends React.Component {
   onClickComentario = () => {
     this.setState({
       comentando: !this.state.comentando
+    })
+  }
+
+  onClickShare = () => {
+    this.setState({
+      share: !this.state.share
+    })
+  }
+
+  aoCompartilhar = () => {
+    this.setState ({
+      share: false
     })
   }
 
@@ -109,6 +124,12 @@ class Post extends React.Component {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario} />
     }
 
+    let componenteCompartilhar
+
+    if (this.state.share) {
+      componenteCompartilhar = <SecaoCompartilhamento />
+    }
+
     return <PostContainer>
       <PostHeader>
         <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'} />
@@ -130,6 +151,12 @@ class Post extends React.Component {
           valorContador={''}
         />
 
+        <IconeComContador 
+          icone={iconeShare}
+          onClickIcone={this.onClickShare}
+          valorContador={''}
+        />
+
         <IconeComContador
           icone={iconeComentario}
           onClickIcone={this.onClickComentario}
@@ -139,6 +166,7 @@ class Post extends React.Component {
 
       </PostFooter>
       {componenteComentario}
+      {componenteCompartilhar}
     </PostContainer>
   }
 }
