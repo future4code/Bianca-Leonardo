@@ -8,6 +8,12 @@ const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `
+const FormularioPost = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-bottom: 10px;
+`
 
 class App extends React.Component {
 
@@ -17,9 +23,9 @@ class App extends React.Component {
         nomeUsuario: 'paulinha',
         fotoUsuario: 'https://picsum.photos/id/123/50/50',
         fotoPost: 'https://picsum.photos/id/124/200/150'
-      }, 
+      },
       {
-        nomeUsuario:'Roberta',
+        nomeUsuario: 'Roberta',
         fotoUsuario: 'https://picsum.photos/id/129/50/50',
         fotoPost: 'https://picsum.photos/id/269/200/150'
       },
@@ -31,19 +37,25 @@ class App extends React.Component {
     ],
 
     inputNomeUsuario: '',
-    inputFotoUsuario:'',
+    inputFotoUsuario: '',
     inputFotoPost: ''
   }
 
   adicinaPost = () => {
     let post = {
-      usuario: this.state.inputNomeUsuario,
+      nomeUsuario: this.state.inputNomeUsuario,
       fotoUsuario: this.state.inputFotoUsuario,
       fotoPost: this.state.inputFotoPost
     }
 
-    let novosPosts = [...posts, post]
+    let novosPosts = [...this.state.posts, post]
 
+    this.setState({
+      posts: novosPosts,
+      inputNomeUsuario: '',
+      inputFotoUsuario: '',
+      inputFotoPost: ''
+    })
   }
 
   onChangeNomeUsuario = (event) => {
@@ -53,50 +65,48 @@ class App extends React.Component {
   }
 
   onChangeFotoUsuario = (event) => {
-    this.setState ({
+    this.setState({
       inputFotoUsuario: event.target.value
     })
   }
 
   onChangeFotoPost = (event) => {
-    this.setState ({
+    this.setState({
       inputFotoPost: event.target.value
     })
   }
 
   render() {
+
+    let listaPosts = this.state.posts.map((post) => {
+      return <Post
+        nomeUsuario={post.nomeUsuario}
+        fotoUsuario={post.fotoUsuario}
+        fotoPost={post.fotoPost}
+      />
+    })
+
     return (
       <MainContainer>
-        <div>
+        <FormularioPost>
           <input
             placeholder={'Nome do Usuário'}
             onChange={this.onChangeNomeUsuario}
+            value={this.state.inputNomeUsuario}
           />
-          <input 
+          <input
             placeholder={'Link da foto de Usuário'}
             onChange={this.onChangeFotoUsuario}
+            value={this.state.inputFotoUsuario}
           />
-          <input 
+          <input
             placeholder={'Link da foto de Postagem'}
             onChange={this.onChangeFotoPost}
+            value={this.state.inputFotoPost}
           />
           <button onClick={this.adicinaPost}>Enviar</button>
-        </div>
-        <Post
-          nomeUsuario={'paulinha'}
-          fotoUsuario={'https://picsum.photos/id/123/50/50'}
-          fotoPost={'https://picsum.photos/id/124/200/150'}
-        />
-        <Post
-          nomeUsuario={'Roberta'}
-          fotoUsuario={'https://picsum.photos/id/129/50/50'}
-          fotoPost={'https://picsum.photos/id/269/200/150'}
-        />
-        <Post
-          nomeUsuario={'Paulo'}
-          fotoUsuario={'https://picsum.photos/id/234/50/50'}
-          fotoPost={'https://picsum.photos/id/324/200/150'}
-        />
+        </FormularioPost>
+        <div>{listaPosts}</div>
       </MainContainer>
     );
   }
