@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import './App.css';
 import DadosGerais from './Components/DadosGerais';
 import EnsinoSuperior from './Components/EnsinoSuperior';
 import Final from './Components/Final';
