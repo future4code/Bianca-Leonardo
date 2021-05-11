@@ -6,8 +6,14 @@ const TarefaList = styled.ul`
   padding: 0;
   width: 200px;
 `
+const ContainerTarefa = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
 
 const Tarefa = styled.li`
+  display: flex;
   text-align: left;
   text-decoration: ${({ completa }) => (completa ? 'line-through' : 'none')};
 `
@@ -16,6 +22,15 @@ const InputsContainer = styled.div`
   display: grid;
   grid-auto-flow: column;
   gap: 10px;
+`
+
+const Icone = styled.img`
+  width: 16px;
+`
+
+const Botao = styled.button`
+  background: none;
+  border: none;
 `
 
 class App extends React.Component {
@@ -84,13 +99,22 @@ class App extends React.Component {
       }
     })
 
-    this.setState ({
+    this.setState({
+      tarefas: novaListaTarefas
+    })
+  }
+
+  removerTarefa = (index) => {
+    const novaListaTarefas = this.state.tarefas.slice()
+    novaListaTarefas.splice(index, 1)
+
+    this.setState({
       tarefas: novaListaTarefas
     })
   }
 
   onChangeFilter = (event) => {
-    this.setState ({
+    this.setState({
       filtro: event.target.value
     })
   }
@@ -127,12 +151,15 @@ class App extends React.Component {
         <TarefaList>
           {listaFiltrada.map(tarefa => {
             return (
-              <Tarefa
-                completa={tarefa.completa}
-                onClick={() => this.selectTarefa(tarefa.id)}
-              >
-                {tarefa.texto}
-              </Tarefa>
+              <ContainerTarefa>
+                <Tarefa
+                  completa={tarefa.completa}
+                  onClick={() => this.selectTarefa(tarefa.id)}
+                >
+                  {tarefa.texto}
+                </Tarefa>
+                <Botao onClick={this.removerTarefa}><Icone src='https://image.flaticon.com/icons/png/512/105/105739.png' /></Botao>
+              </ContainerTarefa>
             )
           })}
         </TarefaList>
