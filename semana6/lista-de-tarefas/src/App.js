@@ -35,8 +35,7 @@ const Botao = styled.button`
 
 class App extends React.Component {
   state = {
-    tarefas: [
-    ],
+    tarefas: [],
     inputValue: '',
     filtro: ''
   }
@@ -50,9 +49,11 @@ class App extends React.Component {
   componentDidMount() {
     const tarefas = JSON.parse(localStorage.getItem('tarefas'))
 
-    this.setState({
-      tarefas: tarefas
-    })
+    if (tarefas) {
+      this.setState({
+        tarefas: tarefas
+      })
+    }
   };
 
   onChangeInput = (event) => {
@@ -104,12 +105,16 @@ class App extends React.Component {
     })
   }
 
-  removerTarefa = (index) => {
-    const novaListaTarefas = this.state.tarefas.slice()
-    novaListaTarefas.splice(index, 1)
+  removerTarefa = (id) => {
+    // cria uma nova lista que vai receber o array original e filtrar o selecionado
+    const novaListaFiltrada = this.state.tarefas.filter((tarefa) => {
+      //  retorna todos os ids que forem diferentes do selecionado
+      return id !== tarefa.id
+    })
 
+    // atualiza o array
     this.setState({
-      tarefas: novaListaTarefas
+      tarefas: novaListaFiltrada
     })
   }
 
@@ -158,7 +163,7 @@ class App extends React.Component {
                 >
                   {tarefa.texto}
                 </Tarefa>
-                <Botao onClick={this.removerTarefa}><Icone src='https://image.flaticon.com/icons/png/512/105/105739.png' /></Botao>
+                <Botao onClick={() =>this.removerTarefa(tarefa.id)}><Icone src='https://image.flaticon.com/icons/png/512/105/105739.png' /></Botao>
               </ContainerTarefa>
             )
           })}
