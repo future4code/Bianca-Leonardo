@@ -113,7 +113,6 @@ export default class App extends React.Component {
           onChange={this.handleEmail}
         />
         <button onClick={this.createUser}>Criar</button>
-        <button>Visualizar Cadastros</button>
         <div>
           {usuarios}
         </div>
