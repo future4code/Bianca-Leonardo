@@ -1,107 +1,128 @@
-import axios from 'axios'
 import React from 'react'
+import CadastrarUsuario from './components/CadastrarUsuario'
+import ListarUsuario from './components/ListarUsuario'
 
 export default class App extends React.Component {
 
   state = {
-    usuarios: [],
-    inputName: '',
-    inputEmail: '',
+    pagina: 'cadastrar'
   }
 
-  componentDidMount() {
-    this.getUsers()
+
+
+  // componentDidMount() {
+  //   this.getUsers()
+  // }
+
+  trocarDePadina = () => {
+    if(this.state.pagina === 'cadastrar'){
+      return <CadastrarUsuario  trocarParaListar={this.trocarParaListar}/>
+    } else if (this.state.pagina === 'listar') {
+      return <ListarUsuario trocarParaCadastrar={this.trocarParaCadastrar}/>
+    }
   }
 
-  handleName = (e) => {
+  trocarParaCadastrar = () => {
     this.setState({
-      inputName: e.target.value
+      pagina: 'cadastrar'
     })
   }
-  handleEmail = (e) => {
+  trocarParaListar = () => {
     this.setState({
-      inputEmail: e.target.value
+      pagina: 'listar'
     })
   }
 
-  getUsers = () => {
-    const header = {
-      headers: {
-        Authorization: 'bianca-leonardo-paiva'
-      }
-    }
+  // handleName = (e) => {
+  //   this.setState({
+  //     inputName: e.target.value
+  //   })
+  // }
+  // handleEmail = (e) => {
+  //   this.setState({
+  //     inputEmail: e.target.value
+  //   })
+  // }
 
-    const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users'
+  // getUsers = () => {
+  //   const header = {
+  //     headers: {
+  //       Authorization: 'bianca-leonardo-paiva'
+  //     }
+  //   }
 
-    axios.get(url, header)
-      .then((res) => {
-        this.setState({
-          usuarios: res.data
-        })
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
+  //   const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users'
 
-  createUser = () => {
-    const header = {
-      headers: {
-        Authorization: 'bianca-leonardo-paiva'
-      }
-    }
+  //   axios.get(url, header)
+  //     .then((res) => {
+  //       this.setState({
+  //         usuarios: res.data
+  //       })
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }
 
-    const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users'
+  // createUser = () => {
+  //   const header = {
+  //     headers: {
+  //       Authorization: 'bianca-leonardo-paiva'
+  //     }
+  //   }
 
-    const body = {
-      name: this.state.inputName,
-      email: this.state.inputEmail
-    }
+  //   const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users'
 
-    axios.post(url, body, header)
-      .then((res) => {
-        alert('Usuário adicionado')
-        this.setState({
-          inputName: '',
-          inputEmail: ''
-        })
-        this.getUsers()
-      }).catch((err) => {
-        console.log(err)
-      })
-  }
+  //   const body = {
+  //     name: this.state.inputName,
+  //     email: this.state.inputEmail
+  //   }
 
-  deleteUser = (id) => {
-    const header = {
-      headers: {
-        Authorization: 'bianca-leonardo-paiva'
-      }
-    }
+  //   axios.post(url, body, header)
+  //     .then((res) => {
+  //       alert('Usuário adicionado')
+  //       this.setState({
+  //         inputName: '',
+  //         inputEmail: ''
+  //       })
+  //       this.getUsers()
+  //     }).catch((err) => {
+  //       console.log(err)
+  //     })
+  // }
+
+  // deleteUser = (id) => {
+  //   const header = {
+  //     headers: {
+  //       Authorization: 'bianca-leonardo-paiva'
+  //     }
+  //   }
 
 
-    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`
+  //   const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`
 
-    axios.delete(url, header)
-    .then((res) => {
-      alert('Usuário removido com sucesso!')
-      this.getUsers()
-    })
-    .catch((err) => {
-      alert(err)
-    })
-  }
+  //   axios.delete(url, header)
+  //   .then((res) => {
+  //     alert('Usuário removido com sucesso!')
+  //     this.getUsers()
+  //   })
+  //   .catch((err) => {
+  //     alert(err)
+  //   })
+  // }
 
   render() {
 
-    const usuarios = this.state.usuarios.map((usuario) => {
-      return <div key={usuario.id}>
-        <p>{usuario.name}</p>
-        <button onClick={() => this.deleteUser(usuario.id)}>Deletar</button>
-      </div>
-    })
+    // const usuarios = this.state.usuarios.map((usuario) => {
+    //   return <div key={usuario.id}>
+    //     <p>{usuario.name}</p>
+    //     <button onClick={() => this.deleteUser(usuario.id)}>Deletar</button>
+    //   </div>
+    // })
     return (
       <div className="App">
-        <h3>Criar Usuário</h3>
+        {this.trocarDePadina()}
+        {/* <h3>Criar Usuário</h3>
         <input
           placeholder={'Nome'}
           value={this.state.inputName}
@@ -115,7 +136,7 @@ export default class App extends React.Component {
         <button onClick={this.createUser}>Criar</button>
         <div>
           {usuarios}
-        </div>
+        </div> */}
       </div>
     );
   }
