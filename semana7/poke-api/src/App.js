@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Container, CardPokemon, InfoCard, ContainerCardPokemon } from './style'
 
 export default class App extends React.Component {
 
@@ -58,27 +59,29 @@ export default class App extends React.Component {
     })
 
     return (
-      <div>
+      <Container>
         <h1>Pokedéx</h1>
         <h3>Escolha um pokemon para saber informações</h3>
-        <div>
+        <ContainerCardPokemon>
           <select onChange={this.getInfoPokemon}>
             <option defaultValue >Escolha um pokemon</option>
             {pokeList}
           </select>
 
           {this.state.pokePicture && <div key={this.state.PokeName}>
-            <h4>Informações do Pokemon</h4>
-            <div>
-              <p>Espécie: {this.state.PokeName}</p>
-              <img src={this.state.pokePicture} />
-              <div>Tipo: {this.state.pokeType.map((item) => <p>{item.type.name}</p>)}</div>
-              <div>Habilities: {this.state.pokeHabilidades.map((item) => <p>{item.ability.name}</p>)}</div>
-            </div>
+            <CardPokemon>
+              <h4>Espécie: {this.state.PokeName}</h4>
+              <InfoCard>
+                <div><span>Tipo:</span> {this.state.pokeType.map((item) => <p>{item.type.name}</p>)}</div>
+                <div><img src={this.state.pokePicture} /></div>
+                <div><span>Habilities:</span> {this.state.pokeHabilidades.map((item) => <p>{item.ability.name}</p>)}</div>
+              </InfoCard>
+
+            </CardPokemon>
           </div>}
-          
-        </div>
-      </div>
+
+        </ContainerCardPokemon>
+      </Container>
     );
   }
 }
