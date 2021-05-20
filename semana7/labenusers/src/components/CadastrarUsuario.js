@@ -1,5 +1,38 @@
 import axios from 'axios'
 import React from 'react'
+import styled from 'styled-components'
+
+const ContainerUsuario = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    button {
+        align-self: center;
+        border: none;
+        padding: 8px 8px;
+        border-radius: 10px;
+        background-color: lightsteelblue;
+        color: black;
+
+        :hover {
+            background-color: lightskyblue;
+        }
+    }
+`
+
+const ContainerInput = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    input {
+        margin: 5px 0;
+        width: 300px;
+        border-radius: 10px;
+        padding: 8px;
+        outline: none;
+        border: 1px solid lightgrey;
+    }
+`
 
 export default class CadastrarUsuario extends React.Component {
 
@@ -34,35 +67,37 @@ export default class CadastrarUsuario extends React.Component {
         }
 
         axios.post(url, body, header)
-        .then((res) => {
-            alert('Usuario(a) cadastrado(a) com sucesso!')
-            this.setState({
-                inputName: '',
-                inputEmail: ''
+            .then((res) => {
+                alert('Usuario(a) cadastrado(a) com sucesso!')
+                this.setState({
+                    inputName: '',
+                    inputEmail: ''
+                })
             })
-        })
-        .catch((err) => {
-            alert('Erro', err.data)
-        })
+            .catch((err) => {
+                alert('Erro', err.data)
+            })
     }
 
-    render(){
-        return(
-            <div>
+    render() {
+        return (
+            <ContainerUsuario>
                 <button onClick={this.props.trocarParaListar}>Ver usuários</button>
                 <h3>Cadastre-se</h3>
-                <input 
-                placeholder={'Digite seu nome'}
-                value={this.state.inputName}
-                onChange={this.handleInputName}
-                />
-                <input 
-                placeholder={'Digite seu email'}
-                value={this.state.inputEmail}
-                onChange={this.handleInputEmail}
-                />
+                <ContainerInput>
+                    <input
+                        placeholder={'Digite seu nome'}
+                        value={this.state.inputName}
+                        onChange={this.handleInputName}
+                    />
+                    <input
+                        placeholder={'Digite seu email'}
+                        value={this.state.inputEmail}
+                        onChange={this.handleInputEmail}
+                    />
+                </ContainerInput>
                 <button onClick={this.cadastrarUsuario}>Cadastrar</button>
-            </div>
+            </ContainerUsuario>
         )
     }
 }
