@@ -1,89 +1,84 @@
 import React from 'react'
+import styled from 'styled-components'
+import Header from './components/Header'
 import TelaCriarPlaylist from './components/TelaCriarPlaylist'
-import TelaMusicas from './components/TelaMusicas'
-import TelaPlaylists from './components/TelaPlaylists'
-import TelaAdicionarMusica from './components/TelaAdicionarMusica'
-import axios from 'axios'
+import TelaListaMusicas from './components/TelaListaMusicas'
+import TelaPlaylist from './components/TelaPlaylist'
+
+const Conatiner = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+`
+
+const ContainerConteudo = styled.div`
+  height: 100vh;
+`
+
 
 export default class App extends React.Component {
 
   state = {
-    pagina: 'telaPlaylist',
-    playLists: []
+    pagina: 'telaPlayList',
+    playlistId: ''
   }
 
-  componentDidMount(){
-    this.getPlaylist()
-  }
-
-
-  paginaAtual = () => {
-    switch (this.state.pagina) {
-      case 'telaPlaylist':
-        return <TelaPlaylists
-          playLists={this.state.playLists}
-          onChangeTelaCriarPlaylist={this.onChangeTelaCriarPlaylist}
-          onChangeTelaMusicas={this.onChangeTelaMusicas}
-        />;
-      case 'telaMusicas':
-        return <TelaMusicas
-          onChangeTelaPlaylist={this.onChangeTelaPlaylist}
-        />;
-      case 'telaCriarPlaylist':
-        return <TelaCriarPlaylist
-          onChangeTelaPlaylist={this.onChangeTelaPlaylist}
-        />;
-        case 'telaAdicionarMúsica':
-          return <TelaAdicionarMusica/>;
-      default:
-        break;
-    }
-  }
-
-  onChangeTelaPlaylist = () => {
-    this.setState({
-      pagina: 'telaPlaylist'
-    })
-  }
-
-  onChangeTelaMusicas = () => {
-    this.setState({
-      pagina: 'telaMusicas'
-    })
-  }
-
-  onChangeTelaCriarPlaylist = () => {
+  onChangeCriarPlaylist = () => {
     this.setState({
       pagina: 'telaCriarPlaylist'
     })
   }
 
-  getPlaylist = () => {
-    const url = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists'
+  onChangePlaylist = () => {
+    this.setState({
+      pagina: 'telaPlayList'
+    })
+  }
 
-    const header = {
-      headers: {
-        Authorization: 'bianca-leonardo-paiva'
-      }
+  // passa junto com o onchande o id da playlist
+  onChangeListaMusicas = (id) => {
+    this.setState({
+      pagina: 'telaListaMusicas',
+      playlistId: id
+    })
+  }
+
+  paginaAtual = () => {
+    switch (this.state.pagina) {
+      case 'telaCriarPlaylist':
+        return <TelaCriarPlaylist />;
+      case 'telaPlayList':
+        return <TelaPlaylist 
+        onChangeListaMusicas={this.onChangeListaMusicas}
+        id={this.state.playlistId}
+        />
+      case 'telaListaMusicas':
+        return <TelaListaMusicas 
+          id={this.state.playlistId}
+          onChangePlaylist={this.onChangePlaylist}
+        />
+
+      default:
+        break;
     }
-
-    axios.get(url, header)
-    .then((res) => {
-      this.setState({
-        playLists: res.data.result.lis
-      })
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-
   }
 
   render() {
     return (
-      <div>
-        {this.paginaAtual()}
-      </div>
+      <Conatiner>
+        {/* Envia props para Header.js */}
+        <Header
+          onChangeCriarPlaylist={this.onChangeCriarPlaylist}
+          onChangePlaylist={this.onChangePlaylist}
+        />
+        <ContainerConteudo>
+          {this.paginaAtual()}
+        </ContainerConteudo>
+
+      </Conatiner>
     );
   }
 }
