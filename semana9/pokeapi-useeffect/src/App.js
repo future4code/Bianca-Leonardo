@@ -1,6 +1,15 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
 import PokeCard from './components/PokeCard'
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+`
 
 export default function App() {
 
@@ -26,7 +35,7 @@ export default function App() {
   }
 
   return (
-    <div>
+    <Container>
       <select onChange={changePokeName}>
         <option value={''}>Nenhum</option>
         {pokeList.map((pokemon) => {
@@ -39,6 +48,6 @@ export default function App() {
       </select>
       
       {pokeName && <PokeCard pokemon={pokeName}/>}
-    </div>
+    </Container>
   );
 }
