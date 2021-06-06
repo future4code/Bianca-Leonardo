@@ -1,35 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import React from 'react';
-import styled from 'styled-components';
+import {HeaderContainer, MenuCotainer, ButtonInativo} from './style'
 
-const HeaderContainer = styled.div`
-    border-bottom: 1px solid lightgray;
-`
-
-const MenuCotainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-
-    button {
-        border: none;
-        color: lightgray;
-        background-color: transparent;
-
-        :hover{
-            color: blue;
-        }
-    }
-`
-
-const ButtonInativo = styled.button`
-    background-color: white; 
-    border: white;
-    color: white;
-    width: 39px;
-`
 
 function Header(props) {
     return (
@@ -46,9 +19,6 @@ function Header(props) {
                     <ButtonInativo></ButtonInativo>
                 </MenuCotainer>
             }
-            {/* <button onClick={props.goToCardPrincipal}>Matches</button>
-            <h3>astromach</h3>
-            <button onClick={props.goToListMatches}>Lista</button> */}
         </HeaderContainer>
     );
 }

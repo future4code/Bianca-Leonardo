@@ -1,23 +1,19 @@
 import axios from 'axios';
 import React from 'react';
-import styled from 'styled-components';
+import swal from 'sweetalert';
 import CardPrincipal from '../components/CardPrincipal/CardPrincipal';
 import { URL_BASE } from '../constants/Url';
+import {PageContainer} from './style'
 
-const PageContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
 
 function PageHome() {
 
     const clear = () => {
         axios.put(`${URL_BASE}/clear`)
         .then((res) => {
-            console.log('clear')
+            swal('Matches Zerados', '', "success");
         }).catch((err) => {
-            console.log(err)
+            swal('Ocorreu um erro', '', "error");
         })
     }
     return (

@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { URL_BASE } from '../../constants/Url';
 import CardListMatches from '../CardListMatches/CardListMatches';
+import swal from 'sweetalert';
 
 function ListMatches(props) {
 
@@ -16,10 +17,9 @@ function ListMatches(props) {
     const getMatches = () => {
         axios.get(`${URL_BASE}/matches`)
             .then((res) => {
-                // console.log(res.data.matches)
                 setMatches(res.data.matches)
             }).catch((err) => {
-                console.log(err)
+                swal('Ocorreu um erro', '', "error");
             })
     }
     return (

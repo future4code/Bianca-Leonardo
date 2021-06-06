@@ -2,34 +2,16 @@ import axios from 'axios';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import styled from 'styled-components';
 import { URL_BASE } from '../../constants/Url';
 import CardLike from '../CardLike/CardLike';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner} from '@fortawesome/free-solid-svg-icons'
 
-const CardMatchContainer = styled.div`
-    margin: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+import swal from 'sweetalert';
 
-    img{
-        width: 100%;
-        height: 350px;
-    }
-`
+import {CardMatchContainer, Container, ImgPrincipal, ImgFundo, InfoContainer} from './style'
 
-const InfoContainer = styled.div`
-    background-color: lightgray;
-    padding: 15px;
-
-    p {
-        margin: 0;
-    }
-`
 
 function CardMatch(props) {
     const [profileToChoose, setProfileToChoose] = useState(null)
@@ -41,10 +23,9 @@ function CardMatch(props) {
     const getProfileToChoose = () => {
         axios.get(`${URL_BASE}/person`)
             .then((res) => {
-                // console.log(res.data.profile)
                 setProfileToChoose(res.data.profile)
             }).catch((err) => {
-                console.log(err)
+                swal('Ocorreu um erro', '', "error");
             })
     }
 
@@ -56,11 +37,10 @@ function CardMatch(props) {
         }
         axios.post(`${URL_BASE}/choose-person`, body)
         .then((res) => {
-            // console.log('noMatch')
             setProfileToChoose(null)
             getProfileToChoose()
         }).catch((err) => {
-            console.log(err)
+            swal('Ocorreu um erro', '', "error");
         })
     }
 
@@ -71,24 +51,26 @@ function CardMatch(props) {
         }
         axios.post(`${URL_BASE}/choose-person`, body)
         .then((res) => {
-            // console.log('Match')
+            if (res.data.isMatch) {
+                swal("Match!", "", "success");
+            }
             setProfileToChoose(null)
             getProfileToChoose()
         }).catch((err) => {
-            console.log(err)
+            swal('Ocorreu um erro', '', "error");
         })
     }
-
     return (
         <CardMatchContainer>
             {profileToChoose ?
-                <div>
-                    <img src={profileToChoose.photo} />
+                <Container>
+                    <ImgPrincipal src={profileToChoose.photo} />
+                    <ImgFundo src={profileToChoose.photo} />
                     <InfoContainer>
                         <p>{profileToChoose.name}, {profileToChoose.age}</p>
                         <p>{profileToChoose.bio}</p>
                     </InfoContainer>
-                </div>  : <FontAwesomeIcon icon={faSpinner} size='2x' spin color='lightGray'/>
+                </Container>  : <Container><FontAwesomeIcon icon={faSpinner} size='2x' spin color='lightGray'/></Container>
         }
 
 

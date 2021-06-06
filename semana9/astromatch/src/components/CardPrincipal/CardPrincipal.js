@@ -1,15 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import styled from 'styled-components';
 import CardMatch from '../CardMatch/CardMatch';
 import ListMatches from '../ListMatches/ListMatches';
 import Header from '../Header/Header';
+import {CardPrincipalContainer} from './style'
 
-const CardPrincipalContainer = styled.div`
-    width: 400px;
-    height: 600px;
-    border: 1px solid lightgray;
-`
 
 function CardPrincipal() {
 
