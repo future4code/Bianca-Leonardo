@@ -26,6 +26,7 @@ function ListMatches(props) {
         <div>
             {matches.map((matche) => {
                 return <CardListMatches
+                    key={matche.id}
                     photo={matche.photo}
                     name={matche.name}
                     id={matche.id}

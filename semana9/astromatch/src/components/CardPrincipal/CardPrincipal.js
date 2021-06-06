@@ -40,6 +40,7 @@ function CardPrincipal() {
             <Header
                 goToCardPrincipal={goToCardPrincipal}
                 goToListMatches={goToListMatches}
+                page={page}
             />
             {changePage()}
         </CardPrincipalContainer>

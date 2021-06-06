@@ -6,13 +6,19 @@ import styled from 'styled-components';
 import { URL_BASE } from '../../constants/Url';
 import CardLike from '../CardLike/CardLike';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner} from '@fortawesome/free-solid-svg-icons'
+
 const CardMatchContainer = styled.div`
-    border: 1px red solid;
     margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     img{
         width: 100%;
-        border: 1px red solid;
+        height: 350px;
     }
 `
 
@@ -82,7 +88,7 @@ function CardMatch(props) {
                         <p>{profileToChoose.name}, {profileToChoose.age}</p>
                         <p>{profileToChoose.bio}</p>
                     </InfoContainer>
-                </div>  : <p>Carregando...</p>  
+                </div>  : <FontAwesomeIcon icon={faSpinner} size='2x' spin color='lightGray'/>
         }
 
 
