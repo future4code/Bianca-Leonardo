@@ -1,5 +1,9 @@
+import axios from 'axios';
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
+import { URL_BASE } from '../../constants/Url';
 import CardLike from '../CardLike/CardLike';
 
 const CardMatchContainer = styled.div`
@@ -22,15 +26,70 @@ const InfoContainer = styled.div`
 `
 
 function CardMatch(props) {
+    const [profileToChoose, setProfileToChoose] = useState(null)
+
+    useEffect(() => {
+        getProfileToChoose()
+    }, [])
+
+    const getProfileToChoose = () => {
+        axios.get(`${URL_BASE}/person`)
+            .then((res) => {
+                // console.log(res.data.profile)
+                setProfileToChoose(res.data.profile)
+            }).catch((err) => {
+                console.log(err)
+            })
+    }
+
+    const noMatch = () => {
+
+        const body = {
+            id: profileToChoose.id,
+            choice: false
+        }
+        axios.post(`${URL_BASE}/choose-person`, body)
+        .then((res) => {
+            // console.log('noMatch')
+            setProfileToChoose(null)
+            getProfileToChoose()
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
+    const match = () => {
+        const body = {
+            id: profileToChoose.id,
+            choice: true
+        }
+        axios.post(`${URL_BASE}/choose-person`, body)
+        .then((res) => {
+            // console.log('Match')
+            setProfileToChoose(null)
+            getProfileToChoose()
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
     return (
         <CardMatchContainer>
-            <img src='https://picsum.photos/400/400' />
-            <InfoContainer>
-                <p>Nome da Pessoa, idade</p>
-                <p>Descrição</p>
-            </InfoContainer>
+            {profileToChoose ?
+                <div>
+                    <img src={profileToChoose.photo} />
+                    <InfoContainer>
+                        <p>{profileToChoose.name}, {profileToChoose.age}</p>
+                        <p>{profileToChoose.bio}</p>
+                    </InfoContainer>
+                </div>  : <p>Carregando...</p>  
+        }
 
-            <CardLike />
+
+            <CardLike 
+                noMatch={noMatch}
+                match={match}
+            />
         </CardMatchContainer>
     );
 }

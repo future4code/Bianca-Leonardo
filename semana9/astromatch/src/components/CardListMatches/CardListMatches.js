@@ -9,14 +9,16 @@ const ListMatchesContainer = styled.div`
     img{
         border-radius: 50%;
         margin-right: 10px;
+        width: 40px;
+        height: 40px;
     }
 `
 
 function CardListMatches(props) {
     return (
-        <ListMatchesContainer>
-            <img src={'https://picsum.photos/40/40'} />
-            <p>Nome da Pessoa</p>
+        <ListMatchesContainer key={props.id}>
+            <img src={props.photo} />
+            <p>{props.name}</p>
         </ListMatchesContainer>
     );
 }

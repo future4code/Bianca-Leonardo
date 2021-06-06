@@ -10,8 +10,8 @@ const CardLikeContainer = styled.div`
 function CardLike(props) {
     return (
         <CardLikeContainer>
-            <button>Não</button>
-            <button>Sim</button>
+            <button onClick={props.noMatch}>Não</button>
+            <button onClick={props.match}>Sim</button>
         </CardLikeContainer>
     );
 }
