@@ -1,7 +1,10 @@
 import React from 'react';
 import HeaderAdmin from '../components/HeaderAdmin/HeaderAdmin';
+import useProtectedPage from '../hooks/useProtectedPage';
 
 function CreateTripPage() {
+    useProtectedPage()
+    
     return (
         <div>
             <HeaderAdmin />

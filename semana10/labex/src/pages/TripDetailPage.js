@@ -1,7 +1,10 @@
 import React from 'react';
 import Header from '../components/HeaderAdmin/HeaderAdmin';
+import useProtectedPage from '../hooks/useProtectedPage';
 
 function TripDetailPage() {
+    useProtectedPage()
+    
     return (
         <div>
             <Header />
