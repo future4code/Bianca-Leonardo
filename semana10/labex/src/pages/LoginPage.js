@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React from 'react';
 import { useHistory } from 'react-router';
-import { ThemeConsumer } from 'styled-components';
 import { BASE_URL } from '../constants/urls';
 import useInput from '../hooks/useInput';
 import { goToAdminHomePage, goToBack } from '../routes/coordinator';

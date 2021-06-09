@@ -1,14 +1,14 @@
 import React from 'react';
 import {Container} from './style'
 
-function ListTrips() {
+function ListTrips(props) {
     return (
         <Container>
-            <p>Nome: Viagem Tal</p>
-            <p>Descrição: Viagem para tal Lugar</p>
-            <p>Planeta: Mercúrio</p>
-            <p>Duração: 950 dias</p>
-            <p>Data: 20/10/2021</p>
+            <p>Nome: {props.trips.name}</p>
+            <p>Descrição: {props.trips.description}</p>
+            <p>Planeta: {props.trips.planet}</p>
+            <p>Duração: {props.trips.durationInDays} dias</p>
+            <p>Data: {props.trips.date}</p>
         </Container>
     );
 }
