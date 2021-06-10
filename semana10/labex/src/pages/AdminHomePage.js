@@ -1,34 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AdminListTrips from '../components/AdminListTrips/AdminListTrips';
 import Header from '../components/HeaderAdmin/HeaderAdmin'
 import useProtectedPage from '../hooks/useProtectedPage';
-import { useEffect, useState } from 'react';
-import axios from 'axios'
 import {BASE_URL} from '../constants/urls'
+import useRequestData from '../hooks/useRequestData';
+import axios from 'axios'
 
 function AdminHomePage() {
     useProtectedPage()
 
-    const [trips, setTrips] = useState([])
+    const trips = useRequestData([], `${BASE_URL}/trips`)
 
     useEffect(() => {
-        getTrips()
     }, [])
 
-    const getTrips = () => {
-        axios.get(`${BASE_URL}/trips`)
+    const deleteTrip = (id) => {
+
+        const header = {
+            headers: {
+                auth: localStorage.getItem('token')
+            }
+        }
+
+        axios.delete(`${BASE_URL}/trips/${id}`, header)
         .then((res) => {
-            // console.log(res.data.trips)
-            setTrips(res.data.trips)
+            console.log(res.data)
+        }).catch((err) => {
+            console.log(err)
         })
-        .catch((err) => {
-            console.log(err.response)
-        })
+
     }
 
     const listTrips = trips.map((trip) => {
         return <AdminListTrips
             trips={trip}
+            deleteTrip={deleteTrip}
         />
     })
 
@@ -36,10 +42,6 @@ function AdminHomePage() {
         <div>
             <Header />
             {listTrips}
-            {/* <AdminListTrips />
-            <AdminListTrips />
-            <AdminListTrips />
-            <AdminListTrips /> */}
         </div>
     );
 }

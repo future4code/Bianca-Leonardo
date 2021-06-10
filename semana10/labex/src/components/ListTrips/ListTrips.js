@@ -3,7 +3,7 @@ import {Container} from './style'
 
 function ListTrips(props) {
     return (
-        <Container>
+        <Container key={props.trips.id}>
             <p>Nome: {props.trips.name}</p>
             <p>Descrição: {props.trips.description}</p>
             <p>Planeta: {props.trips.planet}</p>
