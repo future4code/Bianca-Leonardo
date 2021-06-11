@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AdminListTrips from '../components/AdminListTrips/AdminListTrips';
 import Header from '../components/HeaderAdmin/HeaderAdmin'
 import useProtectedPage from '../hooks/useProtectedPage';
@@ -9,10 +9,22 @@ import axios from 'axios'
 function AdminHomePage() {
     useProtectedPage()
 
-    const trips = useRequestData([], `${BASE_URL}/trips`)
+    const [trips, setTrips] = useState([])
 
     useEffect(() => {
+        getTrips()
     }, [])
+
+    const getTrips = () => {
+        axios.get(`${BASE_URL}/trips`)
+        .then((res) => {
+            // console.log(res.data.trips)
+            setTrips(res.data.trips)
+        })
+        .catch((err) => {
+            console.log(err.response)
+        })
+    }
 
     const deleteTrip = (id) => {
 
@@ -24,14 +36,15 @@ function AdminHomePage() {
 
         axios.delete(`${BASE_URL}/trips/${id}`, header)
         .then((res) => {
-            console.log(res.data)
+            console.log('Viagem Excluida com Sucesso!')
+            getTrips()
         }).catch((err) => {
-            console.log(err)
+            console.log(` Erro ao excluir viagem, Tente novamente! ${err.response.status}`)
         })
 
     }
 
-    const listTrips = trips.map((trip) => {
+    const listTrips = trips && trips.map((trip) => {
         return <AdminListTrips
             trips={trip}
             deleteTrip={deleteTrip}

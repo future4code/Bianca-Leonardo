@@ -7,25 +7,25 @@ import useRequestData from '../hooks/useRequestData';
 
 function ListTripsPage() {
 
-    // const [trips, setTrips] = useState([])
-    const trips = useRequestData([], `${BASE_URL}/trips`)
+    const [trips, setTrips] = useState([])
+    // const trips = useRequestData([], `${BASE_URL}/trips`)
 
-    // useEffect(() => {
-    //     getTrips()
-    // }, [])
+    useEffect(() => {
+        getTrips()
+    }, [])
 
-    // const getTrips = () => {
-    //     axios.get(`${BASE_URL}/trips`)
-    //     .then((res) => {
-    //         // console.log(res.data.trips)
-    //         setTrips(res.data.trips)
-    //     })
-    //     .catch((err) => {
-    //         console.log(err.response)
-    //     })
-    // }
+    const getTrips = () => {
+        axios.get(`${BASE_URL}/trips`)
+        .then((res) => {
+            console.log(res.data.trips)
+            setTrips(res.data.trips)
+        })
+        .catch((err) => {
+            console.log(err.response)
+        })
+    }
 
-    const listTrips = trips.map((trip) => {
+    const listTrips = trips && trips.map((trip) => {
         return <ListTrips 
             trips={trip}
         />

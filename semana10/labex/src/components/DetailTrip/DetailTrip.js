@@ -2,7 +2,7 @@ import React from 'react';
 
 function DetailTrip(props) {
     return (
-        <div>
+        <div key={props.id}>
             <h3>Detail Trip</h3>
             <p>Nome: {props.name}</p>
             <p>Descrição: {props.description}</p>
