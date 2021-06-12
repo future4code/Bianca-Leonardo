@@ -12,7 +12,7 @@ function TripDetailPage(props) {
 
     const [detailTrip, setDetailTrip] = useState({})
 
-    useProtectedPage()
+    // useProtectedPage()
     const params = useParams()
 
     useEffect(() => {

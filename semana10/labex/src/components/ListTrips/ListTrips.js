@@ -1,14 +1,29 @@
+import { Card, CardContent, Typography } from '@material-ui/core';
 import React from 'react';
-import {Container} from './style'
+import { Container } from './style'
 
 function ListTrips(props) {
     return (
-        <Container key={props.trips.id}>
-            <p>Nome: {props.trips.name}</p>
-            <p>Descrição: {props.trips.description}</p>
-            <p>Planeta: {props.trips.planet}</p>
-            <p>Duração: {props.trips.durationInDays} dias</p>
-            <p>Data: {props.trips.date}</p>
+        <Container>
+            <Card>
+                <CardContent>
+                    <Typography color="textSecondary" gutterBottom>
+                        Nome: {props.trips.name}
+                    </Typography>
+                    <Typography variant="body2" component="p">
+                        Descrição: {props.trips.description}
+                    </Typography>
+                    <Typography variant="body2" component="p">
+                        Planeta: {props.trips.planet}
+                    </Typography>
+                    <Typography variant="body2" component="p">
+                        Duração: {props.trips.durationInDays} dias
+                </Typography>
+                    <Typography variant="body2" component="p">
+                        Data: {props.trips.date}
+                    </Typography>
+                </CardContent>
+            </Card>
         </Container>
     );
 }
