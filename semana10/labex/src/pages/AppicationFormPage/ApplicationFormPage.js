@@ -21,7 +21,8 @@ function ApplicationFormPage() {
         age: '',
         applicationText: '',
         profession: '',
-        country: ''
+        country: '',
+        trip: null
     })
 
     useEffect(() => {
@@ -31,7 +32,6 @@ function ApplicationFormPage() {
     const getTrips = () => {
         axios.get(`${BASE_URL}/trips`)
             .then((res) => {
-                // console.log(res.data.trips)
                 setTrips(res.data.trips)
             })
             .catch((err) => {
@@ -39,25 +39,44 @@ function ApplicationFormPage() {
                     title: "Erro!",
                     text: "Problema ao carregar a página!",
                     icon: "error",
+                });
+            })
+    }
+
+    const applyToTrip = (e) => {
+        e.preventDefault()
+
+        const body = {
+            name: form.name,
+            age: form.age,
+            applicationText: form.applicationText,
+            profession: form.profession,
+            country: form.country
+        }
+
+        axios.post(`${BASE_URL}/trips/${form.trip.id}/apply`, body)
+            .then((res) => {
+                console.log(res)
+                swal({
+                    title: "",
+                    text: "Perfil aplicado a viagem!",
+                    icon: "success",
+                  });
+                cleanFields()
+            })
+            .catch((err) => {
+                swal({
+                    title: "Erro!",
+                    text: "Problema ao aplicar para viagem, tente novamente!",
+                    icon: "error",
                   });
             })
     }
 
-    const applyToTrip = (tripId, e) => {
-        e.preventDefault()
-
-        axios.post(`${BASE_URL}/trips/${tripId}/apply`)
-            .then((res) => {
-                console.log(res)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
-
     const listTripsName = trips.map((trip) => {
-        return <MenuItem value={trip.id}>{trip.name}</MenuItem>
+        return <MenuItem value={trip}>{trip.name}</MenuItem>
     })
+
 
     return (
         <div>
@@ -70,12 +89,15 @@ function ApplicationFormPage() {
             />
             <Container>
                 <Typography variant={'h5'}>Inscreva-se</Typography>
-                <ContainerForm onSubmit={() => applyToTrip(trips.id)}>
+                <ContainerForm onSubmit={applyToTrip}>
                     <FormControl>
                         <InputLabel id="trip">Viagem</InputLabel>
                         <Select
                             labelId="Escolha uma viagem"
                             id="trip"
+                            name={'trip'}
+                            onChange={onChange}
+                            value={form.trip}
                         >
                             {listTripsName}
                         </Select>
@@ -87,25 +109,25 @@ function ApplicationFormPage() {
                         value={form.name}
                         type={'text'}
                     />
-                    <TextField 
-                    label={'Idade'} 
-                    name={'age'} 
-                    onChange={onChange}
-                    value={form.age}
-                    type={'number'} />
-                    <TextField 
-                    label={'Descrição'} 
-                    name={'applicationText'} 
-                    onChange={onChange}
-                    value={form.applicationText}
-                    type={'text'} 
+                    <TextField
+                        label={'Idade'}
+                        name={'age'}
+                        onChange={onChange}
+                        value={form.age}
+                        type={'number'} />
+                    <TextField
+                        label={'Descrição'}
+                        name={'applicationText'}
+                        onChange={onChange}
+                        value={form.applicationText}
+                        type={'text'}
                     />
-                    <TextField 
-                    label={'Profissão'} 
-                    name={'profession'} 
-                    onChange={onChange}
-                    value={form.profession}
-                    type={'text'} 
+                    <TextField
+                        label={'Profissão'}
+                        name={'profession'}
+                        onChange={onChange}
+                        value={form.profession}
+                        type={'text'}
                     />
                     <FormControl>
                         <InputLabel id="country">País</InputLabel>
@@ -117,12 +139,12 @@ function ApplicationFormPage() {
                             value={form.country}
                             required
                         >
-                            <MenuItem value={10}>Brasil</MenuItem>
-                            <MenuItem value={20}>Argentina</MenuItem>
-                            <MenuItem value={30}>China</MenuItem>
+                            <MenuItem value={'Brasil'}>Brasil</MenuItem>
+                            <MenuItem value={'Argentina'}>Argentina</MenuItem>
+                            <MenuItem value={'China'}>China</MenuItem>
                         </Select>
                     </FormControl>
-                    <Button variant={'contained'} color={'primary'} type='submit'>Enviar</Button>
+                    <Button variant={'contained'} color={'primary'} type={'submit'}>Enviar</Button>
                 </ContainerForm>
                 <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
             </Container>
