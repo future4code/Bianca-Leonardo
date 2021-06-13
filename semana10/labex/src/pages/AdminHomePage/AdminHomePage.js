@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import AdminListTrips from './AdminListTrips/AdminListTrips';
 import { BASE_URL } from '../../constants/urls'
-import useRequestData from '../../hooks/useRequestData';
 import axios from 'axios'
-import { Button, Typography } from '@material-ui/core';
-import { goToCreateTripPage, goToBack, goToLoginPage } from '../../routes/coordinator';
+import { goToCreateTripPage, goToLoginPage } from '../../routes/coordinator';
 import { useHistory } from 'react-router';
 
-import { ContainerMenu, ContainerButtons } from './style'
 import Header from '../../components/Header/Header';
 import useProtectedPage from '../../hooks/useProtectedPage';
+import swal from 'sweetalert';
 
 
 
@@ -30,9 +28,15 @@ function AdminHomePage() {
                 setTrips(res.data.trips)
             })
             .catch((err) => {
-                console.log(err.response)
+                swal({
+                    title: "Erro!",
+                    text: "Problema ao carregar a página!",
+                    icon: "error",
+                  });
             })
     }
+
+    
 
     const deleteTrip = (id) => {
 
@@ -45,9 +49,18 @@ function AdminHomePage() {
         axios.delete(`${BASE_URL}/trips/${id}`, header)
             .then((res) => {
                 console.log('Viagem Excluida com Sucesso!')
+                swal({
+                    title: "",
+                    text: "Viagem Excluida com Sucesso!",
+                    icon: "success",
+                  });
                 getTrips()
             }).catch((err) => {
-                console.log(` Erro ao excluir viagem, Tente novamente! ${err.response.status}`)
+                swal({
+                    title: "Erro!",
+                    text: "Problema ao excluir viagem, Tente novamente!",
+                    icon: "error",
+                  });
             })
 
     }
@@ -67,18 +80,6 @@ function AdminHomePage() {
                 pageName={() => goToLoginPage(history)}
                 buttonName={'Logout'}
             />
-            {/* <ContainerMenu>
-                <Typography variant={'h3'} gutterBottom>Painel Administrativo</Typography>
-                <ContainerButtons>
-                    <div>
-                        <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
-                    </div>
-                    <div>
-                        <Button variant={'contained'} color={'primary'} onClick={() => goToCreateTripPage(history)}>Nova Viagem</Button>
-                        <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
-                    </div>
-                </ContainerButtons>
-            </ContainerMenu> */}
             {listTrips}
         </div>
     );

@@ -9,8 +9,9 @@ import { BASE_URL } from '../../constants/urls';
 import useProtectedPage from '../../hooks/useProtectedPage';
 import { goToCreateTripPage, goToBack, goToLoginPage } from '../../routes/coordinator';
 
-import {ContainerMenu, ContainerButtons, ContainerCandidates} from './style'
+import { ContainerMenu, ContainerButtons, ContainerCandidates } from './style'
 import Header from '../../components/Header/Header';
+import swal from 'sweetalert';
 
 function TripDetailPage(props) {
     const history = useHistory()
@@ -22,7 +23,6 @@ function TripDetailPage(props) {
 
     useEffect(() => {
         getTripDetail(params.id)
-        // console.log(props.id)
     }, [])
 
     const getTripDetail = (id) => {
@@ -33,10 +33,14 @@ function TripDetailPage(props) {
         }
         axios.get(`${BASE_URL}/trip/${id}`, header)
             .then((res) => {
-                console.log(res.data.trip)
                 setDetailTrip(res.data.trip)
             }).catch((err) => {
                 console.log(err)
+                swal({
+                    title: "Erro!",
+                    text: "Problema ao carregar o Detalhe da Viagem!",
+                    icon: "error",
+                });
             })
     }
 
@@ -53,11 +57,25 @@ function TripDetailPage(props) {
 
         axios.put(`${BASE_URL}/trips/${tripId}/candidates/${candidateId}/decide`, body, header)
             .then((res) => {
-                console.log(body.approve ? 'Candidato Aprovado!' : 'Candidato Não Aprovado')
+                (body.approve ?
+                    swal({
+                        title: "",
+                        text: "Candidato Aprovado!",
+                        icon: "success",
+                    }) : swal({
+                        title: "",
+                        text: "Candidato Reprovado!",
+                        icon: "success",
+                    })
+                )
                 getTripDetail(params.id)
             })
             .catch((err) => {
-                console.log(` Erro ao aprovar Candidato, Tente novamente! ${err.response.status}`)
+                swal({
+                    title: "Erro!",
+                    text: "Problema ao aprovar ou reprovar Candidato, Tente novamente!",
+                    icon: "error",
+                  });
             })
     }
 
@@ -84,18 +102,6 @@ function TripDetailPage(props) {
                 pageName={() => goToLoginPage(history)}
                 buttonName={'Logout'}
             />
-            {/* <ContainerMenu>
-                <Typography variant={'h3'} gutterBottom>Painel Administrativo</Typography>
-                <ContainerButtons>
-                    <div>
-                        <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
-                    </div>
-                    <div>
-                        <Button variant={'contained'} color={'primary'} onClick={() => goToCreateTripPage(history)}>Nova Viagem</Button>
-                        <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
-                    </div>
-                </ContainerButtons>
-            </ContainerMenu> */}
             {detailTrip && detailTrip.id ? <div>
                 <DetailTrip
                     name={detailTrip.name}
@@ -111,7 +117,7 @@ function TripDetailPage(props) {
 
                     </div>
                     <div>
-                    <Typography variant={'h5'} gutterBottom>Candidatos Aprovados</Typography>
+                        <Typography variant={'h5'} gutterBottom>Candidatos Aprovados</Typography>
                         {listApproved}
 
                     </div>

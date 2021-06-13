@@ -22,7 +22,6 @@ function DetailTrip(props) {
                     </Typography>
                 </CardContent>
             </Card>
-        // </Container>
     );
 }
 

@@ -8,13 +8,13 @@ import { goToApplicationFormPage, goToLoginPage } from '../../routes/coordinator
 
 import {ContainerMenu, ContainerButtons} from './style'
 import Header from '../../components/Header/Header';
+import swal from 'sweetalert';
 
 
 
 function ListTripsPage() {
     const history = useHistory()
     const [trips, setTrips] = useState([])
-    // const trips = useRequestData([], `${BASE_URL}/trips`)
 
     useEffect(() => {
         getTrips()
@@ -23,11 +23,14 @@ function ListTripsPage() {
     const getTrips = () => {
         axios.get(`${BASE_URL}/trips`)
             .then((res) => {
-                console.log(res.data.trips)
                 setTrips(res.data.trips)
             })
             .catch((err) => {
-                console.log(err.response)
+                swal({
+                    title: "Erro!",
+                    text: "Problema ao carregar a página!",
+                    icon: "error",
+                  });
             })
     }
 
@@ -44,18 +47,6 @@ function ListTripsPage() {
                 pageName={() => goToLoginPage(history)}
                 buttonName={'Login'}
             />
-            {/* <ContainerMenu>
-                <Typography variant={'h3'} gutterBottom>LabeX</Typography>
-                <ContainerButtons>
-                    <div>
-                        <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
-                    </div>
-                    <div>
-                        <Button variant={'contained'} color={'primary'} onClick={() => goToApplicationFormPage(history)}>Inscrever-se</Button>
-                        <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
-                    </div>
-                </ContainerButtons>
-            </ContainerMenu> */}
 
             {listTrips}
         </div>

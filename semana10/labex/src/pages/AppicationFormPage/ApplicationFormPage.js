@@ -1,67 +1,128 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { Button, Typography, Card, CardContent, TextField, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { goToApplicationFormPage, goToBack, goToLoginPage } from '../../routes/coordinator'
 
-import {ContainerMenu, ContainerButtons, ContainerForm, Container} from './style'
+import { ContainerMenu, ContainerButtons, ContainerForm, Container } from './style'
 import Header from '../../components/Header/Header';
+import axios from 'axios';
+import { BASE_URL } from '../../constants/urls';
+import useForm from '../../hooks/useForm';
+import swal from 'sweetalert';
 
 
 function ApplicationFormPage() {
 
     const history = useHistory()
 
+    const [trips, setTrips] = useState([])
+    const { form, onChange, cleanFields } = useForm({
+        name: '',
+        age: '',
+        applicationText: '',
+        profession: '',
+        country: ''
+    })
+
+    useEffect(() => {
+        getTrips()
+    }, [])
+
+    const getTrips = () => {
+        axios.get(`${BASE_URL}/trips`)
+            .then((res) => {
+                // console.log(res.data.trips)
+                setTrips(res.data.trips)
+            })
+            .catch((err) => {
+                swal({
+                    title: "Erro!",
+                    text: "Problema ao carregar a página!",
+                    icon: "error",
+                  });
+            })
+    }
+
+    const applyToTrip = (tripId, e) => {
+        e.preventDefault()
+
+        axios.post(`${BASE_URL}/trips/${tripId}/apply`)
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
+    const listTripsName = trips.map((trip) => {
+        return <MenuItem value={trip.id}>{trip.name}</MenuItem>
+    })
+
     return (
         <div>
-            <Header 
+            <Header
                 buttonFormName={'Inscreva-se'}
                 pageFormName={() => goToApplicationFormPage(history)}
                 buttonName={'Login'}
                 pageName={() => goToLoginPage(history)}
-                
+
             />
-            {/* <ContainerMenu>
-                <Typography variant={'h3'} gutterBottom>aaa</Typography>
-                <ContainerButtons>
-                    <div>
-                        <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
-                    </div>
-                    <div>
-                        <Button variant={'contained'} color={'primary'} onClick={() => goToApplicationFormPage(history)}>Inscrever-se</Button>
-                        <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
-                    </div>
-                </ContainerButtons>
-            </ContainerMenu> */}
             <Container>
                 <Typography variant={'h5'}>Inscreva-se</Typography>
-                <ContainerForm onSubmit={''}>
+                <ContainerForm onSubmit={() => applyToTrip(trips.id)}>
                     <FormControl>
                         <InputLabel id="trip">Viagem</InputLabel>
                         <Select
                             labelId="Escolha uma viagem"
                             id="trip"
                         >
-                            <MenuItem value={10}>Viagem para a lua</MenuItem>
-                            <MenuItem value={20}>Viagem para o além</MenuItem>
-                            <MenuItem value={30}>Viagem para Plutão</MenuItem>
+                            {listTripsName}
                         </Select>
                     </FormControl>
-                    <TextField label={'Nome'} name={'name'} type={'text'} />
-                    <TextField label={'Idade'} name={'age'} type={'number'} />
-                    <TextField label={'Descrição'} name={'applicationText'} type={'text'} />
-                    <TextField label={'Profissão'} name={'profession'} type={'text'} />
+                    <TextField
+                        label={'Nome'}
+                        name={'name'}
+                        onChange={onChange}
+                        value={form.name}
+                        type={'text'}
+                    />
+                    <TextField 
+                    label={'Idade'} 
+                    name={'age'} 
+                    onChange={onChange}
+                    value={form.age}
+                    type={'number'} />
+                    <TextField 
+                    label={'Descrição'} 
+                    name={'applicationText'} 
+                    onChange={onChange}
+                    value={form.applicationText}
+                    type={'text'} 
+                    />
+                    <TextField 
+                    label={'Profissão'} 
+                    name={'profession'} 
+                    onChange={onChange}
+                    value={form.profession}
+                    type={'text'} 
+                    />
                     <FormControl>
                         <InputLabel id="country">País</InputLabel>
                         <Select
-                            labelId="Paí"
+                            labelId="País"
                             id="country"
+                            name={'country'}
+                            onChange={onChange}
+                            value={form.country}
+                            required
                         >
                             <MenuItem value={10}>Brasil</MenuItem>
                             <MenuItem value={20}>Argentina</MenuItem>
                             <MenuItem value={30}>China</MenuItem>
                         </Select>
                     </FormControl>
-                    <Button variant={'contained'} color={'primary'}>Enviar</Button>
+                    <Button variant={'contained'} color={'primary'} type='submit'>Enviar</Button>
                 </ContainerForm>
                 <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
             </Container>

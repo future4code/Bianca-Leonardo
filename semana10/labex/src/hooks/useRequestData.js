@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import swal from 'sweetalert';
 
 function useRequestData(initialData, url) {
 
@@ -8,10 +9,14 @@ function useRequestData(initialData, url) {
     const getData = () => {
         axios.get(url)
         .then((res) => {
-            console.log(res.data.trips)
+            // console.log(res.data.trips)
             setData(res.data.trips)
         }).catch((err) => {
-            console.log(err)
+            swal({
+                title: "Erro!",
+                text: "Problema ao carregar a página!",
+                icon: "error",
+              });
         })
     }
 
@@ -19,7 +24,7 @@ function useRequestData(initialData, url) {
         getData()
     }, [])
 
-    return data
+    return [data]
 }
 
 export default useRequestData;

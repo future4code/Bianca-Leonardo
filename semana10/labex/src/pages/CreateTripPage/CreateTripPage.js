@@ -2,6 +2,7 @@ import { Button, FormControl, InputLabel, MenuItem, Select, TextField, Typograph
 import axios from 'axios';
 import React from 'react';
 import { useHistory } from 'react-router';
+import swal from 'sweetalert';
 import Header from '../../components/Header/Header';
 import { BASE_URL } from '../../constants/urls';
 import useForm from '../../hooks/useForm';
@@ -34,12 +35,19 @@ function CreateTripPage() {
         }
         axios.post(`${BASE_URL}/trips`, form, header)
             .then((res) => {
-                // console.log(form)
-                console.log('Viagem Cadastrada Com sucesso!')
+                swal({
+                    title: "",
+                    text: "Viagem Cadastrada com Sucesso!",
+                    icon: "success",
+                  });
                 cleanFields()
             })
             .catch((err) => {
-                console.log('Erro ao cadastrar Viagem, tente novamente!', err.response.status)
+                swal({
+                    title: "Erro!",
+                    text: "Problema ao cadastrar Viagem, tente novamente!",
+                    icon: "error",
+                  });
             })
     }
 
@@ -51,18 +59,7 @@ function CreateTripPage() {
                 pageName={() => goToLoginPage(history)}
                 buttonName={'Logout'}
             />
-            {/* <ContainerMenu>
-                <Typography variant={'h3'} gutterBottom>Painel Administrativo</Typography>
-                <ContainerButtons>
-                    <div>
-                        <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
-                    </div>
-                    <div>
-                        <Button variant={'contained'} color={'primary'} onClick={() => goToCreateTripPage(history)}>Nova Viagem</Button>
-                        <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
-                    </div>
-                </ContainerButtons>
-            </ContainerMenu> */}
+            
             <Typography variant={'h5'}>Nova Viagem</Typography>
             <ContainerForm onSubmit={createTrip}>
                 <TextField

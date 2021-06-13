@@ -2,6 +2,7 @@ import { Button, TextField, Typography } from '@material-ui/core';
 import axios from 'axios';
 import React from 'react';
 import { useHistory } from 'react-router';
+import swal from 'sweetalert';
 import { BASE_URL } from '../../constants/urls';
 import useForm from '../../hooks/useForm';
 import { goToAdminHomePage, goToBack } from '../../routes/coordinator';
@@ -11,20 +12,21 @@ import {Container, FormContainer} from './style'
 
 function LoginPage() {
     const history = useHistory()
-    // const [email, onChangeEmail] = useInput('')
-    // const [password, onChangePassword] = useInput('')
     const { form, onChange } = useForm({ email: '', password: '' })
 
     const toDoLogin = (event) => {
         event.preventDefault()
         axios.post(`${BASE_URL}/login`, form)
             .then((res) => {
-                console.log(res.data.token)
                 localStorage.setItem('token', res.data.token)
                 goToAdminHomePage(history)
             })
             .catch((err) => {
-                console.log(err.response.data.message)
+                swal({
+                    title: "Erro!",
+                    text: `${err.response.data.message}`,
+                    icon: "error",
+                  });
             })
     }
 
@@ -51,7 +53,6 @@ function LoginPage() {
                 <Button variant={'contained'} color={'primary'} type={'submit'}>Entrar</Button>
             </FormContainer>
             <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
-            {/* {console.log(form)} */}
         </Container>
     );
 }
