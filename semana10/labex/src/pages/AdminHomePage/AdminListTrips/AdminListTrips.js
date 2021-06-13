@@ -1,12 +1,9 @@
 import { Button, Card, CardActions, CardContent, Typography } from '@material-ui/core';
 import React from 'react';
 import { useHistory } from 'react-router';
-import styled from 'styled-components';
 import { goToDetailPage } from '../../../routes/coordinator';
+import {Container} from '../AdminListTrips/style'
 
-const Container = styled.div`
-    margin-bottom: 20px;
-`
 
 function AdminListTrips(props) {
     const history = useHistory()

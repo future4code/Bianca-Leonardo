@@ -2,30 +2,13 @@ import { Button, Typography } from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import styled from 'styled-components';
 import ListTrips from './ListTrips/ListTrips';
 import { BASE_URL } from '../../constants/urls';
 import { goToApplicationFormPage, goToBack, goToLoginPage } from '../../routes/coordinator';
 
-const ContainerMenu = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-`
+import {ContainerMenu, ContainerButtons} from './style'
 
-const ContainerButtons = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 500px;
 
-    div{
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-    }
-`
 
 function ListTripsPage() {
     const history = useHistory()

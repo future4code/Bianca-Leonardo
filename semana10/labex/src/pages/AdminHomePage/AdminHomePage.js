@@ -3,30 +3,13 @@ import AdminListTrips from './AdminListTrips/AdminListTrips';
 import {BASE_URL} from '../../constants/urls'
 import useRequestData from '../../hooks/useRequestData';
 import axios from 'axios'
-import styled from 'styled-components';
 import { Button, Typography } from '@material-ui/core';
 import { goToCreateTripPage, goToBack, goToLoginPage } from '../../routes/coordinator';
 import { useHistory } from 'react-router';
 
-const ContainerMenu = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-`
+import {ContainerMenu, ContainerButtons} from './style'
 
-const ContainerButtons = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 500px;
 
-    div{
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-    }
-`
 
 function AdminHomePage() {
     // useProtectedPage()

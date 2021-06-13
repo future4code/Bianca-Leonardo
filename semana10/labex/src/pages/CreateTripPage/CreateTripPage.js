@@ -2,48 +2,15 @@ import { Button, FormControl, InputLabel, MenuItem, Select, TextField, Typograph
 import axios from 'axios';
 import React from 'react';
 import { useHistory } from 'react-router';
-import styled from 'styled-components';
 import HeaderAdmin from '../../components/HeaderAdmin/HeaderAdmin';
 import { BASE_URL } from '../../constants/urls';
 import useForm from '../../hooks/useForm';
 import useProtectedPage from '../../hooks/useProtectedPage';
 import { goToCreateTripPage, goToBack, goToLoginPage } from '../../routes/coordinator';
 
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-top: 20px;
-    align-items: center;
-`
-
-const ContainerForm = styled.form`
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-`
+import {Container, ContainerForm, ContainerMenu, ContainerButtons} from './style'
 
 
-const ContainerMenu = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-`
-
-const ContainerButtons = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 500px;
-
-    div{
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-    }
-`
 
 function CreateTripPage() {
     // useProtectedPage()

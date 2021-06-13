@@ -1,43 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-import styled from "styled-components";
 import { Button, Typography, Card, CardContent, TextField, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { goToApplicationFormPage, goToBack, goToLoginPage } from '../../routes/coordinator'
 
-const ContainerMenu = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-`
+import {ContainerMenu, ContainerButtons, ContainerForm, Container} from './style'
 
-const ContainerButtons = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 500px;
-
-    div{
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-    }
-`
-
-const ContainerForm = styled.form`
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 16px;
-    width: 500px;
-`
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-`
 
 function ApplicationFormPage() {
 

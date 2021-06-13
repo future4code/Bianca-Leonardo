@@ -1,10 +1,7 @@
 import { Button, Card, CardActions, CardContent, Typography } from '@material-ui/core';
 import React from 'react';
-import styled from 'styled-components';
 
-const Container = styled.div`
-    margin-bottom: 12px;
-`
+import {Container} from './style'
 
 function Candidates(props) {
     return (

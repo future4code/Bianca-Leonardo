@@ -2,22 +2,12 @@ import { Button, TextField, Typography } from '@material-ui/core';
 import axios from 'axios';
 import React from 'react';
 import { useHistory } from 'react-router';
-import styled from 'styled-components';
 import { BASE_URL } from '../../constants/urls';
 import useForm from '../../hooks/useForm';
 import { goToAdminHomePage, goToBack } from '../../routes/coordinator';
 
+import {Container, FormContainer} from './style'
 
-const Container = styled.div`
-    text-align: center;
-`
-const FormContainer = styled.form`
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-    margin: 30px 0;
-    gap: 16px;
-`
 
 function LoginPage() {
     const history = useHistory()
