@@ -24,7 +24,7 @@ const ContainerButtons = styled.div`
     }
 `
 
-const ContainerForm = styled.div`
+const ContainerForm = styled.form`
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -60,6 +60,17 @@ function ApplicationFormPage() {
             <Container>
                 <Typography variant={'h5'}>Inscreva-se</Typography>
                 <ContainerForm onSubmit={''}>
+                    <FormControl>
+                        <InputLabel id="trip">Viagem</InputLabel>
+                        <Select
+                            labelId="Escolha uma viagem"
+                            id="trip"
+                        >
+                            <MenuItem value={10}>Viagem para a lua</MenuItem>
+                            <MenuItem value={20}>Viagem para o além</MenuItem>
+                            <MenuItem value={30}>Viagem para Plutão</MenuItem>
+                        </Select>
+                    </FormControl>
                     <TextField label={'Nome'} name={'name'} type={'text'} />
                     <TextField label={'Idade'} name={'age'} type={'number'} />
                     <TextField label={'Descrição'} name={'applicationText'} type={'text'} />

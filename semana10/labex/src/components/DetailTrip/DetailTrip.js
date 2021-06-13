@@ -1,15 +1,28 @@
+import { Card, CardContent, Typography } from '@material-ui/core';
 import React from 'react';
 
 function DetailTrip(props) {
     return (
-        <div key={props.id}>
-            <h3>Detail Trip</h3>
-            <p>Nome: {props.name}</p>
-            <p>Descrição: {props.description}</p>
-            <p>Planeta: {props.planet}</p>
-            <p>Duração: {props.duration} dias</p>
-            <p>Data: {props.date}</p>
-        </div>
+            <Card>
+                <CardContent key={props.id}>
+                    <Typography color="textSecondary" gutterBottom>
+                        Nome: {props.name}
+                    </Typography>
+                    <Typography variant="body2" component="p">
+                        Descrição: {props.description}
+                    </Typography>
+                    <Typography variant="body2" component="p">
+                        Planeta: {props.planet}
+                    </Typography>
+                    <Typography variant="body2" component="p">
+                        Duração: {props.duration} dias
+                </Typography>
+                    <Typography variant="body2" component="p">
+                        Data: {props.date}
+                    </Typography>
+                </CardContent>
+            </Card>
+        // </Container>
     );
 }
 

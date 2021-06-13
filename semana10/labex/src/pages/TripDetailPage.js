@@ -1,14 +1,46 @@
+import { Button, Typography } from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import ApprovedCandidates from '../components/ApprovedCandidates/ApprovedCandidates';
 import Candidates from '../components/Candidates/Candidates';
 import DetailTrip from '../components/DetailTrip/DetailTrip';
 import Header from '../components/HeaderAdmin/HeaderAdmin';
 import { BASE_URL } from '../constants/urls';
 import useProtectedPage from '../hooks/useProtectedPage';
+import styled from 'styled-components';
+import { goToCreateTripPage, goToBack, goToLoginPage } from '../routes/coordinator';
+
+const ContainerMenu = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+`
+
+const ContainerButtons = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 500px;
+
+    div{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+`
+
+const ContainerCandidates = styled.div`
+    display: flex;
+
+    div{
+        width: 99%;
+    }
+`
 
 function TripDetailPage(props) {
+    const history = useHistory()
 
     const [detailTrip, setDetailTrip] = useState({})
 
@@ -73,25 +105,38 @@ function TripDetailPage(props) {
 
     return (
         <div>
-            <Header />
+            <ContainerMenu>
+                <Typography variant={'h3'} gutterBottom>Painel Administrativo</Typography>
+                <ContainerButtons>
+                    <div>
+                        <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
+                    </div>
+                    <div>
+                        <Button variant={'contained'} color={'primary'} onClick={() => goToCreateTripPage(history)}>Nova Viagem</Button>
+                        <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
+                    </div>
+                </ContainerButtons>
+            </ContainerMenu>
             {detailTrip && detailTrip.id ? <div>
                 <DetailTrip
-                name={detailTrip.name}
-                description={detailTrip.description}
-                planet={detailTrip.planet}
-                duration={detailTrip.durationInDays}
-                date={detailTrip.date}
-            />
-            <div>
-                <h3>Candidatos Pendentes</h3>
-                {listCandidates}
+                    name={detailTrip.name}
+                    description={detailTrip.description}
+                    planet={detailTrip.planet}
+                    duration={detailTrip.durationInDays}
+                    date={detailTrip.date}
+                />
+                <ContainerCandidates>
+                    <div>
+                        <Typography variant={'h5'} gutterBottom>Candidatos Pendentes</Typography>
+                        {listCandidates}
 
-            </div>
-            <div>
-                <h3>Candidatos Aprovados</h3>
-                {listApproved}
+                    </div>
+                    <div>
+                    <Typography variant={'h5'} gutterBottom>Candidatos Aprovados</Typography>
+                        {listApproved}
 
-            </div>
+                    </div>
+                </ContainerCandidates>
             </div> : <p>Carregando...</p>}
 
         </div>

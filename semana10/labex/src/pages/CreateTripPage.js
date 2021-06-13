@@ -1,28 +1,53 @@
 import { Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from '@material-ui/core';
 import axios from 'axios';
 import React from 'react';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 import HeaderAdmin from '../components/HeaderAdmin/HeaderAdmin';
 import { BASE_URL } from '../constants/urls';
 import useForm from '../hooks/useForm';
 import useProtectedPage from '../hooks/useProtectedPage';
+import { goToCreateTripPage, goToBack, goToLoginPage } from '../routes/coordinator';
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
     margin-top: 20px;
+    align-items: center;
 `
 
-const ContainerForm = styled.div`
+const ContainerForm = styled.form`
     width: 500px;
     display: flex;
     flex-direction: column;
     gap: 12px;
 `
 
+
+const ContainerMenu = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+`
+
+const ContainerButtons = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 500px;
+
+    div{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+`
+
 function CreateTripPage() {
     // useProtectedPage()
+    const history = useHistory()
 
     const { form, onChange, cleanFields } = useForm({
         name: '',
@@ -53,7 +78,18 @@ function CreateTripPage() {
 
     return (
         <Container>
-            <HeaderAdmin />
+            <ContainerMenu>
+                <Typography variant={'h3'} gutterBottom>Painel Administrativo</Typography>
+                <ContainerButtons>
+                    <div>
+                        <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
+                    </div>
+                    <div>
+                        <Button variant={'contained'} color={'primary'} onClick={() => goToCreateTripPage(history)}>Nova Viagem</Button>
+                        <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
+                    </div>
+                </ContainerButtons>
+            </ContainerMenu>
             <Typography variant={'h5'}>Nova Viagem</Typography>
             <ContainerForm onSubmit={createTrip}>
                 <TextField

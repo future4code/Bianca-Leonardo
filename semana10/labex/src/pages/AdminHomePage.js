@@ -7,7 +7,7 @@ import useRequestData from '../hooks/useRequestData';
 import axios from 'axios'
 import styled from 'styled-components';
 import { Button, Typography } from '@material-ui/core';
-import { goToApplicationFormPage, goToBack, goToLoginPage } from '../routes/coordinator';
+import { goToCreateTripPage, goToBack, goToLoginPage } from '../routes/coordinator';
 import { useHistory } from 'react-router';
 
 const ContainerMenu = styled.div`
@@ -79,13 +79,13 @@ function AdminHomePage() {
     return (
         <div>
             <ContainerMenu>
-                <Typography variant={'h3'} gutterBottom>LabeX</Typography>
+                <Typography variant={'h3'} gutterBottom>Painel Administrativo</Typography>
                 <ContainerButtons>
                     <div>
                         <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
                     </div>
                     <div>
-                        <Button variant={'contained'} color={'primary'} onClick={() => goToApplicationFormPage(history)}>Inscrever-se</Button>
+                        <Button variant={'contained'} color={'primary'} onClick={() => goToCreateTripPage(history)}>Nova Viagem</Button>
                         <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
                     </div>
                 </ContainerButtons>
