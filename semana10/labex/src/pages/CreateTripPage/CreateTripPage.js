@@ -2,6 +2,7 @@ import { Button, FormControl, InputLabel, MenuItem, Select, TextField, Typograph
 import axios from 'axios';
 import React from 'react';
 import { useHistory } from 'react-router';
+import Header from '../../components/Header/Header';
 import HeaderAdmin from '../../components/HeaderAdmin/HeaderAdmin';
 import { BASE_URL } from '../../constants/urls';
 import useForm from '../../hooks/useForm';
@@ -45,7 +46,13 @@ function CreateTripPage() {
 
     return (
         <Container>
-            <ContainerMenu>
+            <Header
+                buttonFormName={'Nova Viagem'}
+                pageForName={() => goToCreateTripPage(history)}
+                pageName={() => goToLoginPage(history)}
+                buttonName={'Logout'}
+            />
+            {/* <ContainerMenu>
                 <Typography variant={'h3'} gutterBottom>Painel Administrativo</Typography>
                 <ContainerButtons>
                     <div>
@@ -56,7 +63,7 @@ function CreateTripPage() {
                         <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
                     </div>
                 </ContainerButtons>
-            </ContainerMenu>
+            </ContainerMenu> */}
             <Typography variant={'h5'}>Nova Viagem</Typography>
             <ContainerForm onSubmit={createTrip}>
                 <TextField

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import AdminListTrips from './AdminListTrips/AdminListTrips';
-import {BASE_URL} from '../../constants/urls'
+import { BASE_URL } from '../../constants/urls'
 import useRequestData from '../../hooks/useRequestData';
 import axios from 'axios'
 import { Button, Typography } from '@material-ui/core';
 import { goToCreateTripPage, goToBack, goToLoginPage } from '../../routes/coordinator';
 import { useHistory } from 'react-router';
 
-import {ContainerMenu, ContainerButtons} from './style'
+import { ContainerMenu, ContainerButtons } from './style'
+import Header from '../../components/Header/Header';
 
 
 
@@ -23,13 +24,13 @@ function AdminHomePage() {
 
     const getTrips = () => {
         axios.get(`${BASE_URL}/trips`)
-        .then((res) => {
-            // console.log(res.data.trips)
-            setTrips(res.data.trips)
-        })
-        .catch((err) => {
-            console.log(err.response)
-        })
+            .then((res) => {
+                // console.log(res.data.trips)
+                setTrips(res.data.trips)
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
     }
 
     const deleteTrip = (id) => {
@@ -41,12 +42,12 @@ function AdminHomePage() {
         }
 
         axios.delete(`${BASE_URL}/trips/${id}`, header)
-        .then((res) => {
-            console.log('Viagem Excluida com Sucesso!')
-            getTrips()
-        }).catch((err) => {
-            console.log(` Erro ao excluir viagem, Tente novamente! ${err.response.status}`)
-        })
+            .then((res) => {
+                console.log('Viagem Excluida com Sucesso!')
+                getTrips()
+            }).catch((err) => {
+                console.log(` Erro ao excluir viagem, Tente novamente! ${err.response.status}`)
+            })
 
     }
 
@@ -59,7 +60,13 @@ function AdminHomePage() {
 
     return (
         <div>
-            <ContainerMenu>
+            <Header
+                buttonFormName={'Nova Viagem'}
+                pageForName={() => goToCreateTripPage(history)}
+                pageName={() => goToLoginPage(history)}
+                buttonName={'Logout'}
+            />
+            {/* <ContainerMenu>
                 <Typography variant={'h3'} gutterBottom>Painel Administrativo</Typography>
                 <ContainerButtons>
                     <div>
@@ -70,7 +77,7 @@ function AdminHomePage() {
                         <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
                     </div>
                 </ContainerButtons>
-            </ContainerMenu>
+            </ContainerMenu> */}
             {listTrips}
         </div>
     );

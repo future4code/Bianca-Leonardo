@@ -4,6 +4,7 @@ import { Button, Typography, Card, CardContent, TextField, FormControl, InputLab
 import { goToApplicationFormPage, goToBack, goToLoginPage } from '../../routes/coordinator'
 
 import {ContainerMenu, ContainerButtons, ContainerForm, Container} from './style'
+import Header from '../../components/Header/Header';
 
 
 function ApplicationFormPage() {
@@ -12,8 +13,14 @@ function ApplicationFormPage() {
 
     return (
         <div>
-            <ContainerMenu>
-                <Typography variant={'h3'} gutterBottom>LabeX</Typography>
+            <Header 
+                buttonFormName={'Inscreva-se'}
+                pageForName={() => goToApplicationFormPage(history)}
+                pageName={() => goToLoginPage(history)}
+                buttonName={'Login'}
+            />
+            {/* <ContainerMenu>
+                <Typography variant={'h3'} gutterBottom>aaa</Typography>
                 <ContainerButtons>
                     <div>
                         <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
@@ -23,7 +30,7 @@ function ApplicationFormPage() {
                         <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
                     </div>
                 </ContainerButtons>
-            </ContainerMenu>
+            </ContainerMenu> */}
             <Container>
                 <Typography variant={'h5'}>Inscreva-se</Typography>
                 <ContainerForm onSubmit={''}>

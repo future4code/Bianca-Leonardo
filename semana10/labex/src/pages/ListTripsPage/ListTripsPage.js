@@ -7,6 +7,7 @@ import { BASE_URL } from '../../constants/urls';
 import { goToApplicationFormPage, goToBack, goToLoginPage } from '../../routes/coordinator';
 
 import {ContainerMenu, ContainerButtons} from './style'
+import Header from '../../components/Header/Header';
 
 
 
@@ -37,7 +38,13 @@ function ListTripsPage() {
     })
     return (
         <div>
-            <ContainerMenu>
+            <Header
+                buttonFormName={'Inscrever-se'}
+                pageForName={() => goToApplicationFormPage(history)}
+                pageName={() => goToLoginPage(history)}
+                buttonName={'Login'}
+            />
+            {/* <ContainerMenu>
                 <Typography variant={'h3'} gutterBottom>LabeX</Typography>
                 <ContainerButtons>
                     <div>
@@ -48,7 +55,7 @@ function ListTripsPage() {
                         <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
                     </div>
                 </ContainerButtons>
-            </ContainerMenu>
+            </ContainerMenu> */}
 
             {listTrips}
         </div>

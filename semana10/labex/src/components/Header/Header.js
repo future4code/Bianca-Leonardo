@@ -1,19 +1,27 @@
+import { Button, Typography } from '@material-ui/core';
 import React from 'react';
 import { useHistory } from 'react-router';
 import { goToApplicationFormPage, goToBack, goToLoginPage } from '../../routes/coordinator';
+
+import { ContainerMenu, ContainerButtons } from './style'
 
 function Header(props) {
 
     const history = useHistory()
 
     return (
-        <div>
-            {/* {console.log(props.trips.id, 'recebi agora')} */}
-            <h2>LabeX</h2>
-            <button onClick={() => goToBack(history)}>Voltar</button>
-            <button onClick={() => goToApplicationFormPage(history)}>Inscrever-se</button>
-            <button onClick={() => goToLoginPage(history)}>Login</button>
-        </div>
+        <ContainerMenu>
+            <Typography variant={'h3'} gutterBottom>LabeX</Typography>
+            <ContainerButtons>
+                <div>
+                    <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
+                </div>
+                <div>
+                    <Button variant={'contained'} color={'primary'} onClick={props.pageFormName}>{props.buttonFormName}</Button>
+                    <Button variant={'contained'} color={'primary'} onClick={props.pageName}>{props.buttonName}</Button>
+                </div>
+            </ContainerButtons>
+        </ContainerMenu>
     );
 }
 

@@ -10,6 +10,7 @@ import useProtectedPage from '../../hooks/useProtectedPage';
 import { goToCreateTripPage, goToBack, goToLoginPage } from '../../routes/coordinator';
 
 import {ContainerMenu, ContainerButtons, ContainerCandidates} from './style'
+import Header from '../../components/Header/Header';
 
 function TripDetailPage(props) {
     const history = useHistory()
@@ -77,7 +78,13 @@ function TripDetailPage(props) {
 
     return (
         <div>
-            <ContainerMenu>
+            <Header
+                buttonFormName={'Nova Viagem'}
+                pageForName={() => goToCreateTripPage(history)}
+                pageName={() => goToLoginPage(history)}
+                buttonName={'Logout'}
+            />
+            {/* <ContainerMenu>
                 <Typography variant={'h3'} gutterBottom>Painel Administrativo</Typography>
                 <ContainerButtons>
                     <div>
@@ -88,7 +95,7 @@ function TripDetailPage(props) {
                         <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
                     </div>
                 </ContainerButtons>
-            </ContainerMenu>
+            </ContainerMenu> */}
             {detailTrip && detailTrip.id ? <div>
                 <DetailTrip
                     name={detailTrip.name}
