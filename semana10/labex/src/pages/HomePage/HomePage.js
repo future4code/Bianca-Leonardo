@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-import { goToListTripsPage, goToLoginPage } from '../../routes/coordinator';
+import { goToListTripsPage, goToLoginPage, goToAdminHomePage } from '../../routes/coordinator';
 import { Button, Typography } from '@material-ui/core';
 
 import {Container, ContainerButtons} from './style'
@@ -17,7 +17,7 @@ function HomePage() {
             </div>
             <ContainerButtons>
                 <div>
-                    <Button variant={'contained'} color={'primary'} onClick={() => goToLoginPage(history)}>Login</Button>
+                    <Button variant={'contained'} color={'primary'} onClick={() => localStorage.getItem('toke')? goToLoginPage(history) : goToAdminHomePage(history)}>Login</Button>
                 </div>
                 <div>
                     <Button variant={'contained'} color={'primary'} onClick={() => goToListTripsPage(history)}>Ver Viagens</Button>

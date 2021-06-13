@@ -9,11 +9,12 @@ import { useHistory } from 'react-router';
 
 import { ContainerMenu, ContainerButtons } from './style'
 import Header from '../../components/Header/Header';
+import useProtectedPage from '../../hooks/useProtectedPage';
 
 
 
 function AdminHomePage() {
-    // useProtectedPage()
+    useProtectedPage()
     const history = useHistory()
 
     const [trips, setTrips] = useState([])

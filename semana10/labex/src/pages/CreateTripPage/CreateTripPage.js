@@ -13,7 +13,7 @@ import {Container, ContainerForm, ContainerMenu, ContainerButtons} from './style
 
 
 function CreateTripPage() {
-    // useProtectedPage()
+    useProtectedPage()
     const history = useHistory()
 
     const { form, onChange, cleanFields } = useForm({

@@ -6,6 +6,11 @@ export const ContainerMenu = styled.div`
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
 `
 
 export const ContainerButtons = styled.div`

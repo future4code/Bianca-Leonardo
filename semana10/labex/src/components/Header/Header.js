@@ -1,6 +1,7 @@
 import { Button, Typography } from '@material-ui/core';
 import React from 'react';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import { goToApplicationFormPage, goToBack, goToLoginPage } from '../../routes/coordinator';
 
 import { ContainerMenu, ContainerButtons } from './style'
@@ -11,7 +12,9 @@ function Header(props) {
 
     return (
         <ContainerMenu>
-            <Typography variant={'h3'} gutterBottom>LabeX</Typography>
+            <Link to='/'>
+                <Typography variant={'h3'} gutterBottom>LabeX</Typography>
+            </Link>
             <ContainerButtons>
                 <div>
                     <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
