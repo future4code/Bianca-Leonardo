@@ -2,7 +2,7 @@ import { Button, Typography } from '@material-ui/core';
 import React from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-import { goToApplicationFormPage, goToBack, goToLoginPage } from '../../routes/coordinator';
+import { goToCreateTripPage, goToApplicationFormPage, goToBack, goToLoginPage } from '../../routes/coordinator';
 
 import { ContainerMenu, ContainerButtons } from './style'
 

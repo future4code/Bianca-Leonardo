@@ -63,7 +63,7 @@ function AdminHomePage() {
         <div>
             <Header
                 buttonFormName={'Nova Viagem'}
-                pageForName={() => goToCreateTripPage(history)}
+                pageFormName={() => goToCreateTripPage(history)}
                 pageName={() => goToLoginPage(history)}
                 buttonName={'Logout'}
             />

@@ -15,9 +15,10 @@ function ApplicationFormPage() {
         <div>
             <Header 
                 buttonFormName={'Inscreva-se'}
-                pageForName={() => goToApplicationFormPage(history)}
-                pageName={() => goToLoginPage(history)}
+                pageFormName={() => goToApplicationFormPage(history)}
                 buttonName={'Login'}
+                pageName={() => goToLoginPage(history)}
+                
             />
             {/* <ContainerMenu>
                 <Typography variant={'h3'} gutterBottom>aaa</Typography>

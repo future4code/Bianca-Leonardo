@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import ListTrips from './ListTrips/ListTrips';
 import { BASE_URL } from '../../constants/urls';
-import { goToApplicationFormPage, goToBack, goToLoginPage } from '../../routes/coordinator';
+import { goToApplicationFormPage, goToLoginPage } from '../../routes/coordinator';
 
 import {ContainerMenu, ContainerButtons} from './style'
 import Header from '../../components/Header/Header';
@@ -39,8 +39,8 @@ function ListTripsPage() {
     return (
         <div>
             <Header
-                buttonFormName={'Inscrever-se'}
-                pageForName={() => goToApplicationFormPage(history)}
+                buttonFormName={'Inscreva-se'}
+                pageFormName={() => goToApplicationFormPage(history)}
                 pageName={() => goToLoginPage(history)}
                 buttonName={'Login'}
             />
