@@ -3,7 +3,6 @@ import axios from 'axios';
 import React from 'react';
 import { useHistory } from 'react-router';
 import Header from '../../components/Header/Header';
-import HeaderAdmin from '../../components/HeaderAdmin/HeaderAdmin';
 import { BASE_URL } from '../../constants/urls';
 import useForm from '../../hooks/useForm';
 import useProtectedPage from '../../hooks/useProtectedPage';
