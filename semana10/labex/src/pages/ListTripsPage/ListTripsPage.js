@@ -1,4 +1,3 @@
-import { Button, Typography } from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
@@ -6,7 +5,7 @@ import ListTrips from './ListTrips/ListTrips';
 import { BASE_URL } from '../../constants/urls';
 import { goToApplicationFormPage, goToLoginPage } from '../../routes/coordinator';
 
-import {ContainerMenu, ContainerButtons} from './style'
+import {Container} from './style'
 import Header from '../../components/Header/Header';
 import swal from 'sweetalert';
 
@@ -40,7 +39,7 @@ function ListTripsPage() {
         />
     })
     return (
-        <div>
+        <Container>
             <Header
                 buttonFormName={'Inscreva-se'}
                 pageFormName={() => goToApplicationFormPage(history)}
@@ -49,7 +48,7 @@ function ListTripsPage() {
             />
 
             {listTrips}
-        </div>
+        </Container>
     );
 }
 

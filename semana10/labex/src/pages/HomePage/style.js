@@ -8,8 +8,6 @@ export const Container = styled.div`
     height: 400px;
     width: 400px;
     text-align: center;
-    background-color: white;
-    border: 1px lightgray solid;
     border-radius: 10px;
 `
 

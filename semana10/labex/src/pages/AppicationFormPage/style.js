@@ -1,22 +1,23 @@
 import styled from "styled-components";
 
-export const ContainerMenu = styled.div`
+export const ContainerApplication = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
 `
 
-export const ContainerButtons = styled.div`
+export const Container = styled.div`
+    width: 50%;
     display: flex;
-    flex-direction: row;
-    gap: 500px;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
 
-    div{
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
+    @media(max-width: 700px){
+        width: 100%;
     }
 `
 
@@ -25,12 +26,9 @@ export const ContainerForm = styled.form`
     flex-direction: column;
     gap: 12px;
     margin-bottom: 16px;
-    width: 500px;
+
+    @media(max-width: 700px){
+        width: 90%;
+    }
 `
 
-export const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-`

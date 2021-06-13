@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { Button, Typography, Card, CardContent, TextField, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import { Button, Typography, TextField, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { goToApplicationFormPage, goToBack, goToLoginPage } from '../../routes/coordinator'
 
-import { ContainerMenu, ContainerButtons, ContainerForm, Container } from './style'
+import {ContainerForm, Container, ContainerApplication } from './style'
 import Header from '../../components/Header/Header';
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls';
@@ -56,12 +56,11 @@ function ApplicationFormPage() {
 
         axios.post(`${BASE_URL}/trips/${form.trip.id}/apply`, body)
             .then((res) => {
-                console.log(res)
                 swal({
                     title: "",
                     text: "Perfil aplicado a viagem!",
                     icon: "success",
-                  });
+                });
                 cleanFields()
             })
             .catch((err) => {
@@ -69,7 +68,7 @@ function ApplicationFormPage() {
                     title: "Erro!",
                     text: "Problema ao aplicar para viagem, tente novamente!",
                     icon: "error",
-                  });
+                });
             })
     }
 
@@ -79,7 +78,7 @@ function ApplicationFormPage() {
 
 
     return (
-        <div>
+        <ContainerApplication>
             <Header
                 buttonFormName={'Inscreva-se'}
                 pageFormName={() => goToApplicationFormPage(history)}
@@ -98,6 +97,7 @@ function ApplicationFormPage() {
                             name={'trip'}
                             onChange={onChange}
                             value={form.trip}
+                            required
                         >
                             {listTripsName}
                         </Select>
@@ -108,19 +108,28 @@ function ApplicationFormPage() {
                         onChange={onChange}
                         value={form.name}
                         type={'text'}
+                        inputProps={{ pattern: '^.{3,}' }}
+                        required
                     />
                     <TextField
                         label={'Idade'}
                         name={'age'}
                         onChange={onChange}
                         value={form.age}
-                        type={'number'} />
+                        type={'number'}
+                        min={18}
+                        required
+                    />
+
                     <TextField
                         label={'Descrição'}
                         name={'applicationText'}
                         onChange={onChange}
                         value={form.applicationText}
                         type={'text'}
+                        inputProps={{ pattern: '^.{30,}' }}
+                        helperText="Mínimo de 30 characteres"
+                        required
                     />
                     <TextField
                         label={'Profissão'}
@@ -128,6 +137,9 @@ function ApplicationFormPage() {
                         onChange={onChange}
                         value={form.profession}
                         type={'text'}
+                        inputProps={{ pattern: '^.{10,}' }}
+                        helperText="Mínimo de 10 characteres"
+                        required
                     />
                     <FormControl>
                         <InputLabel id="country">País</InputLabel>
@@ -148,7 +160,7 @@ function ApplicationFormPage() {
                 </ContainerForm>
                 <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
             </Container>
-        </div>
+        </ContainerApplication>
     );
 }
 

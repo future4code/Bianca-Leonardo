@@ -25,3 +25,7 @@ export const goToDetailPage = (history, id) => {
 export const goToApplicationFormPage = (history) => {
     history.push('/trips/application')
 }
+
+export const goToHomePage = (history) => {
+    history.push('/')
+}

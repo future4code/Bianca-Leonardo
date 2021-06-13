@@ -8,6 +8,7 @@ import { useHistory } from 'react-router';
 import Header from '../../components/Header/Header';
 import useProtectedPage from '../../hooks/useProtectedPage';
 import swal from 'sweetalert';
+import {Container} from './style'
 
 
 
@@ -24,7 +25,6 @@ function AdminHomePage() {
     const getTrips = () => {
         axios.get(`${BASE_URL}/trips`)
             .then((res) => {
-                // console.log(res.data.trips)
                 setTrips(res.data.trips)
             })
             .catch((err) => {
@@ -73,7 +73,7 @@ function AdminHomePage() {
     })
 
     return (
-        <div>
+        <Container>
             <Header
                 buttonFormName={'Nova Viagem'}
                 pageFormName={() => goToCreateTripPage(history)}
@@ -81,7 +81,7 @@ function AdminHomePage() {
                 buttonName={'Logout'}
             />
             {listTrips}
-        </div>
+        </Container>
     );
 }
 

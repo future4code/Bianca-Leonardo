@@ -7,7 +7,7 @@ import Header from '../../components/Header/Header';
 import { BASE_URL } from '../../constants/urls';
 import useForm from '../../hooks/useForm';
 import useProtectedPage from '../../hooks/useProtectedPage';
-import { goToCreateTripPage, goToBack, goToLoginPage } from '../../routes/coordinator';
+import { goToCreateTripPage, goToLoginPage } from '../../routes/coordinator';
 
 import {Container, ContainerForm, ContainerMenu, ContainerButtons} from './style'
 
@@ -106,7 +106,7 @@ function CreateTripPage() {
                 />
                 <TextField
                     name={'description'}
-                    label={'Descrição'}
+                    label={'Descrição da Viagem'}
                     value={form.description}
                     onChange={onChange}
                     inputProps={{pattern: '^.{30,}'}}
@@ -115,7 +115,7 @@ function CreateTripPage() {
                 />
                 <TextField
                     name={'durationInDays'}
-                    label={'Dias'}
+                    label={'Duração em dias'}
                     value={form.durationInDays}
                     onChange={onChange}
                     type={'number'}

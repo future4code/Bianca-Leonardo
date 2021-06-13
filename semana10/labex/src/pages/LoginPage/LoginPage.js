@@ -5,7 +5,7 @@ import { useHistory } from 'react-router';
 import swal from 'sweetalert';
 import { BASE_URL } from '../../constants/urls';
 import useForm from '../../hooks/useForm';
-import { goToAdminHomePage, goToBack } from '../../routes/coordinator';
+import { goToAdminHomePage, goToHomePage } from '../../routes/coordinator';
 
 import {Container, FormContainer} from './style'
 
@@ -52,7 +52,7 @@ function LoginPage() {
                 />
                 <Button variant={'contained'} color={'primary'} type={'submit'}>Entrar</Button>
             </FormContainer>
-            <Button variant={'contained'} color={'default'} onClick={() => goToBack(history)}>Voltar</Button>
+            <Button variant={'contained'} color={'default'} onClick={() => goToHomePage(history)}>Voltar</Button>
         </Container>
     );
 }

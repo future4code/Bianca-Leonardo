@@ -1,4 +1,4 @@
-import { Button, Typography } from '@material-ui/core';
+import {Typography } from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
@@ -7,11 +7,14 @@ import Candidates from './Candidates/Candidates';
 import DetailTrip from './DetailTrip/DetailTrip';
 import { BASE_URL } from '../../constants/urls';
 import useProtectedPage from '../../hooks/useProtectedPage';
-import { goToCreateTripPage, goToBack, goToLoginPage } from '../../routes/coordinator';
+import { goToCreateTripPage, goToLoginPage } from '../../routes/coordinator';
 
-import { ContainerMenu, ContainerButtons, ContainerCandidates } from './style'
+import { Container, ContainerCandidates } from './style'
 import Header from '../../components/Header/Header';
 import swal from 'sweetalert';
+
+import { faSpinner} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function TripDetailPage(props) {
     const history = useHistory()
@@ -95,7 +98,7 @@ function TripDetailPage(props) {
 
 
     return (
-        <div>
+        <Container>
             <Header
                 buttonFormName={'Nova Viagem'}
                 pageFormName={() => goToCreateTripPage(history)}
@@ -122,9 +125,9 @@ function TripDetailPage(props) {
 
                     </div>
                 </ContainerCandidates>
-            </div> : <p>Carregando...</p>}
+            </div> : <Container><FontAwesomeIcon icon={faSpinner} size='2x' spin color='lightGray'/></Container>}
 
-        </div>
+        </Container>
     );
 }
 
