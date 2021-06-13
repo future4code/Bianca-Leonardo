@@ -5,7 +5,6 @@ import Router from './routes/Router'
 
 const Container = styled.div`
   /* height: 95vh; */
-  border: 1px red solid;
   display: flex;
   flex-direction: column;
   align-items: center;

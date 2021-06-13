@@ -69,7 +69,7 @@ function CreateTripPage() {
                     name={'name'}
                     value={form.name}
                     onChange={onChange}
-                    label={'Nome'}
+                    label={'Nome da Viagem'}
                     pattern='^.{5,}'
                     title='Mínimo de 5 Characteres'
                     required
@@ -82,6 +82,7 @@ function CreateTripPage() {
                     onChange={onChange}
                     labelId={'Planeta'}
                     id={'planet'}
+                    required
                 >
                     <MenuItem value={'mercurio'}>Mercúrio</MenuItem>
                     <MenuItem value={'terra'}>Terra</MenuItem>
@@ -111,8 +112,8 @@ function CreateTripPage() {
                     label={'Descrição'}
                     value={form.description}
                     onChange={onChange}
-                    pattern='^.{30,}'
-                    title='Mínimo de 30 Characteres'
+                    inputProps={{pattern: '^.{30,}'}}
+                    helperText="Mínimo de 30 characteres"
                     required
                 />
                 <TextField
