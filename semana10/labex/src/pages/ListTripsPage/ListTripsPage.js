@@ -3,9 +3,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
-import ListTrips from '../components/ListTrips/ListTrips';
-import { BASE_URL } from '../constants/urls';
-import { goToApplicationFormPage, goToBack, goToLoginPage } from '../routes/coordinator';
+import ListTrips from './ListTrips/ListTrips';
+import { BASE_URL } from '../../constants/urls';
+import { goToApplicationFormPage, goToBack, goToLoginPage } from '../../routes/coordinator';
 
 const ContainerMenu = styled.div`
     display: flex;

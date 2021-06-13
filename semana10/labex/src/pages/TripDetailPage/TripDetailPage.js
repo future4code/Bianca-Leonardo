@@ -2,14 +2,13 @@ import { Button, Typography } from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
-import ApprovedCandidates from '../components/ApprovedCandidates/ApprovedCandidates';
-import Candidates from '../components/Candidates/Candidates';
-import DetailTrip from '../components/DetailTrip/DetailTrip';
-import Header from '../components/HeaderAdmin/HeaderAdmin';
-import { BASE_URL } from '../constants/urls';
-import useProtectedPage from '../hooks/useProtectedPage';
+import ApprovedCandidates from './ApprovedCandidates/ApprovedCandidates';
+import Candidates from './Candidates/Candidates';
+import DetailTrip from './DetailTrip/DetailTrip';
+import { BASE_URL } from '../../constants/urls';
+import useProtectedPage from '../../hooks/useProtectedPage';
 import styled from 'styled-components';
-import { goToCreateTripPage, goToBack, goToLoginPage } from '../routes/coordinator';
+import { goToCreateTripPage, goToBack, goToLoginPage } from '../../routes/coordinator';
 
 const ContainerMenu = styled.div`
     display: flex;

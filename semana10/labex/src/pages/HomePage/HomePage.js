@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-import { goToListTripsPage, goToLoginPage } from '../routes/coordinator';
+import { goToListTripsPage, goToLoginPage } from '../../routes/coordinator';
 import styled from 'styled-components'
 import { Button, Typography } from '@material-ui/core';
 

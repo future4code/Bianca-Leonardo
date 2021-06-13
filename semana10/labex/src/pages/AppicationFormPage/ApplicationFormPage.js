@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import styled from "styled-components";
 import { Button, Typography, Card, CardContent, TextField, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import { goToApplicationFormPage, goToBack, goToLoginPage } from '../routes/coordinator'
+import { goToApplicationFormPage, goToBack, goToLoginPage } from '../../routes/coordinator'
 
 const ContainerMenu = styled.div`
     display: flex;

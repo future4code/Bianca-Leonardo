@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import AdminListTrips from '../components/AdminListTrips/AdminListTrips';
-import Header from '../components/HeaderAdmin/HeaderAdmin'
-import useProtectedPage from '../hooks/useProtectedPage';
-import {BASE_URL} from '../constants/urls'
-import useRequestData from '../hooks/useRequestData';
+import AdminListTrips from './AdminListTrips/AdminListTrips';
+import {BASE_URL} from '../../constants/urls'
+import useRequestData from '../../hooks/useRequestData';
 import axios from 'axios'
 import styled from 'styled-components';
 import { Button, Typography } from '@material-ui/core';
-import { goToCreateTripPage, goToBack, goToLoginPage } from '../routes/coordinator';
+import { goToCreateTripPage, goToBack, goToLoginPage } from '../../routes/coordinator';
 import { useHistory } from 'react-router';
 
 const ContainerMenu = styled.div`

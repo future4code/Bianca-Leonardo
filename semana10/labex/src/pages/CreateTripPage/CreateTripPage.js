@@ -3,11 +3,11 @@ import axios from 'axios';
 import React from 'react';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
-import HeaderAdmin from '../components/HeaderAdmin/HeaderAdmin';
-import { BASE_URL } from '../constants/urls';
-import useForm from '../hooks/useForm';
-import useProtectedPage from '../hooks/useProtectedPage';
-import { goToCreateTripPage, goToBack, goToLoginPage } from '../routes/coordinator';
+import HeaderAdmin from '../../components/HeaderAdmin/HeaderAdmin';
+import { BASE_URL } from '../../constants/urls';
+import useForm from '../../hooks/useForm';
+import useProtectedPage from '../../hooks/useProtectedPage';
+import { goToCreateTripPage, goToBack, goToLoginPage } from '../../routes/coordinator';
 
 const Container = styled.div`
     display: flex;

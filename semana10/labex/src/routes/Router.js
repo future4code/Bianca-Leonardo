@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import HomePage from "../pages/HomePage";
-import ListTripsPage from '../pages/ListTripsPage'
-import ApplicationFormPage from '../pages/ApplicationFormPage'
-import LoginPage from "../pages/LoginPage";
-import AdminHomePage from "../pages/AdminHomePage";
-import CreateTripPage from "../pages/CreateTripPage";
-import TripDetailPage from "../pages/TripDetailPage";
-import ErrorPage from "../pages/ErrorPage";
+import HomePage from "../pages/HomePage/HomePage";
+import ListTripsPage from '../pages/ListTripsPage/ListTripsPage'
+import ApplicationFormPage from '../pages/AppicationFormPage/ApplicationFormPage'
+import LoginPage from "../pages/LoginPage/LoginPage";
+import AdminHomePage from "../pages/AdminHomePage/AdminHomePage";
+import CreateTripPage from "../pages/CreateTripPage/CreateTripPage";
+import TripDetailPage from "../pages/TripDetailPage/TripDetailPage";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 function Router(props) {
     return (

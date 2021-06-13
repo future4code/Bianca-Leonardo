@@ -3,9 +3,9 @@ import axios from 'axios';
 import React from 'react';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
-import { BASE_URL } from '../constants/urls';
-import useForm from '../hooks/useForm';
-import { goToAdminHomePage, goToBack } from '../routes/coordinator';
+import { BASE_URL } from '../../constants/urls';
+import useForm from '../../hooks/useForm';
+import { goToAdminHomePage, goToBack } from '../../routes/coordinator';
 
 
 const Container = styled.div`
