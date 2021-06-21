@@ -26,6 +26,7 @@ export const ContainerForm = styled.form`
     flex-direction: column;
     gap: 12px;
     margin-bottom: 16px;
+    width: 100%;
 
     @media(max-width: 700px){
         width: 90%;
