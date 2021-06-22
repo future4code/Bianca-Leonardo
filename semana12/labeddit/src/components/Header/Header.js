@@ -6,9 +6,11 @@ const Header = () => {
     return (
         <AppBar position="static">
             <ContainerToobar>
-                <Typography variant="h4">
-                    LabEddit
-                </Typography>
+                <Button variant="h4" color="inherit">
+                    <Typography variant="h4">
+                        LabEddit
+                    </Typography>
+                </Button>
                 <Button color="inherit">Login</Button>
             </ContainerToobar>
         </AppBar>
