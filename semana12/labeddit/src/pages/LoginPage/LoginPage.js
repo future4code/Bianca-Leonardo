@@ -15,8 +15,8 @@ const LoginPage = () => {
 
     return (
         <ContainerLogin>
-            <Typography variant={'h3'}>
-                LoginPage
+            <Typography variant={'h4'}>
+                Login
             </Typography>
             <FormContainer>
                 <TextField

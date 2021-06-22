@@ -13,8 +13,8 @@ const SignUpPage = () => {
 
     return (
         <ContainerSignUp>
-            <Typography variant={'h3'}>
-                Criar Cadatro
+            <Typography variant={'h4'}>
+                Cadastre-se
             </Typography>
             <FormContainer>
                 <TextField

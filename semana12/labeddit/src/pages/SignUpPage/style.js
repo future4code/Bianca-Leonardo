@@ -12,4 +12,8 @@ export const FormContainer = styled.form`
     flex-direction: column;
     width: 30vw;
     margin-bottom: 10px;
+
+    @media(max-width: 700px){
+        width: 100%;
+    }
 `

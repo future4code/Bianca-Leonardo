@@ -13,4 +13,8 @@ export const FormContainer = styled.form`
     width: 30vw;
     gap: 15px;
     margin-bottom: 10px;
+
+    @media(max-width: 700px){
+        width: 100%;
+    }
 `
