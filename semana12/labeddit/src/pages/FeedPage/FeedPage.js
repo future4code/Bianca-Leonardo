@@ -1,12 +1,18 @@
 import React from 'react';
 import CardPost from '../../components/CardPost/CardPost';
+import { ContainerFeed } from './style';
 
 const FeedPage = () => {
     return (
-        <div>
+        <ContainerFeed>
             FeedPage
             <CardPost />
-        </div>
+            <CardPost />
+            <CardPost />
+            <CardPost />
+            <CardPost />
+            <CardPost />
+        </ContainerFeed>
     );
 };
 
