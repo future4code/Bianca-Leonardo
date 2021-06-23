@@ -1,15 +1,17 @@
-import { Button, TextField, Typography } from '@material-ui/core';
+import { Button, CircularProgress, TextField, Typography } from '@material-ui/core';
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { BASE_URL } from '../../constants/urls';
 import useForm from '../../hooks/useForm';
 import { goToFeed, goToLogin } from '../../routes/coordinator';
 import { createLogin } from '../../services/users';
 import { ContainerSignUp, FormContainer } from './style';
+import Loading from '../../components/Loading/Loading'
 
 const SignUpPage = () => {
     const history = useHistory()
+    const [loading, setLoading] = useState(false)
     const [form, onChange, clear] = useForm({
         username: '',
         email: '',
@@ -18,7 +20,7 @@ const SignUpPage = () => {
 
     const onSubmitSignUp = (e) => {
         e.preventDefault()
-        createLogin(form, history)
+        createLogin(form, history, setLoading)
     }
 
 
@@ -55,7 +57,8 @@ const SignUpPage = () => {
                     margin={'normal'}
                     required
                 />
-                <Button type={'submit'} variant={'contained'} color={'primary'}>Fazer Cadastro</Button>
+                <Button type={'submit'} variant={'contained'} color={'primary'}>{loading ? <CircularProgress color={'inherit'} size={24} /> : 'Fazer Cadastro'}</Button>
+
             </FormContainer>
             <Button onClick={() => goToLogin(history)}>Já tem cadastro? Faça o Login</Button>
         </ContainerSignUp>
