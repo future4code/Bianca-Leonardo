@@ -3,7 +3,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbDownAltIcon from '@material-ui/icons/ThumbDownAlt';
 import React from 'react';
-import { CardContainer, ContainerButtons } from './style';
+import { CardContainer, ContainerButtons, ContainetText } from './style';
 import { goToPostDetail } from '../../routes/coordinator';
 import { useHistory } from 'react-router';
 
@@ -15,9 +15,9 @@ const CardPost = (props) => {
         <CardContainer onClick={() => goToPostDetail(history, id)}>
             <CardActionArea>
                 <CardContent>
-                    <Typography variant="h6" color="textPrimary" component="h6">
+                    <ContainetText variant="h6" color="textPrimary" component="h6">
                         {username}
-                    </Typography>
+                    </ContainetText>
                     <Typography variant="body1" color="textPrimary" component="p">
                         {title}
                     </Typography>

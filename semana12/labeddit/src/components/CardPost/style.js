@@ -1,4 +1,4 @@
-import { Card, CardActions } from "@material-ui/core";
+import { Card, CardActions, Typography } from "@material-ui/core";
 import styled from "styled-components";
 
 export const CardContainer = styled(Card)`
@@ -13,4 +13,8 @@ export const CardContainer = styled(Card)`
 export const ContainerButtons = styled(CardActions)`
     display: flex;
     justify-content: space-between;
+`
+
+export const ContainetText = styled(Typography)`
+    text-transform: capitalize;
 `

@@ -1,4 +1,4 @@
-import { IconButton } from '@material-ui/core';
+import { IconButton, Typography } from '@material-ui/core';
 import React from 'react';
 import { CardContainer, ContainerButtons, ContainerContant, ContainerText } from './style';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
@@ -14,10 +14,10 @@ const CardComments = (props) => {
                         variant="body2" color="textPrimary" component="span">
                         {username}:
                     </ContainerText>
-                    <ContainerText
+                    <Typography
                         variant="body2" color="textSecondary" component="span">
                         {body}
-                    </ContainerText>
+                    </Typography>
                 </ContainerContant>
                 <ContainerButtons disableSpacing>
                     <IconButton aria-label="add to favorites">

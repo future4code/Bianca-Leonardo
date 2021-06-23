@@ -20,4 +20,5 @@ export const ContainerContant = styled(CardContent)`
 
 export const ContainerText = styled(Typography)`
     margin-right: 5px;
+    text-transform: capitalize;
 `

@@ -24,7 +24,7 @@ const AddComment = (props) => {
             <FormContainer onSubmit={onSubmitComment}>
                 <ContainerContent>
                     <ContainerText
-                        label="No que você está pensando?"
+                        label="Adicionar um comentário"
                         multiline
                         rows={4}
                         variant="outlined"
