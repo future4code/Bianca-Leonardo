@@ -1,8 +1,11 @@
 import { Button, TextField, Typography } from '@material-ui/core';
+import axios from 'axios';
 import React from 'react';
 import { useHistory } from 'react-router';
+import { BASE_URL } from '../../constants/urls';
 import useForm from '../../hooks/useForm';
-import { goToLogin } from '../../routes/coordinator';
+import { goToFeed, goToLogin } from '../../routes/coordinator';
+import { createLogin } from '../../services/users';
 import { ContainerSignUp, FormContainer } from './style';
 
 const SignUpPage = () => {
@@ -13,13 +16,18 @@ const SignUpPage = () => {
         password: ''
     })
 
+    const onSubmitSignUp = (e) => {
+        e.preventDefault()
+        createLogin(form, history)
+    }
+
 
     return (
         <ContainerSignUp>
             <Typography variant={'h4'}>
                 Cadastre-se
             </Typography>
-            <FormContainer>
+            <FormContainer onSubmit={onSubmitSignUp}>
                 <TextField
                     type={'text'}
                     label={"Nome"}
@@ -47,7 +55,7 @@ const SignUpPage = () => {
                     margin={'normal'}
                     required
                 />
-                <Button variant={'contained'} color={'primary'}>Fazer Cadastro</Button>
+                <Button type={'submit'} variant={'contained'} color={'primary'}>Fazer Cadastro</Button>
             </FormContainer>
             <Button onClick={() => goToLogin(history)}>Já tem cadastro? Faça o Login</Button>
         </ContainerSignUp>
