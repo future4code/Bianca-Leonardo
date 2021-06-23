@@ -5,7 +5,7 @@ import SendIcon from '@material-ui/icons/Send';
 
 const AddPost = () => {
     return (
-        <CardContainer>
+        <CardContainer >
             <ContainerContent>
                 <ContainerText
                     label="Título do Post"

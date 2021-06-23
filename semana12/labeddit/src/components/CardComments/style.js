@@ -17,3 +17,7 @@ export const ContainerButtons = styled(CardActions)`
 export const ContainerContant = styled(CardContent)`
     padding-bottom: 2px;
 `
+
+export const ContainerText = styled(Typography)`
+    margin-right: 5px;
+`

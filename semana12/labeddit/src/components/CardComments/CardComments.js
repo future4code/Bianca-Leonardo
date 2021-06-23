@@ -1,67 +1,30 @@
 import { CardContent, CardHeader, IconButton, Typography } from '@material-ui/core';
 import React from 'react';
-import { CardContainer, ContainerButtons, ContainerContant } from './style';
+import { CardContainer, ContainerButtons, ContainerContant, ContainerText } from './style';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbDownAltIcon from '@material-ui/icons/ThumbDownAlt';
 
-const CardComments = () => {
+const CardComments = (props) => {
+    const {username, body, voteSum} = props.comment
+
     return (
         <CardContainer>
             <div>
                 <ContainerContant>
-                    <Typography
+                    <ContainerText
                         variant="body2" color="textPrimary" component="span">
-                        BiancaLeonardo:
-                    </Typography>
-                    <Typography
+                        {username}:
+                    </ContainerText>
+                    <ContainerText
                         variant="body2" color="textSecondary" component="span">
-                        Ahhhh. adorei! Super apoio
-                    </Typography>
+                        {body}
+                    </ContainerText>
                 </ContainerContant>
                 <ContainerButtons disableSpacing>
                     <IconButton aria-label="add to favorites">
                         <ThumbUpAltIcon />
                     </IconButton>
-                    <IconButton aria-label="share">
-                        <ThumbDownAltIcon />
-                    </IconButton>
-                </ContainerButtons>
-            </div>
-            <div>
-                <ContainerContant>
-                    <Typography
-                        variant="body2" color="textPrimary" component="span">
-                        BiancaLeonardo:
-                    </Typography>
-                    <Typography
-                        variant="body2" color="textSecondary" component="span">
-                        Ahhhh. adorei! Super apoio
-                    </Typography>
-                </ContainerContant>
-                <ContainerButtons disableSpacing>
-                    <IconButton aria-label="add to favorites">
-                        <ThumbUpAltIcon />
-                    </IconButton>
-                    <IconButton aria-label="share">
-                        <ThumbDownAltIcon />
-                    </IconButton>
-                </ContainerButtons>
-            </div>
-            <div>
-                <ContainerContant>
-                    <Typography
-                        variant="body2" color="textPrimary" component="span">
-                        BiancaLeonardo:
-                    </Typography>
-                    <Typography
-                        variant="body2" color="textSecondary" component="span">
-                        Ahhhh. adorei! Super apoio
-                    </Typography>
-                </ContainerContant>
-                <ContainerButtons disableSpacing>
-                    <IconButton aria-label="add to favorites">
-                        <ThumbUpAltIcon />
-                    </IconButton>
+                    <span>{voteSum}</span>
                     <IconButton aria-label="share">
                         <ThumbDownAltIcon />
                     </IconButton>

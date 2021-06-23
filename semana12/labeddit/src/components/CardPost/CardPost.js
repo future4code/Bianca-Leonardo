@@ -9,10 +9,10 @@ import { useHistory } from 'react-router';
 
 const CardPost = (props) => {
     const history = useHistory()
-    const { username, title, body, userVote, voteSum, commentCount } = props.post
+    const { username, title, body, userVote, voteSum, commentCount, id } = props.post
 
     return (
-        <CardContainer onClick={() => goToPostDetail(history)}>
+        <CardContainer onClick={() => goToPostDetail(history, id, username)}>
             <CardActionArea>
                 <CardContent>
                     <Typography variant="h6" color="textPrimary" component="h6">
