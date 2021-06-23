@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 import useForm from '../../hooks/useForm';
 import { goToSignUp } from '../../routes/coordinator';
 import { ContainerLogin, FormContainer } from './style';
+import {toDoLogin} from '../../services/users'
 
 const LoginPage = () => {
     const history = useHistory()
@@ -12,13 +13,18 @@ const LoginPage = () => {
         password: ''
     })
 
+    const onSubmitLogin = (e) => {
+        e.preventDefault()
+        toDoLogin(form, history)
+    }
+
 
     return (
         <ContainerLogin>
             <Typography variant={'h4'}>
                 Login
             </Typography>
-            <FormContainer>
+            <FormContainer onSubmit={onSubmitLogin}>
                 <TextField
                     type={'email'}
                     label={"E-mail"}
@@ -36,7 +42,7 @@ const LoginPage = () => {
                     onChange={onChange}
                     required
                 />
-                <Button variant={'contained'} color={'primary'}>Fazer Login</Button>
+                <Button type={'submit'} variant={'contained'} color={'primary'}>Fazer Login</Button>
             </FormContainer>
             <Button onClick={() => goToSignUp(history)}>Ainda não é cadastrado? Cadastre-se</Button>
         </ContainerLogin>
