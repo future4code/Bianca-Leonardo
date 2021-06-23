@@ -1,9 +1,12 @@
 import { Button, TextField, Typography } from '@material-ui/core';
 import React from 'react';
+import { useHistory } from 'react-router';
 import useForm from '../../hooks/useForm';
+import { goToLogin } from '../../routes/coordinator';
 import { ContainerSignUp, FormContainer } from './style';
 
 const SignUpPage = () => {
+    const history = useHistory()
     const [form, onChange, clear] = useForm({
         username: '',
         email: '',
@@ -46,6 +49,7 @@ const SignUpPage = () => {
                 />
                 <Button variant={'contained'} color={'primary'}>Fazer Cadastro</Button>
             </FormContainer>
+            <Button onClick={() => goToLogin(history)}>Já tem cadastro? Faça o Login</Button>
         </ContainerSignUp>
     );
 };

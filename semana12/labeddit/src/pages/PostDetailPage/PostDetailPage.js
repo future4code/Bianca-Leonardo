@@ -1,14 +1,16 @@
 import React from 'react';
+import AddComment from '../../components/AddComment/AddComment';
 import CardComments from '../../components/CardComments/CardComments';
 import CardPost from '../../components/CardPost/CardPost';
+import { ContainerDetail } from './style';
 
 const PostDetailPage = () => {
     return (
-        <div>
-            PostDetailPage
+        <ContainerDetail>
             <CardPost />
+            <AddComment />
             <CardComments />
-        </div>
+        </ContainerDetail>
     );
 };
 
