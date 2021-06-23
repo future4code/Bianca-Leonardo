@@ -7,11 +7,11 @@ import useRequestData from '../../hooks/useRequestData';
 import { ContainerFeed } from './style';
 
 const FeedPage = () => {
-    const posts = useRequestData([], `${BASE_URL}/posts`)
+    const [posts, getRequest] = useRequestData([], `${BASE_URL}/posts`)
     console.log(posts)
     return (
         <ContainerFeed>
-            <AddPost />
+            <AddPost getRequest={getRequest}/>
             {posts && posts.map((post) => {
                 return <CardPost
                     key={post.id}

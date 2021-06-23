@@ -3,6 +3,16 @@ import styled from "styled-components";
 
 export const CardContainer = styled(Card)`
     width: 50vw;
+    display: flex;
+    margin: 10px 0;
+
+    @media(max-width: 700px){
+        width: 90%;
+    }
+`
+
+export const FormContainer = styled.form`
+    width: 50vw;
     margin: 10px 0;
     display: flex;
 
@@ -10,6 +20,7 @@ export const CardContainer = styled(Card)`
         width: 90%;
     }
 `
+
 export const ContainerContent = styled(CardContent)`
     width: 90%;
 `
@@ -19,7 +30,7 @@ export const ContainerButtons = styled(CardActions)`
     margin-top: 30%;
 
     @media(max-width: 700px){
-        margin-top: 65%;
+        margin-top: 72%;
     }
 
 `
@@ -32,6 +43,6 @@ export const ContainerText = styled(TextField)`
     width: 110%;
 
     @media(max-width: 700px){
-        width: 125%;
+        width: 145%;
     }
 `
