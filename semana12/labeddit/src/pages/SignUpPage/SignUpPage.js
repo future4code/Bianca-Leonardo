@@ -1,13 +1,10 @@
 import { Button, CircularProgress, TextField, Typography } from '@material-ui/core';
-import axios from 'axios';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-import { BASE_URL } from '../../constants/urls';
 import useForm from '../../hooks/useForm';
 import { goToFeed, goToLogin } from '../../routes/coordinator';
 import { createLogin } from '../../services/users';
 import { ContainerSignUp, FormContainer } from './style';
-import Loading from '../../components/Loading/Loading'
 
 const SignUpPage = () => {
     const history = useHistory()

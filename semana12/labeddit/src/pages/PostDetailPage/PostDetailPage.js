@@ -1,28 +1,27 @@
-import axios from 'axios';
 import React from 'react';
 import { useParams } from 'react-router';
 import AddComment from '../../components/AddComment/AddComment';
 import CardComments from '../../components/CardComments/CardComments';
-import CardPost from '../../components/CardPost/CardPost';
 import { BASE_URL } from '../../constants/urls';
 import useRequestData from '../../hooks/useRequestData';
 import { ContainerDetail } from './style';
 
-const PostDetailPage = (props) => {
+const PostDetailPage = () => {
     const params = useParams()
-    const comments = useRequestData([], `${BASE_URL}/posts/${params.id}/comments`)
+    const [comments, useRequest] = useRequestData([], `${BASE_URL}/posts/${params.id}/comments`)
+    
 
+    const listComments = comments.map((comment) => {
+        return <CardComments
+            key={comment.id}
+            comment={comment}
+        />
+    })
     return (
         <ContainerDetail>
             {/* <CardPost /> */}
-            <AddComment />
-            {comments && comments.map((comment) => {
-                return <CardComments
-                    key={comment.id}
-                    comment={comment}
-                />
-            })}
-
+            <AddComment useRequest={useRequest}/>
+            {listComments}
         </ContainerDetail>
     );
 };

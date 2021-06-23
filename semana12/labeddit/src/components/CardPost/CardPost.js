@@ -12,7 +12,7 @@ const CardPost = (props) => {
     const { username, title, body, userVote, voteSum, commentCount, id } = props.post
 
     return (
-        <CardContainer onClick={() => goToPostDetail(history, id, username)}>
+        <CardContainer onClick={() => goToPostDetail(history, id)}>
             <CardActionArea>
                 <CardContent>
                     <Typography variant="h6" color="textPrimary" component="h6">

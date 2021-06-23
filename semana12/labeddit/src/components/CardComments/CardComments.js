@@ -1,15 +1,14 @@
-import { CardContent, CardHeader, IconButton, Typography } from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import React from 'react';
 import { CardContainer, ContainerButtons, ContainerContant, ContainerText } from './style';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbDownAltIcon from '@material-ui/icons/ThumbDownAlt';
 
 const CardComments = (props) => {
-    const {username, body, voteSum} = props.comment
+    const { username, body, voteSum } = props.comment
 
     return (
         <CardContainer>
-            <div>
                 <ContainerContant>
                     <ContainerText
                         variant="body2" color="textPrimary" component="span">
@@ -29,7 +28,6 @@ const CardComments = (props) => {
                         <ThumbDownAltIcon />
                     </IconButton>
                 </ContainerButtons>
-            </div>
         </CardContainer>
     );
 };

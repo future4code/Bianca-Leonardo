@@ -10,6 +10,17 @@ export const CardContainer = styled(Card)`
         width: 90%;
     }
 `
+
+export const FormContainer = styled.form`
+    width: 50vw;
+    margin: 10px 0;
+    display: flex;
+
+    @media(max-width: 700px){
+        width: 90%;
+    }
+`
+
 export const ContainerContent = styled(CardContent)`
     width: 90%;
 `
