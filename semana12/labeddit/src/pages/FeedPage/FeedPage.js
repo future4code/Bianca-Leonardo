@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AddComment from '../../components/AddComment/AddComment';
+import AddPost from '../../components/AddPost/AddPost';
 import CardPost from '../../components/CardPost/CardPost';
 import { BASE_URL } from '../../constants/urls';
 import useRequestData from '../../hooks/useRequestData';
@@ -10,7 +11,7 @@ const FeedPage = () => {
     console.log(posts)
     return (
         <ContainerFeed>
-            <AddComment />
+            <AddPost />
             {posts && posts.map((post) => {
                 return <CardPost
                     key={post.id}
