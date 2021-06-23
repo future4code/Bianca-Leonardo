@@ -1,4 +1,4 @@
-import { Avatar, Card, CardActionArea, CardActions, CardContent, CardHeader, CardMedia, Collapse, IconButton, TextField, Typography } from '@material-ui/core';
+import { CardActionArea, CardContent, IconButton, Typography } from '@material-ui/core';
 import ChatIcon from '@material-ui/icons/Chat';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbDownAltIcon from '@material-ui/icons/ThumbDownAlt';

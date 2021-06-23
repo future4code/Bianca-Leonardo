@@ -5,7 +5,6 @@ import useForm from '../../hooks/useForm';
 import { goToSignUp } from '../../routes/coordinator';
 import { ContainerLogin, FormContainer } from './style';
 import {toDoLogin} from '../../services/users'
-import Loading from '../../components/Loading/Loading';
 
 const LoginPage = () => {
     const history = useHistory()

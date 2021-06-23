@@ -2,7 +2,7 @@ import { Button, CircularProgress, TextField, Typography } from '@material-ui/co
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import useForm from '../../hooks/useForm';
-import { goToFeed, goToLogin } from '../../routes/coordinator';
+import { goToLogin } from '../../routes/coordinator';
 import { createLogin } from '../../services/users';
 import { ContainerSignUp, FormContainer } from './style';
 

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import AddComment from '../../components/AddComment/AddComment';
+import React from 'react';
 import AddPost from '../../components/AddPost/AddPost';
 import CardPost from '../../components/CardPost/CardPost';
 import { BASE_URL } from '../../constants/urls';
