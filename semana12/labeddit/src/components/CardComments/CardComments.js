@@ -4,7 +4,7 @@ import { CardContainer, ContainerButtons, ContainerContant, ContainerText } from
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbDownAltIcon from '@material-ui/icons/ThumbDownAlt';
 import { BASE_URL } from '../../constants/urls';
-import {postVote} from '../../services/votes'
+import { postVote } from '../../services/votes'
 
 const CardComments = (props) => {
     const { username, body, voteSum, userVote, id } = props.comment
@@ -15,22 +15,22 @@ const CardComments = (props) => {
 
     return (
         <CardContainer>
-                <ContainerContant>
-                    <ContainerText
-                        variant="body2" color="textPrimary" component="span">
-                        {username}:
+            <ContainerContant>
+                <ContainerText
+                    variant="body2" color="textPrimary" component="span">
+                    {username}:
                     </ContainerText>
-                    <Typography
-                        variant="body2" color="textSecondary" component="span">
-                        {body}
-                    </Typography>
-                </ContainerContant>
+                <Typography
+                    variant="body2" color="textSecondary" component="span">
+                    {body}
+                </Typography>
+            </ContainerContant>
                 <ContainerButtons disableSpacing>
-                    <IconButton onClick={() => onClickVote(1) } aria-label="add to favorites">
+                    <IconButton onClick={() => onClickVote(1)} aria-label="add to favorites">
                         <ThumbUpAltIcon />
                     </IconButton>
                     <span>{voteSum}</span>
-                    <IconButton onClick={() => onClickVote(-1) } aria-label="share">
+                    <IconButton onClick={() => onClickVote(-1)} aria-label="share">
                         <ThumbDownAltIcon />
                     </IconButton>
                 </ContainerButtons>

@@ -14,7 +14,6 @@ const AddPost = (props) => {
     const onSubmitPost = (e) => {
         e.preventDefault()
         createPost(form, props.getRequest, clear)
-        console.log(form)
     }
 
     return (

@@ -43,7 +43,7 @@ const CardPost = (props) => {
                     </div>
                     <div>
                         <span>{commentCount}</span>
-                        <IconButton aria-label="share">
+                        <IconButton onClick={() => goToPostDetail(history, id)}aria-label="share">
                             <ChatIcon />
                         </IconButton>
                     </div>
