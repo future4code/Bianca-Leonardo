@@ -1,7 +1,6 @@
 import axios from "axios"
-import { BASE_URL } from "../constants/urls"
 
-export const createPostVote = (value, id, getRequest, userVote) => {
+export const postVote = (value, getRequest, userVote, path) => {
     const header = {
         headers: {
             Authorization: localStorage.getItem('token')
@@ -14,7 +13,7 @@ export const createPostVote = (value, id, getRequest, userVote) => {
 
     if (userVote == null) {
         // create vote
-        axios.post(`${BASE_URL}/posts/${id}/votes`, body, header)
+        axios.post(path, body, header)
             .then((res) => {
                 getRequest()
             })
@@ -24,7 +23,7 @@ export const createPostVote = (value, id, getRequest, userVote) => {
 
     } else if (userVote === value) {
         // remove vote
-        axios.delete(`${BASE_URL}/posts/${id}/votes`, header)
+        axios.delete(path, header)
             .then((res) => {
                 getRequest()
             })
@@ -33,7 +32,7 @@ export const createPostVote = (value, id, getRequest, userVote) => {
             })
     } else {
         // change vote
-        axios.put(`${BASE_URL}/posts/${id}/votes`, body, header)
+        axios.put(path, body, header)
             .then((res) => {
                 getRequest()
             })

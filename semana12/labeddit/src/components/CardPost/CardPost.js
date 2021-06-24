@@ -6,15 +6,15 @@ import React, { useState } from 'react';
 import { CardContainer, ContainerButtons, ContainetText } from './style';
 import { goToPostDetail } from '../../routes/coordinator';
 import { useHistory } from 'react-router';
-import {createPostVote} from '../../services/votes'
+import {postVote} from '../../services/votes'
+import { BASE_URL } from '../../constants/urls';
 
 const CardPost = (props) => {
     const history = useHistory()
     const { username, title, body, userVote, voteSum, commentCount, id } = props.post
     
     const onClickVote = (value) => {
-        createPostVote(value, id, props.getRequest, userVote)
-        // setVote(0)
+        postVote(value, props.getRequest, userVote, `${BASE_URL}/posts/${id}/votes`)
     }
 
     return (

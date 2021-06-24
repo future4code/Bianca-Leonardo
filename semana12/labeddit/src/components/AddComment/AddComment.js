@@ -14,7 +14,7 @@ const AddComment = (props) => {
 
     const onSubmitComment = (e) => {
         e.preventDefault()
-        createComment(params.id, form, props.useRequest, clear)
+        createComment(params.id, form, props.getRequest, clear)
     }
 
     

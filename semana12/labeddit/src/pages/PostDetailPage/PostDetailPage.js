@@ -8,19 +8,20 @@ import { ContainerDetail } from './style';
 
 const PostDetailPage = () => {
     const params = useParams()
-    const [comments, useRequest] = useRequestData([], `${BASE_URL}/posts/${params.id}/comments`)
+    const [comments, getRequest] = useRequestData([], `${BASE_URL}/posts/${params.id}/comments`)
     
 
     const listComments = comments.map((comment) => {
         return <CardComments
             key={comment.id}
             comment={comment}
+            getRequest={getRequest}
         />
     })
     return (
         <ContainerDetail>
             {/* <CardPost /> */}
-            <AddComment useRequest={useRequest}/>
+            <AddComment getRequest={getRequest}/>
             {listComments}
         </ContainerDetail>
     );

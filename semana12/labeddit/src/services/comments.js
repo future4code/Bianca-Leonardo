@@ -1,7 +1,7 @@
 import axios from "axios"
 import { BASE_URL } from "../constants/urls"
 
-export const createComment = (id, body, useRequest, clear) => {
+export const createComment = (id, body, getRequest, clear) => {
     const header = {
         headers: {
             Authorization: localStorage.getItem('token')
@@ -10,7 +10,7 @@ export const createComment = (id, body, useRequest, clear) => {
     axios.post(`${BASE_URL}/posts/${id}/comments`, body, header)
     .then((res) => {
         alert(res.data)
-        useRequest()
+        getRequest()
         clear()
     })
     .catch((err) => {
