@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from '../../components/Header/Header';
 
 const ErrorPage = () => {
     return (
         <div>
-            ErrorPage
+            Error
         </div>
     );
 };

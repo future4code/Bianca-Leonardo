@@ -10,7 +10,6 @@ import SignUpPage from '../pages/SignUpPage/SignUpPage';
 const Router = () => {
     return (
         <BrowserRouter>
-            <Header />
             <Switch>
                 <Route exact path={'/'}>
                     <FeedPage />

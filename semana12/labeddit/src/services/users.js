@@ -1,6 +1,6 @@
 import axios from "axios"
 import { BASE_URL } from "../constants/urls"
-import { goToFeed } from "../routes/coordinator"
+import { goToFeed, goToLogin } from "../routes/coordinator"
 
 export const createLogin = (body, history, setLoading) => {
     setLoading(true)
@@ -28,4 +28,9 @@ export const toDoLogin = (body, history, setLoading) => {
             alert(err.response.data.message)
             setLoading(false)
         })
+}
+
+export const logout = (history) => {
+    localStorage.removeItem('token')
+    goToLogin(history)
 }

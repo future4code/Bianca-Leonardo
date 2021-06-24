@@ -1,6 +1,7 @@
 import { Button, CircularProgress, TextField, Typography } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import Header from '../../components/Header/Header';
 import useForm from '../../hooks/useForm';
 import { goToLogin } from '../../routes/coordinator';
 import { createLogin } from '../../services/users';
@@ -22,43 +23,49 @@ const SignUpPage = () => {
 
 
     return (
-        <ContainerSignUp>
-            <Typography variant={'h4'}>
-                Cadastre-se
+        <div>
+            <Header
+                onclick={() => goToLogin(history)}
+                buttonName={'Login'}
+            />
+            <ContainerSignUp>
+                <Typography variant={'h4'}>
+                    Cadastre-se
             </Typography>
-            <FormContainer onSubmit={onSubmitSignUp}>
-                <TextField
-                    type={'text'}
-                    label={"Nome"}
-                    name={'username'}
-                    value={form.username}
-                    onChange={onChange}
-                    margin={'normal'}
-                    required    
-                />
-                <TextField
-                    type={'email'}
-                    label={"E-mail"}
-                    name={'email'}
-                    value={form.email}
-                    onChange={onChange}
-                    margin={'normal'}
-                    required
-                />
-                <TextField
-                    type={'password'}
-                    label={"Senha"}
-                    name={'password'}
-                    value={form.password}
-                    onChange={onChange}
-                    margin={'normal'}
-                    required
-                />
-                <Button type={'submit'} variant={'contained'} color={'primary'}>{loading ? <CircularProgress color={'inherit'} size={24} /> : 'Fazer Cadastro'}</Button>
+                <FormContainer onSubmit={onSubmitSignUp}>
+                    <TextField
+                        type={'text'}
+                        label={"Nome"}
+                        name={'username'}
+                        value={form.username}
+                        onChange={onChange}
+                        margin={'normal'}
+                        required
+                    />
+                    <TextField
+                        type={'email'}
+                        label={"E-mail"}
+                        name={'email'}
+                        value={form.email}
+                        onChange={onChange}
+                        margin={'normal'}
+                        required
+                    />
+                    <TextField
+                        type={'password'}
+                        label={"Senha"}
+                        name={'password'}
+                        value={form.password}
+                        onChange={onChange}
+                        margin={'normal'}
+                        required
+                    />
+                    <Button type={'submit'} variant={'contained'} color={'primary'}>{loading ? <CircularProgress color={'inherit'} size={24} /> : 'Fazer Cadastro'}</Button>
 
-            </FormContainer>
-            <Button onClick={() => goToLogin(history)}>Já tem cadastro? Faça o Login</Button>
-        </ContainerSignUp>
+                </FormContainer>
+                <Button onClick={() => goToLogin(history)}>Já tem cadastro? Faça o Login</Button>
+            </ContainerSignUp>
+        </div>
     );
 };
 

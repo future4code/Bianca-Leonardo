@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import { goToFeed, goToLogin } from '../../routes/coordinator';
 import { ContainerToobar } from './style';
 
-const Header = () => {
+const Header = ({ onclick, buttonName }) => {
     const history = useHistory()
 
     return (
@@ -15,7 +15,12 @@ const Header = () => {
                         LabEddit
                     </Typography>
                 </Button>
-                <Button color="inherit" onClick={() => goToLogin(history)}>Login</Button>
+                <Button
+                    color="inherit"
+                    onClick={onclick}
+                >
+                    {buttonName}
+                </Button>
             </ContainerToobar>
         </AppBar>
     );
