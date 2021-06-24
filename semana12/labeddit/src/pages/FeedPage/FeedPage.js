@@ -7,7 +7,6 @@ import { ContainerFeed } from './style';
 
 const FeedPage = () => {
     const [posts, getRequest] = useRequestData([], `${BASE_URL}/posts`)
-    console.log(posts)
     return (
         <ContainerFeed>
             <AddPost getRequest={getRequest}/>
@@ -15,6 +14,7 @@ const FeedPage = () => {
                 return <CardPost
                     key={post.id}
                     post={post}
+                    getRequest={getRequest}
                 />
             })}
         </ContainerFeed>

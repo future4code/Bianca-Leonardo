@@ -34,7 +34,7 @@ const SignUpPage = () => {
                     value={form.username}
                     onChange={onChange}
                     margin={'normal'}
-                    required
+                    required    
                 />
                 <TextField
                     type={'email'}
