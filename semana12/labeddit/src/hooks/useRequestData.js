@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 const useRequestData = (initialData, url) => {
     const [data, setData] = useState(initialData)
 
-    useEffect(() => {
-        getRequest()
-    }, [])
+    // useEffect(() => {
+    //     getRequest()
+    // }, [])
 
     const getRequest = () => {
         const header = {
@@ -20,7 +20,7 @@ const useRequestData = (initialData, url) => {
                 setData(res.data)
             })
             .catch((err) => {
-                // console.log(err.response.data)
+                console.log(err.response.data)
                 alert('Ocorreu um erro, tente novamente')
             })
     }
