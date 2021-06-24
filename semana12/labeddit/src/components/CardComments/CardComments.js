@@ -27,11 +27,11 @@ const CardComments = (props) => {
             </ContainerContant>
                 <ContainerButtons disableSpacing>
                     <IconButton onClick={() => onClickVote(1)} aria-label="add to favorites">
-                        <ThumbUpAltIcon />
+                        <ThumbUpAltIcon color={userVote === 1 ? 'primary' : ''}/>
                     </IconButton>
                     <span>{voteSum}</span>
                     <IconButton onClick={() => onClickVote(-1)} aria-label="share">
-                        <ThumbDownAltIcon />
+                        <ThumbDownAltIcon color={userVote === -1 ? 'primary' : ''}/>
                     </IconButton>
                 </ContainerButtons>
         </CardContainer>

@@ -1,4 +1,5 @@
 import axios from "axios"
+import Swal from "sweetalert2"
 import { BASE_URL } from "../constants/urls"
 
 export const createPost = (body, getRequest, clear) => {
@@ -9,11 +10,19 @@ export const createPost = (body, getRequest, clear) => {
     }
     axios.post(`${BASE_URL}/posts`, body, header)
         .then((res) => {
-            alert(res.data)
+            Swal.fire(
+                '',
+                res.data,
+                'success'
+              )
             getRequest()
             clear()
         })
         .catch((err) => {
-            alert('Erro ao criar Post, tente novamente!')
+            Swal.fire(
+                '',
+                'Erro ao criar Post, tente novamente!',
+                'error'
+              )
         })
 }

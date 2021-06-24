@@ -12,7 +12,8 @@ import { BASE_URL } from '../../constants/urls';
 const CardPost = (props) => {
     const history = useHistory()
     const { username, title, body, userVote, voteSum, commentCount, id } = props.post
-    
+    const [colorButton, setColorButtom] = useState('')
+
     const onClickVote = (value) => {
         postVote(value, props.getRequest, userVote, `${BASE_URL}/posts/${id}/votes`)
     }
@@ -34,11 +35,11 @@ const CardPost = (props) => {
                 <ContainerButtons disableSpacing>
                     <div>
                         <IconButton onClick={() => onClickVote(1)} aria-label="add to favorites">
-                            <ThumbUpAltIcon />
+                            <ThumbUpAltIcon color={userVote === 1 ? 'primary' : ''}/>
                         </IconButton>
                         <span>{voteSum}</span>
                         <IconButton onClick={() => onClickVote(-1)} aria-label="share">
-                            <ThumbDownAltIcon />
+                            <ThumbDownAltIcon color={userVote === -1 ? 'primary' : ''}/>
                         </IconButton>
                     </div>
                     <div>
