@@ -5,6 +5,7 @@ import AddComment from '../../components/AddComment/AddComment';
 import CardComments from '../../components/CardComments/CardComments';
 import CardPost from '../../components/CardPost/CardPost';
 import Header from '../../components/Header/Header';
+import Loading from '../../components/Loading/Loading';
 import { BASE_URL } from '../../constants/urls';
 import useProtectedPage from '../../hooks/useProtectedPage';
 import useRequestData from '../../hooks/useRequestData';
@@ -44,11 +45,13 @@ const PostDetailPage = () => {
                 onclick={() => logout(history)}
                 buttonName={'Logout'}
             />
+            {posts && posts[0]? 
             <ContainerDetail>
                 {selectedPost[0] && <CardPost getRequest={getPost} post={selectedPost[0]} />}
                 <AddComment getRequest={getRequest} />
                 {listComments}
-            </ContainerDetail>
+            </ContainerDetail> : <Loading />}
+            
         </div>
 
     );

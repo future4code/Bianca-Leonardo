@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import AddPost from '../../components/AddPost/AddPost';
 import CardPost from '../../components/CardPost/CardPost';
 import Header from '../../components/Header/Header';
+import Loading from '../../components/Loading/Loading';
 import { BASE_URL } from '../../constants/urls';
 import useProtectedPage from '../../hooks/useProtectedPage';
 import useRequestData from '../../hooks/useRequestData';
@@ -23,22 +24,23 @@ const FeedPage = () => {
 
     return (
         <div>
-            <Header 
+            <Header
                 onclick={() => logout(history)}
                 buttonName={'Logout'}
             />
-            <ContainerFeed>
-                <AddPost getRequest={getRequest} />
-                {posts && posts.map((post) => {
-                    return <CardPost
-                        key={post.id}
-                        post={post}
-                        getRequest={getRequest}
-                    />
-                })}
-            </ContainerFeed>
+            {posts && posts[0] ?
+                <ContainerFeed>
+                    <AddPost getRequest={getRequest} />
+                    {posts && posts.map((post) => {
+                        return <CardPost
+                            key={post.id}
+                            post={post}
+                            getRequest={getRequest}
+                        />
+                    })}
+                </ContainerFeed>
+                : <Loading />}
         </div>
-
     );
 };
 
