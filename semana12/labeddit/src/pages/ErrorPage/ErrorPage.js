@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
+import {Image, Container} from './style'
 
 const ErrorPage = () => {
     return (
-        <div>
-            Error
-        </div>
+        <Container>
+            <Image src={'https://webinsider.com.br/wp-content/uploads/2019/01/Erro-404-1-1-1024x645.jpg'}/>
+        </Container>
     );
 };
 

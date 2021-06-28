@@ -1,4 +1,5 @@
-import { Button, CircularProgress, TextField, Typography } from '@material-ui/core';
+import { Button, CircularProgress, FormControl, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from '@material-ui/core';
+import { Visibility, VisibilityOff } from '@material-ui/icons';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import Header from '../../components/Header/Header';
@@ -21,7 +22,6 @@ const SignUpPage = () => {
         createLogin(form, history, setLoading)
     }
 
-
     return (
         <div>
             <Header
@@ -31,10 +31,10 @@ const SignUpPage = () => {
             <ContainerSignUp>
                 <Typography variant={'h4'}>
                     Cadastre-se
-            </Typography>
+                </Typography>
                 <FormContainer onSubmit={onSubmitSignUp}>
                     <TextField
-                        type={'text'}
+                        type={'name'}
                         label={"Nome"}
                         name={'username'}
                         value={form.username}
@@ -52,12 +52,13 @@ const SignUpPage = () => {
                         required
                     />
                     <TextField
-                        type={'password'}
+                        type={form.showPassword ? 'text' : 'password'}
                         label={"Senha"}
                         name={'password'}
                         value={form.password}
                         onChange={onChange}
                         margin={'normal'}
+                        helperText={'No mínimo 8 caracteres'}
                         required
                     />
                     <Button type={'submit'} variant={'contained'} color={'primary'}>{loading ? <CircularProgress color={'inherit'} size={24} /> : 'Fazer Cadastro'}</Button>
