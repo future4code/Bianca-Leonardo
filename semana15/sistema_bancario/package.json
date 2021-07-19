@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc && node ./build/index.js",
-    "dev": "ts-node-dev ./src/index.ts"
+    "dev": "ts-node-dev ./src/index.ts",
+    "codesandbox": "codesandbox ./"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "codesandbox": "^2.2.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "ts-node": "^10.1.0",
