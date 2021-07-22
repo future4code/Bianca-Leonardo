@@ -5,7 +5,11 @@ POST http://localhost:3003/user
 Content-Type: application/json
 
 {
-	"name": "Bianca Leonardo",
-	"nickname": "Bia",
-	"email": "biancasleonardo@dev.com"
+	"name": "Osmar Azevedo dos Santos",
+	"nickname": "Mazinho",
+	"email": "osmarnwe@dev.com"
 }
+
+###
+
+GET http://localhost:3003/user/1626989612542
