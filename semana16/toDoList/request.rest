@@ -13,3 +13,13 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3003/user/1626989612542
+
+###
+PUT http://localhost:3003/user/edit/1626989612542
+Content-Type: application/json
+
+{
+    "name": "Bianca atualizado 4",
+    "nickname": "Bianca",
+    "email": "novoemail@gmail.com"
+}
