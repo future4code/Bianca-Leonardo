@@ -3,6 +3,7 @@ import cors from 'cors'
 import postUser from './endpoints/postUser'
 import getUserById from './endpoints/getUserById'
 import putUserById from './endpoints/putUserById'
+import postTask from './endpoints/postTask'
 
  
 
@@ -13,6 +14,7 @@ app.use(cors())
 
 app.get('/user/:id', getUserById)
 app.post('/user', postUser)
+app.post('/task', postTask)
 app.put('/user/edit/:id', putUserById)
 
 app.listen(3003, () => { 

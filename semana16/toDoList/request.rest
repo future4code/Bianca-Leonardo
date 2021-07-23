@@ -23,3 +23,14 @@ Content-Type: application/json
     "nickname": "Bia",
     "email": "novoemail@gmail.com"
 }
+
+###
+POST http://localhost:3003/task
+Content-Type: application/json
+
+{
+	"title": "Criar banco dos alunos",
+	"description": "Devemos criar o banco dos alunos para o módulo do backend",
+	"limitDate": "04/05/2020",
+	"creatorUserId": "1626989612542"
+}
