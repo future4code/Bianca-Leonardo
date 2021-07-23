@@ -19,7 +19,7 @@ PUT http://localhost:3003/user/edit/1626989612542
 Content-Type: application/json
 
 {
-    "name": "Bianca atualizado 4",
-    "nickname": "Bianca",
+    "name": "Bianca",
+    "nickname": "Bia",
     "email": "novoemail@gmail.com"
 }
