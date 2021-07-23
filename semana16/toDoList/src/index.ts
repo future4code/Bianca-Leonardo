@@ -6,6 +6,7 @@ import putUserById from './endpoints/putUserById'
 import postTask from './endpoints/postTask'
 import getTaskById from './endpoints/getTaskById'
 import getAllUsers from './endpoints/getAllUsers'
+import getTaskByUser from './endpoints/getTaskByUser'
 
  
 
@@ -16,6 +17,7 @@ app.use(cors())
 
 app.get('/user/all', getAllUsers)
 app.get('/user/:id', getUserById)
+app.get('/task', getTaskByUser)
 app.get('/task/:id', getTaskById)
 app.post('/user', postUser)
 app.post('/task', postTask)

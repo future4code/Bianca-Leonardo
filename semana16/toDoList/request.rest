@@ -12,7 +12,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3003/user/1626989612542
+GET http://localhost:3003/user/1626990707872
 
 ###
 PUT http://localhost:3003/user/edit/1626989612542
@@ -29,11 +29,15 @@ POST http://localhost:3003/task
 Content-Type: application/json
 
 {
-	"title": "Outra Task",
+	"title": "Outra Task do Mazinho",
 	"description": "Outra Task",
 	"limitDate": "20/05/2020",
-	"creatorUserId": "1626989612542"
+	"creatorUserId": "1626990707872"
 }
 
 ###
 GET http://localhost:3003/task/1627057600773
+
+###
+
+GET http://localhost:3003/task?creatoruserid=1626990707872
