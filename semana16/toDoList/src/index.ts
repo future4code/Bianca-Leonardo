@@ -4,6 +4,8 @@ import postUser from './endpoints/postUser'
 import getUserById from './endpoints/getUserById'
 import putUserById from './endpoints/putUserById'
 import postTask from './endpoints/postTask'
+import getTaskById from './endpoints/getTaskById'
+import getAllUsers from './endpoints/getAllUsers'
 
  
 
@@ -12,7 +14,9 @@ const app = express()
 app.use(express.json()) 
 app.use(cors()) 
 
+app.get('/user/all', getAllUsers)
 app.get('/user/:id', getUserById)
+app.get('/task/:id', getTaskById)
 app.post('/user', postUser)
 app.post('/task', postTask)
 app.put('/user/edit/:id', putUserById)

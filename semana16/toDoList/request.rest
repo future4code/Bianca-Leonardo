@@ -1,4 +1,4 @@
-GET http://localhost:3003
+GET http://localhost:3003/user/all
 
 ###
 POST http://localhost:3003/user
@@ -29,8 +29,11 @@ POST http://localhost:3003/task
 Content-Type: application/json
 
 {
-	"title": "Criar banco dos alunos",
-	"description": "Devemos criar o banco dos alunos para o módulo do backend",
-	"limitDate": "04/05/2020",
+	"title": "Outra Task",
+	"description": "Outra Task",
+	"limitDate": "20/05/2020",
 	"creatorUserId": "1626989612542"
 }
+
+###
+GET http://localhost:3003/task/1627057600773
