@@ -13,17 +13,18 @@ const postUser = async (req: Request, res: Response) => {
             throw new Error("Preencha todos os campos");
         }
 
-        await connection('Users')
-            .insert({
+        await connection
+        .insert({
                 id: Date.now().toString(),
                 name,
                 nickname,
                 email
             })
+            .into('Users')
 
         res.status(200).send('Usuário criado com Sucesso!')
     } catch (error) {
-        res.status(errorCode).send({ message: error.message })
+        res.status(errorCode).send({ message: error.message || error.sqlMessage })
     }
 };
 

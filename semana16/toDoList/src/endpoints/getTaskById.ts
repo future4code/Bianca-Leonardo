@@ -1,43 +1,37 @@
 import { Request, Response } from "express";
+import moment from "moment";
 import connection from "../connection";
 
 const getTaskById = async (req: Request, res: Response) => {
 
-    const id = req.params
+    const id = req.params.id
     let errorCode = 400
 
     try {
 
-        const listTasks = await connection('Tasks')
-            .select('Tasks.id', 'title', 'description', 'limitDate', 'status', 'creatorUserId', 'name')
-            .join('Users', 'Tasks.creatorUserId', '=', 'Users.id')
+        const result = await connection.raw(`
+            SELECT Tasks.*, Users.nickname FROM Tasks
+            JOIN Users
+            ON creatorUserId = Users.id
+            WHERE Tasks.id = '${id}'
+        `)
 
-        // const listTasks = await connection()
-        // .select('*')
-        // .from('Tasks')
-        // .join('Users')
-        // .on('Tasks.creatorUserId', '=', 'Users.id')
-            
-
-        // const listTasks = await connection('Tasks')
-        //     .select('Tasks.id', 'title', 'description', 'limitDate', 'status', 'creatorUserId', 'name')
-        //     .where(id)
-        //     .union([
-        //         connection('Users').select('')
-        //     ])
-
-        // let result: any[] = listTasks.filter(task => task.id == id)
-        // let result = listTasks && listTasks.filter(task => {
-        //     return task.id === id
-        // })
-
-        if (!listTasks[0]) {
+        if(!result){
             errorCode = 404
-            throw new Error("Task não encontrada!");
+            throw new Error("Tarefa não encontrada");
         }
 
+        const newResult = result[0][0]
 
-        res.status(200).send(listTasks)
+        res.status(200).send({
+            id: newResult.id,
+            title: newResult.title,
+            description: newResult.description,
+            limitDate: moment(newResult.limitDate, 'YYYY-MM-DD').format('DD/MM/YYYY'),
+            status: newResult.status,
+            creatorUserId: newResult.creatorUserId,
+            nickname: newResult.nickname
+        })
     } catch (error) {
         res.status(errorCode).send({ message: error.message })
     }

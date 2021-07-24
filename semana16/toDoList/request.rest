@@ -5,14 +5,14 @@ POST http://localhost:3003/user
 Content-Type: application/json
 
 {
-	"name": "Osmar Azevedo dos Santos",
-	"nickname": "Mazinho",
-	"email": "osmarnwe@dev.com"
+	"name": "Laercio Santos",
+	"nickname": "Laercio",
+	"email": "laercio@dev.com"
 }
 
 ###
 
-GET http://localhost:3003/user/1626990707872
+GET http://localhost:3003/user/1627077246021
 
 ###
 PUT http://localhost:3003/user/edit/1626989612542
@@ -21,7 +21,7 @@ Content-Type: application/json
 {
     "name": "Bianca",
     "nickname": "Bia",
-    "email": "novoemail@gmail.com"
+    "email": "biancasleonardo@gmail.com"
 }
 
 ###
@@ -29,15 +29,15 @@ POST http://localhost:3003/task
 Content-Type: application/json
 
 {
-	"title": "Outra Task do Mazinho",
-	"description": "Outra Task",
-	"limitDate": "20/05/2020",
+	"title": "Almoçar",
+	"description": "Almoçar",
+	"limitDate": "25/07/2021",
 	"creatorUserId": "1626990707872"
 }
 
 ###
-GET http://localhost:3003/task/1627057600773
+GET http://localhost:3003/task/1627073409902
 
 ###
 
-GET http://localhost:3003/task?creatoruserid=1626990707872
+GET http://localhost:3003/task?creatoruserid=1627057600773

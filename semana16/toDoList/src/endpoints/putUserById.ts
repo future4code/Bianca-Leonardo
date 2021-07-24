@@ -10,17 +10,30 @@ const putUserById = async (req: Request, res: Response) => {
     try {
 
         if (name === '' || nickname === '' || email === '') {
-            errorCode = 404
-            throw new Error("Preencha todos os campos");
+                errorCode = 404
+                throw new Error("Preencha todos os campos");
+            }
+
+        if(name){
+            await connection
+            .update({name})
+            .where(id)
+            .into('Users')
         }
 
-        await connection('Users')
-                .update({
-                    name,
-                    nickname,
-                    email
-                })
-                .where(id)
+        if(nickname){
+            await connection
+            .update({nickname})
+            .where(id)
+            .into('Users')
+        }
+
+        if(email){
+            await connection
+            .update({email})
+            .where(id)
+            .into('Users')
+        }
 
         res.status(200).send('Dados atualizados')
     } catch (error) {

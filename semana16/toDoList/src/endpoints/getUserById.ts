@@ -8,8 +8,9 @@ const getUserById = async (req: Request, res: Response) => {
 
     try {
 
-        const result = await connection('Users')
+        const result = await connection
         .select('id', 'nickname')
+        .into('Users')
         .where(id)
 
         if (!result[0]) {
