@@ -8,6 +8,7 @@ import getTaskById from './endpoints/getTaskById'
 import getAllUsers from './endpoints/getAllUsers'
 import getTaskByUser from './endpoints/getTaskByUser'
 import getUserByQuery from './endpoints/getUserByQuery'
+import postTaskResponsible from './endpoints/postTaskResponsible'
 
  
 
@@ -23,6 +24,7 @@ app.get('/task', getTaskByUser)
 app.get('/task/:id', getTaskById)
 app.post('/user', postUser)
 app.post('/task', postTask)
+app.post('/task/responsible', postTaskResponsible)
 app.put('/user/edit/:id', putUserById)
 
 app.listen(3003, () => { 
