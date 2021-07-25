@@ -9,6 +9,7 @@ import getAllUsers from './endpoints/getAllUsers'
 import getTaskByUser from './endpoints/getTaskByUser'
 import getUserByQuery from './endpoints/getUserByQuery'
 import postTaskResponsible from './endpoints/postTaskResponsible'
+import getUserByTask from './endpoints/getUserByTask'
 
  
 
@@ -22,6 +23,7 @@ app.get('/user/all', getAllUsers)
 app.get('/user/:id', getUserById)
 app.get('/task', getTaskByUser)
 app.get('/task/:id', getTaskById)
+app.get('/task/:id/responsible', getUserByTask)
 app.post('/user', postUser)
 app.post('/task', postTask)
 app.post('/task/responsible', postTaskResponsible)
