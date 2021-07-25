@@ -7,6 +7,7 @@ import postTask from './endpoints/postTask'
 import getTaskById from './endpoints/getTaskById'
 import getAllUsers from './endpoints/getAllUsers'
 import getTaskByUser from './endpoints/getTaskByUser'
+import getUserByQuery from './endpoints/getUserByQuery'
 
  
 
@@ -15,6 +16,7 @@ const app = express()
 app.use(express.json()) 
 app.use(cors()) 
 
+app.get('/user', getUserByQuery)
 app.get('/user/all', getAllUsers)
 app.get('/user/:id', getUserById)
 app.get('/task', getTaskByUser)
