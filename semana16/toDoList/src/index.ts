@@ -10,6 +10,7 @@ import getTaskByUser from './endpoints/getTaskByUser'
 import getUserByQuery from './endpoints/getUserByQuery'
 import postTaskResponsible from './endpoints/postTaskResponsible'
 import getUserByTask from './endpoints/getUserByTask'
+import putStatusById from './endpoints/putStatusById'
 
  
 
@@ -28,6 +29,7 @@ app.post('/user', postUser)
 app.post('/task', postTask)
 app.post('/task/responsible', postTaskResponsible)
 app.put('/user/edit/:id', putUserById)
+app.put('/task/status/:id', putStatusById)
 
 app.listen(3003, () => { 
 console.log("Server is running in http://localhost:3003"); 

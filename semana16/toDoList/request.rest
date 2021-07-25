@@ -36,11 +36,31 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3003/task/1627058145835
+GET http://localhost:3003/task/1627057600773
 
 ###
 
 GET http://localhost:3003/task?creatoruserid=1626989612542
 
 ###
-GET http://localhost:3003/user?query=bia
+GET http://localhost:3003/user?query=loide
+
+###
+POST http://localhost:3003/task/responsible
+Content-Type: application/json
+
+{
+	"task_id": "1627073409902",
+	"responsible_user_id": "1626990707872"
+}
+
+###
+GET http://localhost:3003/task/1627057600773/responsible
+
+###
+PUT http://localhost:3003/task/status/1627073409902
+Content-Type: application/json
+
+{
+	"status": "doing"
+}

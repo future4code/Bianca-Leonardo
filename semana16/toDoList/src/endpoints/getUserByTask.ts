@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import moment from "moment";
 import connection from "../connection";
 
 const getUserByTask = async (req: Request, res: Response) => {
@@ -8,6 +7,12 @@ const getUserByTask = async (req: Request, res: Response) => {
     const idTask = req.params.id
 
     try {
+
+        if (!idTask) {
+            errorCode = 404
+            throw new Error("Id da task não enviada");
+            
+        }
 
         const result = await connection.raw(`
             SELECT id, nickname
