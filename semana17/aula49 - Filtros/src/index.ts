@@ -12,7 +12,7 @@ const app = express()
 app.use(express.json()) 
 app.use(cors()) 
 
-app.get('/users', getUserByPage)
+app.get('/users', getAllUsers)
 app.get('/users/:type', getUsersByType)
 
 app.listen(3003, () => { 
