@@ -1,0 +1,66 @@
+GET http://localhost:3003/user/all
+
+###
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+	"name": "Laercio Santos",
+	"nickname": "Laercio",
+	"email": "laercio@dev.com"
+}
+
+###
+
+GET http://localhost:3003/user/1627077246021
+
+###
+PUT http://localhost:3003/user/edit/1626989612542
+Content-Type: application/json
+
+{
+    "name": "Bianca",
+    "nickname": "Bia",
+    "email": "biancasleonardo@gmail.com"
+}
+
+###
+POST http://localhost:3003/task
+Content-Type: application/json
+
+{
+	"title": "Almoçar",
+	"description": "Almoçar",
+	"limitDate": "25/07/2021",
+	"creatorUserId": "1626990707872"
+}
+
+###
+GET http://localhost:3003/task/1627057600773
+
+###
+
+GET http://localhost:3003/task?creatoruserid=1626989612542
+
+###
+GET http://localhost:3003/user?query=loide
+
+###
+POST http://localhost:3003/task/responsible
+Content-Type: application/json
+
+{
+	"task_id": "1627073409902",
+	"responsible_user_id": "1626990707872"
+}
+
+###
+GET http://localhost:3003/task/1627057600773/responsible
+
+###
+PUT http://localhost:3003/task/status/1627073409902
+Content-Type: application/json
+
+{
+	"status": "doing"
+}
